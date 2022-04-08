@@ -20,6 +20,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [HomeController::class, 'index']);
 Route::get('get-current-room', [HomeController::class, 'getCurrentGame'])->name('get-current-game');
 
+Route::get('/baccarat', [HomeController::class, 'baccaratGame']);
 Route::get('/admin-baccarat', [HomeController::class, 'adminBaccarat']);
 
 Route::resource('/baccarat-game-room', BaccaratGameController::class);

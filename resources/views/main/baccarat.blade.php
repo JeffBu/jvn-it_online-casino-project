@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Bacarrat</title>
+    <title>Bacarrat</title>
     <link href="{{asset('css/app.css')}}" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -31,12 +31,13 @@
         <div class="text-xl font-bold">Room Name</div>
 
         <div class="flex gap-8 items-center">
-            <div class="cursor-pointer" id="user">
-                <div class="flex items-center gap-3">
-                    <img src="{{asset('media/img/logo.png')}}" alt="user-logo" class="h-8 w-8 rounded-full">
-                    <p id="" class="font-semibold text-orange-400">admin354</p>
+            <div>
+                <div class="flex items-center gap-3 cursor-pointer" id="user">
+                    <img src="{{asset('media/img/user-logo.png')}}" alt="user-logo" class="h-8 w-8 rounded-full">
+                    <p id="" class="font-semibold">zombakel</p>
                 </div>
-                <div class="hidden items-center gap-2 border-2 border-neutral-700 hover:border-neutral-600 hover:bg-neutral-700 bg-neutral-800 justify-center mt-3 w-28 px-2 cursor-pointer fixed" id="logout">
+                <div class="hidden items-center gap-2 border-2 border-neutral-700 hover:border-neutral-600 hover:bg-neutral-700 bg-neutral-800 justify-center mt-3 w-28 px-2 cursor-pointer absolute"
+                id="logout">
                     <a href="#" class="py-2 flex justify-center gap-2">Log Out <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
                             <path fill-rule="evenodd" d="M3 3a1 1 0 00-1 1v12a1 1 0 102 0V4a1 1 0 00-1-1zm10.293 9.293a1 1 0 001.414 1.414l3-3a1 1 0 000-1.414l-3-3a1 1 0 10-1.414 1.414L14.586 9H7a1 1 0 100 2h7.586l-1.293 1.293z" clip-rule="evenodd" />
                         </svg>
@@ -52,7 +53,23 @@
     <div class="relative min-h-screen flex">
         <div class="flex justify-center bg-neutral-800 w-64 font-semi-bold">
             <nav class="pt-16 fixed w-64 text-left">
-                <div> </div>
+                <div class="shadow mt-6">
+                    <div class="list-none flex flex-wrap items-center">
+                        <h3 class="flex flex-1 px-5 py-2 font-semibold">Account</h3>
+                    </div>
+                    <div class="list-none flex flex-wrap items-center divide-y divide-red-800">
+                        <a href="#" class="block px-10 py-2 w-full hover:bg-neutral-700">My Coins / Wallet</a>
+                        <a href="#" class="block px-10 py-2 w-full hover:bg-neutral-700">My Profile</a>
+                    </div>
+                </div>
+                <div class="shadow mt-6">
+                    <div class="list-none flex flex-wrap items-center">
+                        <h3 class="flex flex-1 px-5 py-2 font-semibold">Support</h3>
+                    </div>
+                    <div class="list-none flex flex-wrap items-center hover:bg-neutral-700 divide-y divide-red-800">
+                        <a href="#" class="block px-10 py-2 w-full hover:bg-neutral-700">Chat with us</a>
+                    </div>
+                </div>
             </nav>
 
         </div>
@@ -88,6 +105,50 @@
                     class="rounded-lg">
                         <source src="{{asset('media/videos/casino-trailer.mp4')}}" type="video/mp4">
                     </video>
+                </div>
+            </div>
+            <div class="px-2 bg-neutral-800 rounded-md overflow-auto">
+                <h2 class="text-center pt-2">*SCROLL OR SWIPE DOWN TO SEE MATCH HISTORY</h2>
+
+                <div class="flex items-start flex-start py-4 px-2">
+                    <div class="grid row grid-rows-10 gap-2 py-4 px-2">
+                        <div class="border-2 border-yellow-50 bg-blue-600 p-2 mx-auto rounded-full"></div>
+                    </div>
+                    <div class="grid row grid-rows-10 gap-2 py-4 px-2">
+                        <div class="border-2 border-yellow-50 bg-red-600 p-2 mx-auto rounded-full"></div>
+                    </div>
+                    <div class="grid row grid-rows-10 gap-2 py-4 px-2">
+                        <div class="border-2 border-yellow-50 bg-blue-600 p-2 mx-auto rounded-full"></div>
+                    </div>
+                    <div class="grid row grid-rows-10 gap-2 py-4 px-2">
+                        <div class="border-2 border-yellow-50 bg-red-600 p-2 mx-auto rounded-full"></div>
+                        <div class="border-2 border-yellow-50 bg-red-600 p-2 mx-auto rounded-full"></div>
+                        <div class="border-2 border-yellow-50 bg-red-600 p-2 mx-auto rounded-full"></div>
+                        <div class="border-2 border-yellow-50 bg-red-600 p-2 mx-auto rounded-full"></div>
+                    </div>
+                    <div class="grid row grid-rows-10 gap-2 py-4 px-2">
+                        <div class="border-2 border-yellow-50 bg-blue-600 p-2 mx-auto rounded-full"></div>
+                    </div>
+                    <div class="grid row grid-rows-10 gap-2 py-4 px-2">
+                        <div class="border-2 border-yellow-50 bg-green-600 p-2 mx-auto rounded-full"></div>
+                    </div>
+                    <div class="grid row grid-rows-10 gap-2 py-4 px-2">
+                        <div class="border-2 border-yellow-50 bg-red-600 p-2 mx-auto rounded-full"></div>
+                        <div class="border-2 border-yellow-50 bg-red-600 p-2 mx-auto rounded-full"></div>
+                        <div class="border-2 border-yellow-50 bg-red-600 p-2 mx-auto rounded-full"></div>
+                        <div class="border-2 border-yellow-50 bg-red-600 p-2 mx-auto rounded-full"></div>
+                        <div class="border-2 border-yellow-50 bg-red-600 p-2 mx-auto rounded-full"></div>
+                    </div>
+                    <div class="grid row grid-rows-10 gap-2 py-4 px-2">
+                        <div class="border-2 border-yellow-50 bg-blue-600 p-2 mx-auto rounded-full"></div>
+                    </div>
+                    <div class="grid row grid-rows-10 gap-2 py-4 px-2">
+                        <div class="border-2 border-yellow-50 bg-red-600 p-2 mx-auto rounded-full"></div>
+                    </div>
+                    <div class="grid row grid-rows-10 gap-2 py-4 px-2">
+                        <div class="border-2 border-yellow-50 bg-blue-600 p-2 mx-auto rounded-full"></div>
+                        <div class="border-2 border-yellow-50 bg-blue-600 p-2 mx-auto rounded-full"></div>
+                    </div>
                 </div>
             </div>
 
@@ -237,8 +298,9 @@
         });
 
         $(document).click(function() {})
+
     </script>
-    
+
     <!--scripts ends here-->
 </body>
 </html>
