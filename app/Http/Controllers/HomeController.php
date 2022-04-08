@@ -13,9 +13,9 @@ class HomeController extends Controller
         return View::make('main.landing_page');
     }
 
-    public function test()
+    public function adminBaccarat()
     {
-        return View::make('main.test');
+        return View::make('main.admin-baccarat');
     }
 
     public function getCurrentGame(Request $request)
