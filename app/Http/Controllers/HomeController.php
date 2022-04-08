@@ -13,6 +13,11 @@ class HomeController extends Controller
         return View::make('main.landing_page');
     }
 
+    public function test()
+    {
+        return View::make('main.test');
+    }
+
     public function getCurrentGame(Request $request)
     {
         $room_id = $request->room_id;
