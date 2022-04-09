@@ -112,15 +112,20 @@
                 <nav class="mt-20 absolute w-64 text-center">
                     <div class="block px-10 py-2 w-full bg-yellow-400 hover:bg-yellow-300 cursor-pointer border-2 border-x-0 border-yellow-50"
                     id="open-table">Open Table</div>
+                    <div class="hidden" id="close-table">
+                        <div class="block px-10 py-2 w-full bg-yellow-400 hover:bg-yellow-300 cursor-pointer border-2 border-x-0 border-yellow-50">Close Table</div>
+                    </div>
                         <div class="hidden px-10 py-2 w-full bg-orange-400 hover:bg-orange-300 cursor-pointer border-t-0 border-2 border-x-0 border-yellow-50"
                         id="open-betting">Open Betting</div>
+                        <div class="hidden px-10 py-2 w-full bg-orange-400 hover:bg-orange-300 cursor-pointer border-t-0 border-2 border-x-0 border-yellow-50"
+                        id="close-betting">Close Betting</div>
                         <div class="hidden" id="cards-drawn">
-                            <div class="block px-10 py-2 w-full bg-neutral-700 border-t-0 border-2 border-x-0 border-yellow-50">Banker Card 1</div>
-                            <div class="block px-10 py-2 w-full bg-neutral-700 border-t-0 border-2 border-x-0 border-yellow-50">Banker Card 2</div>
-                            <div class="block px-10 py-2 w-full bg-neutral-700 border-t-0 border-2 border-x-0 border-yellow-50">Banker Card 3</div>
-                            <div class="block px-10 py-2 w-full bg-neutral-700 border-t-0 border-2 border-x-0 border-yellow-50">Player Card 1</div>
-                            <div class="block px-10 py-2 w-full bg-neutral-700 border-t-0 border-2 border-x-0 border-yellow-50">Player Card 2</div>
-                            <div class="block px-10 py-2 w-full bg-neutral-700 border-t-0 border-2 border-x-0 border-yellow-50">Player Card 3</div>
+                            <input class="block px-10 py-2 w-full bg-neutral-700 focus:outline-none border-t-0 border-2 border-x-0 border-yellow-50" type="text" placeholder="Banker Card 1">
+                            <input class="block px-10 py-2 w-full bg-neutral-700 focus:outline-none border-t-0 border-2 border-x-0 border-yellow-50" type="text" placeholder="Banker Card 2">
+                            <input class="block px-10 py-2 w-full bg-neutral-700 focus:outline-none border-t-0 border-2 border-x-0 border-yellow-50" type="text" placeholder="Banker Card 3">
+                            <input class="block px-10 py-2 w-full bg-neutral-700 focus:outline-none border-t-0 border-2 border-x-0 border-yellow-50" type="text" placeholder="Player Card 1">
+                            <input class="block px-10 py-2 w-full bg-neutral-700 focus:outline-none border-t-0 border-2 border-x-0 border-yellow-50" type="text" placeholder="Player Card 2">
+                            <input class="block px-10 py-2 w-full bg-neutral-700 focus:outline-none border-t-0 border-2 border-x-0 border-yellow-50" type="text" placeholder="Player Card 3">
                         </div>
                     <div class="flex">
                         <div class="block px-10 py-2 w-full bg-red-700 hover:bg-red-500 cursor-pointer border-t-0 border-l-0 border-2 border-yellow-50">Banker Wins</div>
@@ -206,14 +211,28 @@
 
         jQuery('#open-table').on('click', function() {
             $('#open-betting').toggle();
-            $('#open-table').text($('#open-table').text() == 'Open Table' ? 'Close Table' : 'Open Table');
-            $('#open-betting').text("Open Betting");
-            $('#cards-drawn').css('display', 'none');
+            $('#close-table').toggle();
+            $('#open-table').toggle();
         });
 
         jQuery('#open-betting').on('click', function() {
+            $('#open-betting').toggle();
+            $('#close-betting').toggle();
+            $('#cards-drawn').css('display', 'none');
+        });
+
+        jQuery('#close-table').on('click', function() {
+            $('#close-table').toggle();
+            $('#open-table').toggle();
+            $('#open-betting').css('display', 'none');
+            $('#close-betting').css('display', 'none');
+            $('#cards-drawn').css('display', 'none');
+        });
+
+        jQuery('#close-betting').on('click', function() {
+            $('#close-betting').toggle();
+            $('#open-betting').toggle();
             $('#cards-drawn').toggle();
-            $('#open-betting').text($('#open-betting').text() == 'Open Betting' ? 'Close Betting' : 'Open Betting');
         });
 
         jQuery('#user').on('click', function() {

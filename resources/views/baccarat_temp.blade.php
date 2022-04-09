@@ -167,44 +167,99 @@
                     </div>
                     <div class="radio-group">
                         <div class="flex justify-center pb-2 gap-2">
-                            <div class="container bg-red-700 py-2 px-2 border-2 border-yellow-50 rounded-lg hover:bg-red-500 focus:bg-red-500 shadow-md text-center bet-option radio" data-value="B-" style="cursor: pointer">
+                            <button class="container bg-red-700 py-2 px-2 border-2 border-yellow-50 rounded-lg hover:bg-red-500 focus:bg-red-500 shadow-md text-center bet-option radio" data-value="B-" style="cursor: pointer"
+                            id="banker">
                                 <div>BANKER</div>
+                                <div class="hidden" id="place-bet-b">
+                                    <div class="flex justify-center items-center">
+                                        <div class="flex bg-neutral-700 rounded-full py-4 px-4 border-dashed border-2 border-yellow-50 shadow-md text-xs justify-center items-center absolute">
+                                            <div class="absolute betValue">0</div>
+                                        </div>
+                                    </div>
+                                </div>
                                 <div>1:1</div>
-                            </div>
-                            <div data-value="T-" class="radio container bg-green-700 py-2 px-2 border-2 border-yellow-50 rounded-lg hover:bg-green-500 focus:bg-green-500 shadow-md text-center bet-option">
+                            </button>
+                            <button data-value="T-" class="radio container bg-green-700 py-2 px-2 border-2 border-yellow-50 rounded-lg hover:bg-green-500 focus:bg-green-500 shadow-md text-center bet-option"
+                            id="tie">
                                 <div>TIE</div>
+                                <div class="hidden" id="place-bet-t">
+                                    <div class="flex justify-center items-center">
+                                        <div class="flex bg-neutral-700 rounded-full py-4 px-4 border-dashed border-2 border-yellow-50 shadow-md text-xs justify-center items-center absolute">
+                                            <div class="absolute betValue">0</div>
+                                        </div>
+                                    </div>
+                                </div>
                                 <div>8:1</div>
-                            </div>
-                            <div data-value="P-" class="radio container bg-blue-700 py-2 px-2 border-2 border-yellow-50 rounded-lg hover:bg-blue-500 focus:bg-blue-500 shadow-md text-center bet-option">
+                            </button>
+                            <button data-value="P-" class="radio container bg-blue-700 py-2 px-2 border-2 border-yellow-50 rounded-lg hover:bg-blue-500 focus:bg-blue-500 shadow-md text-center bet-option"
+                            id="player">
                                 <div>PLAYER</div>
+                                <div class="hidden" id="place-bet-p">
+                                    <div class="flex justify-center items-center">
+                                        <div class="flex bg-neutral-700 rounded-full py-4 px-4 border-dashed border-2 border-yellow-50 shadow-md text-xs justify-center items-center absolute">
+                                            <div class="absolute betValue">0</div>
+                                        </div>
+                                    </div>
+                                </div>
                                 <div>1:1</div>
-                            </div>
+                            </button>
                         </div>
                         <div class="flex justify-center pb-2 gap-2">
-                            <div data-value="BP-" class="radio container bg-red-700 py-2 px-2 border-2 border-yellow-50 rounded-lg hover:bg-red-500 focus:bg-red-500 shadow-md text-center bet-option">
+                            <button data-value="BP-" class="radio container bg-red-700 py-2 px-2 border-2 border-yellow-50 rounded-lg hover:bg-red-500 focus:bg-red-500 shadow-md text-center bet-option"
+                            id="banker-pair">
                                 <div>BANKER</div>
                                 <div>PAIR</div>
+                                <div class="hidden" id="place-bet-bp">
+                                    <div class="flex justify-center items-center">
+                                        <div class="flex bg-neutral-700 rounded-full py-4 px-4 border-dashed border-2 border-yellow-50 shadow-md text-xs justify-center items-center absolute">
+                                            <div class="absolute betValue">0</div>
+                                        </div>
+                                    </div>
+                                </div>
                                 <div>8:1</div>
-                            </div>
-                            <div data-value="PP-" class="radio container bg-blue-700 py-2 px-2 border-2 border-yellow-50 rounded-lg hover:bg-blue-500 focus:bg-blue-500 shadow-md text-center bet-option">
+                            </button>
+                            <button data-value="PP-" class="radio container bg-blue-700 py-2 px-2 border-2 border-yellow-50 rounded-lg hover:bg-blue-500 focus:bg-blue-500 shadow-md text-center bet-option"
+                            id="player-pair">
                                 <div>PLAYER</div>
                                 <div>PAIR</div>
+                                <div class="hidden" id="place-bet-pp">
+                                    <div class="flex justify-center items-center">
+                                        <div class="flex bg-neutral-700 rounded-full py-4 px-4 border-dashed border-2 border-yellow-50 shadow-md text-xs justify-center items-center absolute">
+                                            <div class="absolute betValue">0</div>
+                                        </div>
+                                    </div>
+                                </div>
                                 <div>8:1</div>
-                            </div>
+                            </button>
                         </div>
                     </div>
                     <div>
-                        <div class="pb-4">
+                        <div class="py-4">
                             <h2 class="text-center">CHOOSE AMOUNT TO BET</h2>
                         </div>
                         <div class="flex justify-center flex-row gap-3">
-                            <button onclick="addBet(20)" class="bg-orange-500 py-1 px-2 border-2 border-yellow-50 hover:bg-orange-300 focus:bg-orange-300 shadow-md text-center">20</button>
-                            <button onclick="addBet(50)" class="bg-red-500 py-1 px-2 border-2 border-yellow-50 hover:bg-red-300 focus:bg-red-300 shadow-md text-center">50</button>
-                            <button onclick="addBet(100)" class="bg-violet-500 py-1 px-2 border-2 border-yellow-50 hover:bg-violet-300 focus:bg-violet-300 shadow-md text-center">100</button>
+                            <button onclick="addBet(20), addbet(20)" class="flex bg-orange-500 rounded-full py-4 px-4 border-dashed border-2 border-yellow-50 hover:bg-orange-300 focus:bg-orange-300 shadow-md text-xs justify-center items-center"
+                            id="bet-20">
+                                <div class="absolute">20</div>
+                            </button>
+                            <button onclick="addBet(50), addbet(50)" class="flex bg-red-500 rounded-full py-4 px-4 border-dashed border-2 border-yellow-50 hover:bg-red-300 focus:bg-red-300 shadow-md text-xs justify-center items-center"
+                            id="bet-50">
+                                <div class="absolute">50</div>
+                            </button>
+                            <button onclick="addBet(100), addbet(100)" class="flex bg-violet-500 rounded-full py-4 px-4 border-dashed border-2 border-yellow-50 hover:bg-violet-300 focus:bg-violet-300 shadow-md text-xs justify-center items-center"
+                            id="bet-100">
+                                <div class="absolute">100</div>
+                            </button>
                         </div>
                         <div class="flex justify-center flex-row gap-3 pt-4">
-                            <a href="#" class="bg-yellow-500 py-1 px-2 border-2 border-yellow-50 hover:bg-yellow-300 focus:bg-yellow-300 shadow-md text-center">500</a>
-                            <a href="#" class="bg-blue-500 py-1 px-2 border-2 border-yellow-50 hover:bg-blue-300 focus:bg-blue-300 shadow-md text-center">1000</a>
+                            <button onclick="addbet(500)" class="flex bg-yellow-500 rounded-full py-4 px-4 border-dashed border-2 border-yellow-50 hover:bg-yellow-300 focus:bg-yellow-300 shadow-md text-xs justify-center items-center"
+                            id="bet-500">
+                                <div class="absolute">500</div>
+                            </button>
+                            <button onclick="addbet(1000)" class="flex bg-blue-500 rounded-full py-4 px-4 border-dashed border-2 border-yellow-50 hover:bg-blue-300 focus:bg-blue-300 shadow-md text-xs justify-center items-center"
+                            id="bet-1000">
+                                <div class="absolute">1000</div>
+                            </button>
                         </div>
                     </div>
                     <div class="mt-6">
@@ -229,7 +284,7 @@
 
     <script>
         var current_bet = 0;
-
+        var bet =0;
         jQuery(window).on('scroll', function() {
             if(jQuery(window).scrollTop() > 0) {
                 jQuery('#header_frame').css('background-color', '#171717');
@@ -297,8 +352,58 @@
             $('#logout').toggle();
         });
 
-        $(document).click(function() {})
+        jQuery('#banker').on('click', function() {
+            $('.betValue').text(bet.toString())
+            $('#place-bet-b').show();
+            $('#place-bet-t').hide();
+            $('#place-bet-p').hide();
+            $('#place-bet-bp').hide();
+            $('#place-bet-pp').hide();
+        });
 
+        jQuery('#tie').on('click', function() {
+            $('.betValue').text(bet.toString())
+            $('#place-bet-b').hide();
+            $('#place-bet-t').show();
+            $('#place-bet-p').hide();
+            $('#place-bet-bp').hide();
+            $('#place-bet-pp').hide();
+        });
+
+        jQuery('#player').on('click', function() {
+            $('.betValue').text(bet.toString())
+            $('#place-bet-b').hide();
+            $('#place-bet-t').hide();
+            $('#place-bet-p').show();
+            $('#place-bet-bp').hide();
+            $('#place-bet-pp').hide();
+        });
+
+        jQuery('#banker-pair').on('click', function() {
+            $('.betValue').text(bet.toString())
+            $('#place-bet-b').hide();
+            $('#place-bet-t').hide();
+            $('#place-bet-p').hide();
+            $('#place-bet-bp').show();
+            $('#place-bet-pp').hide();
+        });
+
+        jQuery('#player-pair').on('click', function() {
+            $('.betValue').text(bet.toString());
+            $('#place-bet-b').hide();
+            $('#place-bet-t').hide();
+            $('#place-bet-p').hide();
+            $('#place-bet-bp').hide();
+            $('#place-bet-pp').show();
+        });
+
+        $(document).click(function() {})
+        
+        function addbet(value)
+        {
+            bet += value
+            $('.betValue').text(bet.toString())
+        }
     </script>
 
     <!--scripts ends here-->

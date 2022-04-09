@@ -13,16 +13,6 @@ class HomeController extends Controller
         return View::make('main.landing_page');
     }
 
-    public function baccaratGame()
-    {
-        return View::make('main.baccarat');
-    }
-
-    public function adminBaccarat()
-    {
-        return View::make('main.admin-baccarat_temp');
-    }
-
     public function getCurrentGame(Request $request)
     {
         $room_id = $request->room_id;
@@ -31,4 +21,17 @@ class HomeController extends Controller
 
         return $current_game;
     }
+
+    //=============================for tests=============================
+    public function baccaratGame()
+    {
+        return View::make('main.baccarat_temp');
+    }
+
+    public function adminBaccarat()
+    {
+        return View::make('main.admin-baccarat_temp');
+    }
+    //=============================for tests=============================
+
 }
