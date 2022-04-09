@@ -172,7 +172,7 @@
                                 <div>BANKER</div>
                                 <div class="hidden" id="place-bet-b">
                                     <div class="flex justify-center items-center">
-                                        <div class="flex bg-neutral-700 rounded-full py-4 px-4 border-dashed border-2 border-yellow-50 shadow-md text-xs justify-center items-center absolute">
+                                        <div  id="bg-bet-b" class="flex bg-neutral-700 rounded-full py-4 px-4 border-dashed border-2 border-yellow-50 shadow-md text-xs justify-center items-center absolute">
                                             <div class="absolute betValue">0</div>
                                         </div>
                                     </div>
@@ -184,7 +184,7 @@
                                 <div>TIE</div>
                                 <div class="hidden" id="place-bet-t">
                                     <div class="flex justify-center items-center">
-                                        <div class="flex bg-neutral-700 rounded-full py-4 px-4 border-dashed border-2 border-yellow-50 shadow-md text-xs justify-center items-center absolute">
+                                        <div id="bg-bet-t" class="flex bg-neutral-700 rounded-full py-4 px-4 border-dashed border-2 border-yellow-50 shadow-md text-xs justify-center items-center absolute">
                                             <div class="absolute betValue">0</div>
                                         </div>
                                     </div>
@@ -196,7 +196,7 @@
                                 <div>PLAYER</div>
                                 <div class="hidden" id="place-bet-p">
                                     <div class="flex justify-center items-center">
-                                        <div class="flex bg-neutral-700 rounded-full py-4 px-4 border-dashed border-2 border-yellow-50 shadow-md text-xs justify-center items-center absolute">
+                                        <div id="bg-bet-p" class="flex bg-neutral-700 rounded-full py-4 px-4 border-dashed border-2 border-yellow-50 shadow-md text-xs justify-center items-center absolute">
                                             <div class="absolute betValue">0</div>
                                         </div>
                                     </div>
@@ -211,7 +211,7 @@
                                 <div>PAIR</div>
                                 <div class="hidden" id="place-bet-bp">
                                     <div class="flex justify-center items-center">
-                                        <div class="flex bg-neutral-700 rounded-full py-4 px-4 border-dashed border-2 border-yellow-50 shadow-md text-xs justify-center items-center absolute">
+                                        <div id="bg-bet-bp" class="flex bg-neutral-700 rounded-full py-4 px-4 border-dashed border-2 border-yellow-50 shadow-md text-xs justify-center items-center absolute">
                                             <div class="absolute betValue">0</div>
                                         </div>
                                     </div>
@@ -224,7 +224,7 @@
                                 <div>PAIR</div>
                                 <div class="hidden" id="place-bet-pp">
                                     <div class="flex justify-center items-center">
-                                        <div class="flex bg-neutral-700 rounded-full py-4 px-4 border-dashed border-2 border-yellow-50 shadow-md text-xs justify-center items-center absolute">
+                                        <div id="bg-bet-pp" class="flex bg-neutral-700 rounded-full py-4 px-4 border-dashed border-2 border-yellow-50 shadow-md text-xs justify-center items-center absolute">
                                             <div class="absolute betValue">0</div>
                                         </div>
                                     </div>
@@ -284,7 +284,7 @@
 
     <script>
         var current_bet = 0;
-        var bet =0;
+        var bet = 0;
         jQuery(window).on('scroll', function() {
             if(jQuery(window).scrollTop() > 0) {
                 jQuery('#header_frame').css('background-color', '#171717');
@@ -389,7 +389,7 @@
         });
 
         jQuery('#player-pair').on('click', function() {
-            $('.betValue').text(bet.toString());
+            $('.betValue').text(bet.toString())
             $('#place-bet-b').hide();
             $('#place-bet-t').hide();
             $('#place-bet-p').hide();
@@ -399,10 +399,59 @@
 
         $(document).click(function() {})
         
-        function addbet(value)
-        {
-            bet += value
+        function addbet(value) {
+            var x = bet += value
             $('.betValue').text(bet.toString())
+
+            if (x >= 20 && x <= 49) {
+                $('#bg-bet-b').css('background', '#f97316');
+                $('#bg-bet-t').css('background', '#f97316');
+                $('#bg-bet-p').css('background', '#f97316');
+                $('#bg-bet-bp').css('background', '#f97316');
+                $('#bg-bet-pp').css('background', '#f97316');
+            }
+            else if (x >= 50 && x <= 99) {
+                $('#bg-bet-b').css('background', '#ef4444');
+                $('#bg-bet-t').css('background', '#ef4444');
+                $('#bg-bet-p').css('background', '#ef4444');
+                $('#bg-bet-bp').css('background', '#ef4444');
+                $('#bg-bet-pp').css('background', '#ef4444');
+            }
+            else if (x >= 100 && x <= 499) {
+                $('#bg-bet-b').css('background', '#a855f7');
+                $('#bg-bet-t').css('background', '#a855f7');
+                $('#bg-bet-p').css('background', '#a855f7');
+                $('#bg-bet-bp').css('background', '#a855f7');
+                $('#bg-bet-pp').css('background', '#a855f7');
+            }
+            else if (x >= 500 && x <= 999) {
+                $('#bg-bet-b').css('background', '#eab308');
+                $('#bg-bet-t').css('background', '#eab308');
+                $('#bg-bet-p').css('background', '#eab308');
+                $('#bg-bet-bp').css('background', '#eab308');
+                $('#bg-bet-pp').css('background', '#eab308');
+            }
+            else if (x >= 1000 && x <= 4999) {
+                $('#bg-bet-b').css('background', '#3b82f6');
+                $('#bg-bet-t').css('background', '#3b82f6');
+                $('#bg-bet-p').css('background', '#3b82f6');
+                $('#bg-bet-bp').css('background', '#3b82f6');
+                $('#bg-bet-pp').css('background', '#3b82f6');
+            }
+            else if (x >= 5000 && x <= 9999) {
+                $('#bg-bet-b').css('background', '#22c55e');
+                $('#bg-bet-t').css('background', '#22c55e');
+                $('#bg-bet-p').css('background', '#22c55e');
+                $('#bg-bet-bp').css('background', '#22c55e');
+                $('#bg-bet-pp').css('background', '#22c55e');
+            }
+            else {
+                $('#bg-bet-b').css('background', '#14b8a6');
+                $('#bg-bet-t').css('background', '#14b8a6');
+                $('#bg-bet-p').css('background', '#14b8a6');
+                $('#bg-bet-bp').css('background', '#14b8a6');
+                $('#bg-bet-pp').css('background', '#14b8a6');
+            }
         }
     </script>
 
