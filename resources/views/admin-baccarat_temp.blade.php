@@ -120,12 +120,12 @@
                         <div class="hidden px-10 py-2 w-full bg-orange-400 hover:bg-orange-300 cursor-pointer border-t-0 border-2 border-x-0 border-yellow-50"
                         id="close-betting">Close Betting</div>
                         <div class="hidden" id="cards-drawn">
-                            <input class="block px-10 py-2 w-full bg-neutral-700 focus:outline-none border-t-0 border-2 border-x-0 border-yellow-50" type="text" placeholder="Banker Card 1">
-                            <input class="block px-10 py-2 w-full bg-neutral-700 focus:outline-none border-t-0 border-2 border-x-0 border-yellow-50" type="text" placeholder="Banker Card 2">
-                            <input class="block px-10 py-2 w-full bg-neutral-700 focus:outline-none border-t-0 border-2 border-x-0 border-yellow-50" type="text" placeholder="Banker Card 3">
-                            <input class="block px-10 py-2 w-full bg-neutral-700 focus:outline-none border-t-0 border-2 border-x-0 border-yellow-50" type="text" placeholder="Player Card 1">
-                            <input class="block px-10 py-2 w-full bg-neutral-700 focus:outline-none border-t-0 border-2 border-x-0 border-yellow-50" type="text" placeholder="Player Card 2">
-                            <input class="block px-10 py-2 w-full bg-neutral-700 focus:outline-none border-t-0 border-2 border-x-0 border-yellow-50" type="text" placeholder="Player Card 3">
+                            <input class="block px-10 py-2 w-full bg-neutral-700 focus:outline-none border-t-0 border-2 border-x-0 border-yellow-50" type="text" placeholder="Player Card 1" id="p1" maxlength="2">
+                            <input class="block px-10 py-2 w-full bg-neutral-700 focus:outline-none border-t-0 border-2 border-x-0 border-yellow-50" type="text" placeholder="Banker Card 1" id="b1" maxlength="2">
+                            <input class="block px-10 py-2 w-full bg-neutral-700 focus:outline-none border-t-0 border-2 border-x-0 border-yellow-50" type="text" placeholder="Player Card 2" id="p2" maxlength="2">
+                            <input class="block px-10 py-2 w-full bg-neutral-700 focus:outline-none border-t-0 border-2 border-x-0 border-yellow-50" type="text" placeholder="Banker Card 2" id="b2" maxlength="2">
+                            <input class="block px-10 py-2 w-full bg-neutral-700 focus:outline-none border-t-0 border-2 border-x-0 border-yellow-50" type="text" placeholder="Banker Card 3" id="pe" maxlength="2">
+                            <input class="block px-10 py-2 w-full bg-neutral-700 focus:outline-none border-t-0 border-2 border-x-0 border-yellow-50" type="text" placeholder="Player Card 3" id="be" maxlength="2">
                         </div>
                     <div class="flex">
                         <div class="block px-10 py-2 w-full bg-red-700 hover:bg-red-500 cursor-pointer border-t-0 border-l-0 border-2 border-yellow-50">Banker Wins</div>
@@ -144,6 +144,62 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
     <script>
+        var p1, b1, p2, b2, pe, be;
+        $('#p1').on('input', function ()
+        {
+            p1 = $(this).val()
+            if(p1.length == 2)
+            {
+                $('#b1').focus()
+            }
+        })
+
+        $('#b1').on('input', function ()
+        {
+            b1 = $(this).val()
+            if(b1.length == 2)
+            {
+                $('#p2').focus()
+            }
+        })
+
+        $('#p2').on('input', function ()
+        {
+            p2 = $(this).val()
+            if(p2.length == 2)
+            {
+                $('#b2').focus()
+            }
+        })
+
+        $('#b2').on('input', function ()
+        {
+            b2 = $(this).val()
+            if(b2.length == 2)
+            {
+                $('#pe').focus()
+            }
+
+            console.log(p1+p2+b1+b2)
+        })
+
+        $('#pe').on('input', function ()
+        {
+            b1 = $(this).val()
+            if(b1.length == 2)
+            {
+                $('#be').focus()
+            }
+        })
+
+        $('#be').on('input', function ()
+        {
+            be = $(this).val()
+            if(b1.length == 2)
+            {
+                console.log(pe+be)
+            }
+        })
         var current_bet = 0;
 
         jQuery(window).on('scroll', function() {
@@ -233,6 +289,7 @@
             $('#close-betting').toggle();
             $('#open-betting').toggle();
             $('#cards-drawn').toggle();
+            $('#p1').focus();
         });
 
         jQuery('#user').on('click', function() {
@@ -241,7 +298,7 @@
 
         $(document).click(function() {})
     </script>
-    
+
     <!--scripts ends here-->
 </body>
 </html>
