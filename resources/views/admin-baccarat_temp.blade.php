@@ -144,12 +144,24 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
     <script>
-        var p1, b1, p2, b2, pe, be;
+        var p1, b1, p2, b2, pe, be
+        var game_id
+        var urlforupdatingresults = "{{route('update-game-result')}}"
+        var result_id
         $('#p1').on('input', function ()
         {
             p1 = $(this).val()
             if(p1.length == 2)
             {
+                axios.post(urlforupdatingresults, {
+                    id: result_id,
+                    column: 'player_hand',
+                    data: p1
+                }).then(function (response) {
+                    console.log(response.data)
+                }).catch(function (error) {
+                    console.log(error.response.data)
+                })
                 $('#b1').focus()
             }
         })
@@ -159,6 +171,15 @@
             b1 = $(this).val()
             if(b1.length == 2)
             {
+                axios.post(urlforupdatingresults, {
+                    id: result_id,
+                    column: 'banker_hand',
+                    data: b1
+                }).then(function (response) {
+                    console.log(response.data)
+                }).catch(function (error) {
+                    console.log(error.response.data)
+                })
                 $('#p2').focus()
             }
         })
@@ -168,6 +189,15 @@
             p2 = $(this).val()
             if(p2.length == 2)
             {
+                axios.post(urlforupdatingresults, {
+                    id: result_id,
+                    column: 'player_hand',
+                    data: p1+p2
+                }).then(function (response) {
+                    console.log(response.data)
+                }).catch(function (error) {
+                    console.log(error.response.data)
+                })
                 $('#b2').focus()
             }
         })
@@ -177,6 +207,15 @@
             b2 = $(this).val()
             if(b2.length == 2)
             {
+                axios.post(urlforupdatingresults, {
+                    id: result_id,
+                    column: 'banker_hand',
+                    data: b1+b2
+                }).then(function (response) {
+                    console.log(response.data)
+                }).catch(function (error) {
+                    console.log(error.response.data)
+                })
                 $('#pe').focus()
             }
 
@@ -200,7 +239,6 @@
                 console.log(pe+be)
             }
         })
-        var current_bet = 0;
 
         jQuery(window).on('scroll', function() {
             if(jQuery(window).scrollTop() > 0) {
@@ -226,55 +264,41 @@
             axios.get(url, {
                 room_id : 1
             }).then(function (response) {
-                $('#game_number').text('Game ID: '+ response.data['id'])
-                var status = response.data['status']
-                switch(status) {
-                    case 0 :
-                        $('#status').text('New Game')
-                        break;
-                    case 1:
-                        $('#status').text('Place Your Bets')
-                        break;
-                    case 2:
-                        $('#status').text('Bets Closing')
-                        break;
-                    case 3:
-                        $('#status').text('Wait for Next Game')
-                        $('button').attr('disabled', 'disabled')
-                        break;
-                    default:
-                        console.log('eloo')
-                        break;
-                    }
+                game_id = response.data['id']
             }).catch(function (error) {
                 console.log(error.response.data)
             })
-        }
-        var choice
-        $('.radio-group .radio').click(function(){
-            $(this).parent().find('.radio').removeClass('selected');
-            $(this).addClass('selected');
-            choice = $(this).attr('data-value');
-
-            $('#bet').text(choice+current_bet)
-        });
-
-        function addBet(amount)
-        {
-            current_bet += amount
-            $('#bet').text(choice+current_bet)
         }
 
         jQuery('#open-table').on('click', function() {
             $('#open-betting').toggle();
             $('#close-table').toggle();
             $('#open-table').toggle();
+
+            var url = "{{route('baccarat-game-room.create')}}"
+
+            axios.get(url, null).then(function (response) {
+                game_id = response.data
+            }).catch(function (error) {
+                console.log(error.response.data)
+            })
         });
 
         jQuery('#open-betting').on('click', function() {
             $('#open-betting').toggle();
             $('#close-betting').toggle();
             $('#cards-drawn').css('display', 'none');
+
+            var url = "{{route('update-game-status')}}"
+
+            axios.post(url, {
+                status: 1,
+                id: game_id
+            }).then(function (response) {
+                console.log(response.data)
+            }).catch(function (error) {
+                console.log(error.response.data)
+            })
         });
 
         jQuery('#close-table').on('click', function() {
@@ -289,14 +313,31 @@
             $('#close-betting').toggle();
             $('#open-betting').toggle();
             $('#cards-drawn').toggle();
+            var url = "{{route('update-game-status')}}"
+
+            axios.post(url, {
+                status: 3,
+                id: game_id
+            }).then(function (response) {
+                console.log(response.data)
+            }).catch(function (error) {
+                console.log(error.response.data)
+            })
+
+            var url2 = "{{route('baccarat-game-result.store')}}"
+            axios.post(url2, {
+                id: game_id
+            }).then(function(response) {
+                result_id = response.data
+            }).catch(function (error) {
+                console.log(error.response.data);
+            })
             $('#p1').focus();
         });
 
         jQuery('#user').on('click', function() {
             $('#logout').toggle();
         });
-
-        $(document).click(function() {})
     </script>
 
     <!--scripts ends here-->

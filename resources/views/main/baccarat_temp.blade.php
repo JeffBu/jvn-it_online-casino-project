@@ -264,7 +264,8 @@
                     </div>
                     <div class="mt-6">
                         <div class="pb-4">
-                            <h2 class="text-center">WINNING HAND</h2>
+                            <h2 class="text-blue-200">PLAYER HAND:<span id="player_hand"></span></h2>
+                            <h2 class="text-red-400">BANKER HAND:<span id="banker_hand"></span></h2>
                         </div>
                         <div class="pb-4">
                             <h1> Your Bet: <span id="bet"></span></h1>
@@ -295,20 +296,21 @@
         });
 
         $(document).scroll(function() {})
-
+        var game_id;
         $(function () {
             setInterval(() => {
                 getcurrentgame();
-            }, 1000);
+                waitforresults()
+            }, 2000);
 
         })
-
         function getcurrentgame() {
             var url = "{{route('get-current-game')}}"
 
             axios.get(url, {
                 room_id : 1
             }).then(function (response) {
+                game_id = response.data['id']
                 $('#game_number').text('Game ID: '+ response.data['id'])
                 var status = response.data['status']
                 switch(status) {
@@ -329,10 +331,32 @@
                         console.log('eloo')
                         break;
                     }
+
+
             }).catch(function (error) {
                 console.log(error.response.data)
             })
         }
+
+
+        function waitforresults()
+        {
+
+
+            var url = "{{route('get-result')}}"
+            axios.post(url, {
+                id: game_id
+            }).then(function(response) {
+                $('#player_hand').text(response.data['player_hand'])
+                $('#banker_hand').text(response.data['banker_hand'])
+
+                console.log(response.data)
+            }).catch(function (error) {
+                console.log(error.response.data)
+            })
+        }
+
+
         var choice
         $('.radio-group .radio').click(function(){
             $(this).parent().find('.radio').removeClass('selected');
@@ -398,7 +422,7 @@
         });
 
         $(document).click(function() {})
-        
+
         function addbet(value)
         {
             bet += value

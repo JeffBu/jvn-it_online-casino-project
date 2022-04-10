@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\BaccaratGame;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\View;
 
@@ -25,7 +26,13 @@ class BaccaratGameController extends Controller
      */
     public function create()
     {
-        //
+
+        return BaccaratGame::insertGetId([
+            'baccarat_game_room_id' => 1,
+            'status' => 0,
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now()
+        ]);
     }
 
     /**
@@ -58,7 +65,7 @@ class BaccaratGameController extends Controller
      */
     public function edit(BaccaratGame $baccaratGame)
     {
-        //
+
     }
 
     /**
@@ -82,5 +89,12 @@ class BaccaratGameController extends Controller
     public function destroy(BaccaratGame $baccaratGame)
     {
         //
+    }
+
+    public function updateStatus(Request $request)
+    {
+        $game =  BaccaratGame::findOrFail($request->id);
+
+        return $game->update(['status' => $request->status]);
     }
 }
