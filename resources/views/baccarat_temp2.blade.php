@@ -290,6 +290,7 @@
                             </button>
                         </div>
                     </div>
+                    
                     <div>
                         <div class="py-4">
                             <h2 class="text-center">CHOOSE AMOUNT TO BET</h2>
@@ -328,9 +329,11 @@
                             </button>
                         </div>
                     </div>
+                    
                     <div class="mt-6">
                         <div class="pb-4">
-                            <h2 class="text-center">WINNING HAND</h2>
+                            <h2 class="text-blue-200">PLAYER HAND:<span id="player_hand"></span></h2>
+                            <h2 class="text-red-400">BANKER HAND:<span id="banker_hand"></span></h2>
                         </div>
                         <div class="pb-4">
                             <h1> Your Bet: <span id="bet"></span></h1>
@@ -350,7 +353,7 @@
 
     <script>
         var current_bet = 0;
-        var bet = 0;
+        var bet =0;
         jQuery(window).on('scroll', function() {
             if(jQuery(window).scrollTop() > 0) {
                 jQuery('#header_frame').css('background-color', '#171717');
@@ -361,11 +364,22 @@
         });
 
         $(document).scroll(function() {})
+        var game_id;
+        $(function () {
+            setInterval(() => {
+                getcurrentgame();
+                waitforresults()
+            }, 2000);
+
+        })
+        function getcurrentgame() {
+            var url = "{{route('get-current-game')}}"
 
             axios.get(url, {
                 room_id : 1
             }).then(function (response) {
                 game_id = response.data['id']
+                $('#game_number').text('Game ID: '+ response.data['id'])
                 var status = response.data['status']
                 switch(status) {
                     case 0 :
@@ -467,7 +481,7 @@
         });
 
         jQuery('#player-pair').on('click', function() {
-            $('.betValue').text(bet.toString())
+            $('.betValue').text(bet.toString());
             $('#place-bet-b').hide();
             $('#place-bet-t').hide();
             $('#place-bet-p').hide();
