@@ -51,7 +51,7 @@
     <!--sidebar-->
     <div class="flex">
     <div class="relative min-h-screen flex">
-        <div class="flex justify-center bg-neutral-800 w-64 font-semi-bold">
+        <div class="flex justify-center bg-neutral-800 w-1/4 font-semi-bold">
             <nav class="pt-16 fixed w-64 text-left">
                 <div class="shadow mt-6">
                     <div class="list-none flex flex-wrap items-center">
@@ -77,39 +77,28 @@
 
     <!--content-->
         <div class="flex-1 m-5 pt-12 px-2 text-xl font-semi-bold">
-            <table class="flex flex-row justify-center items-center bg-neutral-800 mt-3 px-2 py-2 rounded-md">
-                <tbody>
-                    <tr>
-                        <td class="px-1"><div class="border-2 border-yellow-50 bg-red-600 p-2 mx-auto rounded-full"></div></td>
-                        <td class="px-1"><div class="border-2 border-yellow-50 bg-blue-600 p-2 mx-auto rounded-full"></div></td>
-                        <td class="px-1"><div class="border-2 border-yellow-50 bg-red-600 p-2 mx-auto rounded-full"></div></td>
-                        <td class="px-1"><div class="border-2 border-yellow-50 bg-red-600 p-2 mx-auto rounded-full"></div></td>
-                        <td class="px-1"><div class="border-2 border-yellow-50 bg-blue-600 p-2 mx-auto rounded-full"></div></td>
-                        <td class="px-1"><div class="border-2 border-yellow-50 bg-red-600 p-2 mx-auto rounded-full"></div></td>
-                        <td class="px-1"><div class="border-2 border-yellow-50 bg-red-600 p-2 mx-auto rounded-full"></div></td>
-                        <td class="px-1"><div class="border-2 border-yellow-50 bg-red-600 p-2 mx-auto rounded-full"></div></td>
-                        <td class="px-1"><div class="border-2 border-yellow-50 bg-blue-600 p-2 mx-auto rounded-full"></div></td>
-                        <td class="px-1"><div class="border-2 border-yellow-50 bg-blue-600 p-2 mx-auto rounded-full"></div></td>
-                        <td class="px-1"><div class="border-2 border-yellow-50 bg-red-600 p-2 mx-auto rounded-full"></div></td>
-                        <td class="px-1"><div class="border-2 border-yellow-50 bg-blue-600 p-2 mx-auto rounded-full"></div></td>
-                        <td class="px-1"><div class="border-2 border-yellow-50 bg-blue-600 p-2 mx-auto rounded-full"></div></td>
-                        <td class="px-1"><div class="border-2 border-yellow-50 bg-blue-600 p-2 mx-auto rounded-full"></div></td>
-                        <td class="px-1"><div class="border-2 border-yellow-50 bg-blue-600 p-2 mx-auto rounded-full"></div></td>
-                        <td class="px-1"><div class="border-2 border-yellow-50 bg-green-600 p-2 mx-auto rounded-full"></div></td>
-                        <td class="px-1"><div class="border-2 border-yellow-50 bg-blue-600 p-2 mx-auto rounded-full"></div></td>
-                        <td class="px-1"><div class="border-2 border-yellow-50 bg-red-600 p-2 mx-auto rounded-full"></div></td>
-                        <td class="px-1"><div class="border-2 border-yellow-50 bg-blue-600 p-2 mx-auto rounded-full"></div></td>
-                        <td class="px-1"><div class="border-2 border-yellow-50 bg-red-600 p-2 mx-auto rounded-full"></div></td>
-                        <td class="px-1"><div class="border-2 border-yellow-50 bg-green-600 p-2 mx-auto rounded-full"></div></td>
-                        <td class="px-1"><div class="border-2 border-yellow-50 bg-blue-600 p-2 mx-auto rounded-full"></div></td>
-                        <td class="px-1"><div class="border-2 border-yellow-50 bg-blue-600 p-2 mx-auto rounded-full"></div></td>
-                        <td class="px-1"><div class="border-2 border-yellow-50 bg-red-600 p-2 mx-auto rounded-full"></div></td>
-                        <td class="px-1"><div class="border-2 border-yellow-50 bg-blue-600 p-2 mx-auto rounded-full"></div></td>
-                        <td class="px-1"><div class="border-2 border-yellow-50 bg-blue-600 p-2 mx-auto rounded-full"></div></td>
-                        <td class="px-1"><div class="border-2 border-yellow-50 bg-blue-600 p-2 mx-auto rounded-full"></div></td>
-                    </tr>
-                </tbody>
-            </table>
+            <div class="flex flex-row items-center bg-neutral-800 mt-3 px-4 py-2 rounded-md">
+                <div class="border-2 border-yellow-50 bg-red-600 p-2 mx-auto rounded-full"></div>
+                <div class="border-2 border-yellow-50 bg-blue-600 p-2 mx-auto rounded-full"></div>
+                <div class="border-2 border-yellow-50 bg-red-600 p-2 mx-auto rounded-full"></div>
+                <div class="border-2 border-yellow-50 bg-red-600 p-2 mx-auto rounded-full"></div>
+                <div class="border-2 border-yellow-50 bg-blue-600 p-2 mx-auto rounded-full"></div>
+                <div class="border-2 border-yellow-50 bg-red-600 p-2 mx-auto rounded-full"></div>
+                <div class="border-2 border-yellow-50 bg-red-600 p-2 mx-auto rounded-full"></div>
+                <div class="border-2 border-yellow-50 bg-red-600 p-2 mx-auto rounded-full"></div>
+                <div class="border-2 border-yellow-50 bg-blue-600 p-2 mx-auto rounded-full"></div>
+                <div class="border-2 border-yellow-50 bg-blue-600 p-2 mx-auto rounded-full"></div>
+                <div class="border-2 border-yellow-50 bg-red-600 p-2 mx-auto rounded-full"></div>
+                <div class="border-2 border-yellow-50 bg-blue-600 p-2 mx-auto rounded-full"></div>
+                <div class="border-2 border-yellow-50 bg-blue-600 p-2 mx-auto rounded-full"></div>
+                <div class="border-2 border-yellow-50 bg-blue-600 p-2 mx-auto rounded-full"></div>
+                <div class="border-2 border-yellow-50 bg-blue-600 p-2 mx-auto rounded-full"></div>
+                <div class="border-2 border-yellow-50 bg-green-600 p-2 mx-auto rounded-full"></div>
+                <div class="border-2 border-yellow-50 bg-blue-600 p-2 mx-auto rounded-full"></div>
+                <div class="border-2 border-yellow-50 bg-red-600 p-2 mx-auto rounded-full"></div>
+                <div class="border-2 border-yellow-50 bg-blue-600 p-2 mx-auto rounded-full"></div>
+                <div class="border-2 border-yellow-50 bg-red-600 p-2 mx-auto rounded-full"></div>
+            </div>
             <div class="py-3">
                 <div>
                     <video width="w-full" autoplay muted loop id="video"
@@ -118,95 +107,49 @@
                     </video>
                 </div>
             </div>
-
-            <div class="px-10 mb-3 bg-neutral-800 rounded-md">
-                <div class="flex justify-center items-center gap-20">
-                    <div class="flex flex-col justify-center items-center">
-                        <div class="font-semibold pb-2">PLAYER</div>
-                        <div class="flex justify-center items-center gap-2">
-                            <img src="{{asset('media/img/deck-of-cards/HK.png')}}" alt="" class="h-20 rounded-md">
-                            <img src="{{asset('media/img/deck-of-cards/DQ.png')}}" alt="" class="h-20 rounded-md">
-                        </div>
-                        <img src="{{asset('media/img/deck-of-cards/S9.png')}}" alt="" class="h-20 -rotate-90 rounded-md">
-                    </div>
-                    <div class="flex flex-col justify-center items-center">
-                        <div class="font-semibold pb-2">BANKER</div>
-                        <div class="flex justify-center items-center gap-2">
-                            <img src="{{asset('media/img/deck-of-cards/CJ.png')}}" alt="" class="h-20 rounded-md">
-                            <img src="{{asset('media/img/deck-of-cards/D10.png')}}" alt="" class="h-20 rounded-md">
-                        </div>
-                        <img src="{{asset('media/img/deck-of-cards/S8.png')}}" alt="" class="h-20 -rotate-90 rounded-md">
-                    </div>
-                </div>
-            </div>
-
             <div class="px-2 bg-neutral-800 rounded-md overflow-auto">
                 <h2 class="text-center pt-2">*SCROLL OR SWIPE DOWN TO SEE MATCH HISTORY</h2>
 
-                <table class="flex items-start flex-start py-8 px-4">
-                    <tbody>
-                        <tr>
-                            <td class="p-1"><div class="border-2 border-yellow-50 bg-blue-600 p-2 mx-auto rounded-full"></div></td>
-                            <td class="p-1"><div class="border-2 border-yellow-50 bg-red-600 p-2 mx-auto rounded-full"></div></td>
-                            <td class="p-1"><div class="border-2 border-yellow-50 bg-blue-600 p-2 mx-auto rounded-full"></div></td>
-                            <td class="p-1"><div class="border-2 border-yellow-50 bg-red-600 p-2 mx-auto rounded-full"></div></td>
-                            <td class="p-1"><div class="border-2 border-yellow-50 bg-blue-600 p-2 mx-auto rounded-full"></div></td>
-                            <td class="p-1"><div class="border-2 border-yellow-50 bg-green-600 p-2 mx-auto rounded-full"></div></td>
-                            <td class="p-1"><div class="border-2 border-yellow-50 bg-red-600 p-2 mx-auto rounded-full"></div></td>
-                            <td class="p-1"><div class="border-2 border-yellow-50 bg-blue-600 p-2 mx-auto rounded-full"></div></td>
-                            <td class="p-1"><div class="border-2 border-yellow-50 bg-red-600 p-2 mx-auto rounded-full"></div></td>
-                            <td class="p-1"><div class="border-2 border-yellow-50 bg-blue-600 p-2 mx-auto rounded-full"></div></td>
-                        </tr>
-                        <tr>
-                            <td class="p-1"></td>
-                            <td class="p-1"></td>
-                            <td class="p-1"></td>
-                            <td class="p-1"><div class="border-2 border-yellow-50 bg-red-600 p-2 mx-auto rounded-full"></div></td>
-                            <td class="p-1"></td>
-                            <td class="p-1"></td>
-                            <td class="p-1"><div class="border-2 border-yellow-50 bg-red-600 p-2 mx-auto rounded-full"></div></td>
-                            <td class="p-1"></td>
-                            <td class="p-1"></td>
-                            <td class="p-1"><div class="border-2 border-yellow-50 bg-blue-600 p-2 mx-auto rounded-full"></div></td>
-                        </tr>
-                        <tr>
-                            <td class="p-1"></td>
-                            <td class="p-1"></td>
-                            <td class="p-1"></td>
-                            <td class="p-1"><div class="border-2 border-yellow-50 bg-red-600 p-2 mx-auto rounded-full"></div></td>
-                            <td class="p-1"></td>
-                            <td class="p-1"></td>
-                            <td class="p-1"><div class="border-2 border-yellow-50 bg-red-600 p-2 mx-auto rounded-full"></div></td>
-                            <td class="p-1"></td>
-                            <td class="p-1"></td>
-                            <td class="p-1"></td>
-                        </tr>
-                        <tr>
-                            <td class="p-1"></td>
-                            <td class="p-1"></td>
-                            <td class="p-1"></td>
-                            <td class="p-1"><div class="border-2 border-yellow-50 bg-red-600 p-2 mx-auto rounded-full"></div></td>
-                            <td class="p-1"></td>
-                            <td class="p-1"></td>
-                            <td class="p-1"><div class="border-2 border-yellow-50 bg-red-600 p-2 mx-auto rounded-full"></div></td>
-                            <td class="p-1"></td>
-                            <td class="p-1"></td>
-                            <td class="p-1"></td>
-                        </tr>
-                        <tr>
-                            <td class="p-1"></td>
-                            <td class="p-1"></td>
-                            <td class="p-1"></td>
-                            <td class="p-1"></td>
-                            <td class="p-1"></td>
-                            <td class="p-1"></td>
-                            <td class="p-1"><div class="border-2 border-yellow-50 bg-red-600 p-2 mx-auto rounded-full"></div></td>
-                            <td class="p-1"></td>
-                            <td class="p-1"></td>
-                            <td class="p-1"></td>
-                        </tr>
-                    </tbody>
-                </table>
+                <div class="flex items-start flex-start py-4 px-2">
+                    <div class="grid row grid-rows-10 gap-2 py-4 px-2">
+                        <div class="border-2 border-yellow-50 bg-blue-600 p-2 mx-auto rounded-full"></div>
+                    </div>
+                    <div class="grid row grid-rows-10 gap-2 py-4 px-2">
+                        <div class="border-2 border-yellow-50 bg-red-600 p-2 mx-auto rounded-full"></div>
+                    </div>
+                    <div class="grid row grid-rows-10 gap-2 py-4 px-2">
+                        <div class="border-2 border-yellow-50 bg-blue-600 p-2 mx-auto rounded-full"></div>
+                    </div>
+                    <div class="grid row grid-rows-10 gap-2 py-4 px-2">
+                        <div class="border-2 border-yellow-50 bg-red-600 p-2 mx-auto rounded-full"></div>
+                        <div class="border-2 border-yellow-50 bg-red-600 p-2 mx-auto rounded-full"></div>
+                        <div class="border-2 border-yellow-50 bg-red-600 p-2 mx-auto rounded-full"></div>
+                        <div class="border-2 border-yellow-50 bg-red-600 p-2 mx-auto rounded-full"></div>
+                    </div>
+                    <div class="grid row grid-rows-10 gap-2 py-4 px-2">
+                        <div class="border-2 border-yellow-50 bg-blue-600 p-2 mx-auto rounded-full"></div>
+                    </div>
+                    <div class="grid row grid-rows-10 gap-2 py-4 px-2">
+                        <div class="border-2 border-yellow-50 bg-green-600 p-2 mx-auto rounded-full"></div>
+                    </div>
+                    <div class="grid row grid-rows-10 gap-2 py-4 px-2">
+                        <div class="border-2 border-yellow-50 bg-red-600 p-2 mx-auto rounded-full"></div>
+                        <div class="border-2 border-yellow-50 bg-red-600 p-2 mx-auto rounded-full"></div>
+                        <div class="border-2 border-yellow-50 bg-red-600 p-2 mx-auto rounded-full"></div>
+                        <div class="border-2 border-yellow-50 bg-red-600 p-2 mx-auto rounded-full"></div>
+                        <div class="border-2 border-yellow-50 bg-red-600 p-2 mx-auto rounded-full"></div>
+                    </div>
+                    <div class="grid row grid-rows-10 gap-2 py-4 px-2">
+                        <div class="border-2 border-yellow-50 bg-blue-600 p-2 mx-auto rounded-full"></div>
+                    </div>
+                    <div class="grid row grid-rows-10 gap-2 py-4 px-2">
+                        <div class="border-2 border-yellow-50 bg-red-600 p-2 mx-auto rounded-full"></div>
+                    </div>
+                    <div class="grid row grid-rows-10 gap-2 py-4 px-2">
+                        <div class="border-2 border-yellow-50 bg-blue-600 p-2 mx-auto rounded-full"></div>
+                        <div class="border-2 border-yellow-50 bg-blue-600 p-2 mx-auto rounded-full"></div>
+                    </div>
+                </div>
             </div>
 
         </div>
@@ -214,12 +157,12 @@
 
     <!--bside-->
         <div class="relative min-h-screen flex">
-            <div class="flex justify-center bg-neutral-800 w-64 font-semi-bold">
+            <div class="flex justify-center bg-neutral-800 w-1/4 font-semi-bold">
                 <nav class="pt-20 fixed w-64 text-left px-4">
-                    <div class="pb-4">
+                    <div class="pt-2 mb-4">
                         <h3 class="text-center" id="game_number">Game ID: </h3>
                     </div>
-                    <div class="pb-4">
+                    <div class="pt-2 pb-4">
                         <h2 class="text-center" id="status">New Game</h2>
                     </div>
                     <div class="radio-group">
@@ -295,36 +238,27 @@
                             <h2 class="text-center">CHOOSE AMOUNT TO BET</h2>
                         </div>
                         <div class="flex justify-center flex-row gap-3">
-                            <button onclick="addBet(5), addbet(5)" class="flex bg-green-500 rounded-full py-4 px-4 border-dashed border-2 border-yellow-50 hover:bg-green-300 focus:bg-green-300 shadow-md text-xs justify-center items-center">
-                                <div class="absolute">5</div>
-                            </button>
-                            <button onclick="addBet(10), addbet(10)" class="flex bg-amber-700 rounded-full py-4 px-4 border-dashed border-2 border-yellow-50 hover:bg-amber-500 focus:bg-amber-500 shadow-md text-xs justify-center items-center">
-                                <div class="absolute">10</div>
-                            </button>
-                            <button onclick="addBet(20), addbet(20)" class="flex bg-orange-500 rounded-full py-4 px-4 border-dashed border-2 border-yellow-50 hover:bg-orange-300 focus:bg-orange-300 shadow-md text-xs justify-center items-center">
+                            <button onclick="addBet(20), addbet(20)" class="flex bg-orange-500 rounded-full py-4 px-4 border-dashed border-2 border-yellow-50 hover:bg-orange-300 focus:bg-orange-300 shadow-md text-xs justify-center items-center"
+                            id="bet-20">
                                 <div class="absolute">20</div>
                             </button>
-                            <button onclick="addBet(50), addbet(50)" class="flex bg-red-500 rounded-full py-4 px-4 border-dashed border-2 border-yellow-50 hover:bg-red-300 focus:bg-red-300 shadow-md text-xs justify-center items-center">
+                            <button onclick="addBet(50), addbet(50)" class="flex bg-red-500 rounded-full py-4 px-4 border-dashed border-2 border-yellow-50 hover:bg-red-300 focus:bg-red-300 shadow-md text-xs justify-center items-center"
+                            id="bet-50">
                                 <div class="absolute">50</div>
+                            </button>
+                            <button onclick="addBet(100), addbet(100)" class="flex bg-violet-500 rounded-full py-4 px-4 border-dashed border-2 border-yellow-50 hover:bg-violet-300 focus:bg-violet-300 shadow-md text-xs justify-center items-center"
+                            id="bet-100">
+                                <div class="absolute">100</div>
                             </button>
                         </div>
                         <div class="flex justify-center flex-row gap-3 pt-4">
-                            <button onclick="addBet(100), addbet(100)" class="flex bg-violet-500 rounded-full py-4 px-4 border-dashed border-2 border-yellow-50 hover:bg-violet-300 focus:bg-violet-300 shadow-md text-xs justify-center items-center">
-                                <div class="absolute">100</div>
-                            </button>
-                            <button onclick="addbet(500)" class="flex bg-yellow-500 rounded-full py-4 px-4 border-dashed border-2 border-yellow-50 hover:bg-yellow-300 focus:bg-yellow-300 shadow-md text-xs justify-center items-center">
+                            <button onclick="addbet(500)" class="flex bg-yellow-500 rounded-full py-4 px-4 border-dashed border-2 border-yellow-50 hover:bg-yellow-300 focus:bg-yellow-300 shadow-md text-xs justify-center items-center"
+                            id="bet-500">
                                 <div class="absolute">500</div>
                             </button>
-                            <button onclick="addbet(1000)" class="flex bg-blue-500 rounded-full py-4 px-4 border-dashed border-2 border-yellow-50 hover:bg-blue-300 focus:bg-blue-300 shadow-md text-xs justify-center items-center">
+                            <button onclick="addbet(1000)" class="flex bg-blue-500 rounded-full py-4 px-4 border-dashed border-2 border-yellow-50 hover:bg-blue-300 focus:bg-blue-300 shadow-md text-xs justify-center items-center"
+                            id="bet-1000">
                                 <div class="absolute">1000</div>
-                            </button>
-                        </div>
-                        <div class="flex justify-center flex-row gap-3 pt-6">
-                            <button class="flex bg-green-700 rounded-lg py-2 px-4 border-2 border-yellow-50 hover:bg-green-500 shadow-md justify-center items-center">
-                                <div>DEAL</div>
-                            </button>
-                            <button class="flex bg-red-700 rounded-lg py-2 px-4 border-2 border-yellow-50 hover:bg-red-500 shadow-md justify-center items-center">
-                                <div>CLEAR</div>
                             </button>
                         </div>
                     </div>
@@ -469,21 +403,7 @@
             var x = bet += value
             $('.betValue').text(bet.toString())
 
-            if (x >= 5 && x <= 9) {
-                $('#bg-bet-b').css('background', '#22c55e');
-                $('#bg-bet-t').css('background', '#22c55e');
-                $('#bg-bet-p').css('background', '#22c55e');
-                $('#bg-bet-bp').css('background', '#22c55e');
-                $('#bg-bet-pp').css('background', '#22c55e');
-            }
-            else if (x >= 10 && x <= 19) {
-                $('#bg-bet-b').css('background', '#b45309');
-                $('#bg-bet-t').css('background', '#b45309');
-                $('#bg-bet-p').css('background', '#b45309');
-                $('#bg-bet-bp').css('background', '#b45309');
-                $('#bg-bet-pp').css('background', '#b45309');
-            }
-            else if (x >= 20 && x <= 49) {
+            if (x >= 20 && x <= 49) {
                 $('#bg-bet-b').css('background', '#f97316');
                 $('#bg-bet-t').css('background', '#f97316');
                 $('#bg-bet-p').css('background', '#f97316');
@@ -519,11 +439,11 @@
                 $('#bg-bet-pp').css('background', '#3b82f6');
             }
             else if (x >= 5000 && x <= 9999) {
-                $('#bg-bet-b').css('background', '#84cc16');
-                $('#bg-bet-t').css('background', '#84cc16');
-                $('#bg-bet-p').css('background', '#84cc16');
-                $('#bg-bet-bp').css('background', '#84cc16');
-                $('#bg-bet-pp').css('background', '#84cc16');
+                $('#bg-bet-b').css('background', '#22c55e');
+                $('#bg-bet-t').css('background', '#22c55e');
+                $('#bg-bet-p').css('background', '#22c55e');
+                $('#bg-bet-bp').css('background', '#22c55e');
+                $('#bg-bet-pp').css('background', '#22c55e');
             }
             else {
                 $('#bg-bet-b').css('background', '#14b8a6');
