@@ -119,10 +119,11 @@
                 </div>
             </div>
 
-            <div class="px-10 mb-3 bg-neutral-800 rounded-md">
-                <div class="flex justify-center items-center gap-20">
+            <div class="px-10 py-2 mb-3 bg-neutral-800 rounded-md">
+                <div class="flex justify-center items-center gap-10">
+                    <img src="{{asset('media/img/player-wins.gif')}}" alt="" class="rounded-md h-20">
                     <div class="flex flex-col justify-center items-center">
-                        <div class="font-semibold pb-2">PLAYER</div>
+                        <div class="font-semibold mr-10 pb-2">PLAYER</div>
                         <div class="flex justify-center items-center gap-2">
                             <img src="{{asset('media/img/deck-of-cards/HK.png')}}" alt="" class="h-20 rounded-md">
                             <img src="{{asset('media/img/deck-of-cards/DQ.png')}}" alt="" class="h-20 rounded-md">
@@ -130,13 +131,14 @@
                         <img src="{{asset('media/img/deck-of-cards/S9.png')}}" alt="" class="h-20 -rotate-90 rounded-md">
                     </div>
                     <div class="flex flex-col justify-center items-center">
-                        <div class="font-semibold pb-2">BANKER</div>
+                        <div class="font-semibold ml-10 pb-2">BANKER</div>
                         <div class="flex justify-center items-center gap-2">
                             <img src="{{asset('media/img/deck-of-cards/CJ.png')}}" alt="" class="h-20 rounded-md">
                             <img src="{{asset('media/img/deck-of-cards/D10.png')}}" alt="" class="h-20 rounded-md">
                         </div>
                         <img src="{{asset('media/img/deck-of-cards/S8.png')}}" alt="" class="h-20 -rotate-90 rounded-md">
                     </div>
+                    <img src="{{asset('media/img/banker-wins.gif')}}" alt="" class="h-20 rounded-md">
                 </div>
             </div>
 
