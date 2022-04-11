@@ -362,20 +362,10 @@
 
         $(document).scroll(function() {})
 
-        $(function () {
-            setInterval(() => {
-                getcurrentgame();
-            }, 1000);
-
-        })
-
-        function getcurrentgame() {
-            var url = "{{route('get-current-game')}}"
-
             axios.get(url, {
                 room_id : 1
             }).then(function (response) {
-                $('#game_number').text('Game ID: '+ response.data['id'])
+                game_id = response.data['id']
                 var status = response.data['status']
                 switch(status) {
                     case 0 :
@@ -395,10 +385,32 @@
                         console.log('eloo')
                         break;
                     }
+
+
             }).catch(function (error) {
                 console.log(error.response.data)
             })
         }
+
+
+        function waitforresults()
+        {
+
+
+            var url = "{{route('get-result')}}"
+            axios.post(url, {
+                id: game_id
+            }).then(function(response) {
+                $('#player_hand').text(response.data['player_hand'])
+                $('#banker_hand').text(response.data['banker_hand'])
+
+                console.log(response.data)
+            }).catch(function (error) {
+                console.log(error.response.data)
+            })
+        }
+
+
         var choice
         $('.radio-group .radio').click(function(){
             $(this).parent().find('.radio').removeClass('selected');

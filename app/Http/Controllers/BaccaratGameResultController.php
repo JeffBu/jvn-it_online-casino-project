@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\BaccaratGameResult;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class BaccaratGameResultController extends Controller
@@ -22,9 +23,9 @@ class BaccaratGameResultController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        //
+
     }
 
     /**
@@ -35,7 +36,11 @@ class BaccaratGameResultController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        return BaccaratGameResult::insertGetId([
+            'baccarat_game_id' => $request->id,
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now()
+        ]);
     }
 
     /**
@@ -81,5 +86,16 @@ class BaccaratGameResultController extends Controller
     public function destroy(BaccaratGameResult $baccaratGameResult)
     {
         //
+    }
+
+    public function updateGameResult(Request $request)
+    {
+        $baccaratGameResult = BaccaratGameResult::findOrFail($request->id);
+        return $baccaratGameResult->update([$request->column => $request->data]);
+    }
+
+    public function getGameResult(Request $request)
+    {
+        return BaccaratGameResult::where('baccarat_game_id' , $request->id)->latest()->first();
     }
 }

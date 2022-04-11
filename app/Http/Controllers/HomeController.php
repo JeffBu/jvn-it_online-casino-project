@@ -30,7 +30,7 @@ class HomeController extends Controller
 
     public function adminBaccarat()
     {
-        return View::make('main.admin-baccarat_temp');
+        return View::make('admin-baccarat_temp');
     }
     //=============================for tests=============================
 
