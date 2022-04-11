@@ -96,10 +96,7 @@
             </table>
             <div class="py-3">
                 <div>
-                    <video width="w-full" autoplay muted loop id="video"
-                    class="rounded-lg">
-                        <source src="{{asset('media/videos/casino-trailer.mp4')}}" type="video/mp4">
-                    </video>
+                    <div id="stream-div"></div>
                 </div>
             </div>
 
@@ -142,6 +139,7 @@
     <!--scripts-->
     <script src="{{asset('js/app.js')}}"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src= "https://player.twitch.tv/js/embed/v1.js"></script>
 
     <script>
         var p1, b1, p2, b2, pe, be
@@ -338,6 +336,14 @@
         jQuery('#user').on('click', function() {
             $('#logout').toggle();
         });
+
+        var options = {
+            width: 1280,
+            height: 720,
+            channel: "gaules",
+            parent: ["localhost", "online-casino.test"]
+        };
+        var player = new Twitch.Player("stream-div", options);
     </script>
 
     <!--scripts ends here-->
