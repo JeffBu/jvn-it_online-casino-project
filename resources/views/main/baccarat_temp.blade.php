@@ -110,14 +110,8 @@
                     </tr>
                 </tbody>
             </table>
-            <div class="py-3">
-                <div>
-                    <video width="w-full" autoplay muted loop id="video"
-                    class="rounded-lg">
-                        <source src="{{asset('media/videos/casino-trailer.mp4')}}" type="video/mp4">
-                    </video>
-                </div>
-            </div>
+            
+            <iframe src="{{asset('media/videos/casino-trailer.mp4')}}" frameborder="0" class="block h-full w-full py-3"></iframe>
 
             <div class="px-10 py-2 mb-3 bg-neutral-800 rounded-md">
                 <div class="flex justify-center items-center gap-10">
