@@ -96,10 +96,7 @@
             </table>
             <div class="py-3">
                 <div>
-                    <video width="w-full" autoplay muted loop id="video"
-                    class="rounded-lg">
-                        <source src="{{asset('media/videos/casino-trailer.mp4')}}" type="video/mp4">
-                    </video>
+                    <div id="stream-div"></div>
                 </div>
             </div>
 
@@ -128,10 +125,12 @@
                             <input class="block px-10 py-2 w-full bg-neutral-700 focus:outline-none border-t-0 border-2 border-x-0 border-yellow-50" type="text" placeholder="Player Card 3" id="be" maxlength="2">
                         </div>
                     <div class="flex">
-                        <div class="block px-10 py-2 w-full bg-red-700 hover:bg-red-500 cursor-pointer border-t-0 border-l-0 border-2 border-yellow-50">Banker Wins</div>
-                        <div class="block px-10 py-2 w-full bg-blue-700 hover:bg-blue-500 cursor-pointer border-t-0 border-x-0 border-2 border-yellow-50">Player Wins</div>
+                        <div class="hidden px-10 py-2 w-full bg-red-700 hover:bg-red-500 cursor-pointer border-t-0 border-l-0 border-2 border-yellow-50" id="banker-wins" style="display: hidden">Banker Wins</div>
+                        <div class="hidden px-10 py-2 w-full bg-blue-700 hover:bg-blue-500 cursor-pointer border-t-0 border-x-0 border-2 border-yellow-50" id="player-wins" style="display: hidden">Player Wins</div>
                     </div>
-                    <div class="block px-10 py-2 w-full bg-green-700 hover:bg-green-500 cursor-pointer border-t-0 border-x-0 border-2 border-yellow-50">Tie</div>
+                    <div class="hidden px-10 py-2 w-full bg-green-700 hover:bg-green-500 cursor-pointer border-t-0 border-x-0 border-2 border-yellow-50" id="game-tie" style="display: hidden">Tie</div>
+                    <div class="hidden px-10 py-2 w-full bg-green-700 hover:bg-green-500 cursor-pointer border-t-0 border-x-0 border-2 border-yellow-50" id="game-new" style="display: hidden">New Game</div>
+
                 </nav>
             </div>
         </div>
@@ -142,6 +141,7 @@
     <!--scripts-->
     <script src="{{asset('js/app.js')}}"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src= "https://player.twitch.tv/js/embed/v1.js"></script>
 
     <script>
         var p1, b1, p2, b2, pe, be
@@ -212,7 +212,9 @@
                     column: 'banker_hand',
                     data: b1+b2
                 }).then(function (response) {
-                    console.log(response.data)
+                    $('#banker-wins').toggle()
+                    $('#player-wins').toggle()
+                    $('#game-tie').toggle()
                 }).catch(function (error) {
                     console.log(error.response.data)
                 })
@@ -224,9 +226,18 @@
 
         $('#pe').on('input', function ()
         {
-            b1 = $(this).val()
-            if(b1.length == 2)
+            pe = $(this).val()
+            if(pe.length == 2)
             {
+                axios.post(urlforupdatingresults, {
+                    id: result_id,
+                    column: 'player_hand',
+                    data: p1+p2+pe
+                }).then(function (response) {
+                    console.log(response.data)
+                }).catch(function (error) {
+                    console.log(error.response.data)
+                })
                 $('#be').focus()
             }
         })
@@ -234,9 +245,17 @@
         $('#be').on('input', function ()
         {
             be = $(this).val()
-            if(b1.length == 2)
+            if(be.length == 2)
             {
-                console.log(pe+be)
+                axios.post(urlforupdatingresults, {
+                    id: result_id,
+                    column: 'banker_hand',
+                    data: b1+b2+be
+                }).then(function (response) {
+                    console.log(response.data)
+                }).catch(function (error) {
+                    console.log(error.response.data)
+                })
             }
         })
 
@@ -275,6 +294,11 @@
             $('#close-table').toggle();
             $('#open-table').toggle();
 
+            new_game()
+        });
+
+        function new_game()
+        {
             var url = "{{route('baccarat-game-room.create')}}"
 
             axios.get(url, null).then(function (response) {
@@ -282,7 +306,7 @@
             }).catch(function (error) {
                 console.log(error.response.data)
             })
-        });
+        }
 
         jQuery('#open-betting').on('click', function() {
             $('#open-betting').toggle();
@@ -338,6 +362,69 @@
         jQuery('#user').on('click', function() {
             $('#logout').toggle();
         });
+
+        var options = {
+            width: 1280,
+            height: 720,
+            channel: "gaules",
+            parent: ["localhost", "online-casino.test"]
+        };
+        var player = new Twitch.Player("stream-div", options);
+
+        $('#player-wins').on('click', function() {
+            axios.post(urlforupdatingresults, {
+                id: result_id,
+                column: 'result',
+                data: 1
+            }).then(function (response) {
+                reset()
+            }).catch(function (error) {
+                console.log(error.response.data)
+            })
+        })
+
+        $('#banker-wins').on('click', function() {
+            axios.post(urlforupdatingresults, {
+                id: result_id,
+                column: 'result',
+                data: 2
+            }).then(function (response) {
+                reset()
+            }).catch(function (error) {
+                console.log(error.response.data)
+            })
+        })
+
+        $('#game-tie').on('click', function () {
+            axios.post(urlforupdatingresults, {
+                id: result_id,
+                column: 'result',
+                data: 3
+            }).then(function (response) {
+                reset()
+            }).catch(function (error) {
+                console.log(error.response.data)
+            })
+        })
+
+
+        function reset(){
+            $('#p1').val('')
+            $('#p2').val('')
+            $('#pe').val('')
+            $('#b1').val('')
+            $('#b2').val('')
+            $('#be').val('')
+            $('#close-table').toggle()
+            $('#open-table').toggle()
+            $('#open-betting').css('display', 'none')
+            $('#close-betting').css('display', 'none')
+            $('#cards-drawn').css('display', 'none')
+            $('#player-wins').toggle()
+            $('#banker-wins').toggle()
+            $('#game-tie').toggle()
+            new_game()
+        }
     </script>
 
     <!--scripts ends here-->

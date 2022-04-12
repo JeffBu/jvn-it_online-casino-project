@@ -110,31 +110,34 @@
                     </tr>
                 </tbody>
             </table>
-            <div class="relative">
-                <iframe src="{{asset('media/videos/casino-trailer.mp4')}}" frameborder="0" class="block h-full w-full py-3"></iframe>
+            <div class="py-3">
+                <div>
+                    <div id="stream-div"></div>
+                </div>
             </div>
+
             <div class="px-10 py-2 mb-3 bg-neutral-800 rounded-md">
                 <div class="flex justify-center items-center gap-10">
-                    <img src="{{asset('media/img/player-wins.gif')}}" alt="" class="rounded-md h-20">
-                    <img src="{{asset('media/img/tie.gif')}}" alt="" class="hidden rounded-md h-20">
+                    <img src="{{asset('media/img/player-wins.gif')}}" alt="" class="hidden rounded-md h-20" id="player-wins">
+                    <img src="{{asset('media/img/tie.gif')}}" alt="" class="hidden rounded-md h-20" id="game-tie">
                     <div class="flex flex-col justify-center items-center">
                         <div class="font-semibold mr-10 pb-2">PLAYER</div>
                         <div class="flex justify-center items-center gap-2">
-                            <img src="{{asset('media/img/deck-of-cards/HK.png')}}" alt="" class="h-20 rounded-md">
-                            <img src="{{asset('media/img/deck-of-cards/DQ.png')}}" alt="" class="h-20 rounded-md">
+                            <img id="pc1" src="{{asset('media/img/deck-of-cards/XX.png')}}" alt="" class="h-20 rounded-md">
+                            <img id="pc2" src="{{asset('media/img/deck-of-cards/XX.png')}}" alt="" class="h-20 rounded-md">
                         </div>
-                        <img src="{{asset('media/img/deck-of-cards/S9.png')}}" alt="" class="h-20 -rotate-90 rounded-md">
+                        <img id="pce" src="{{asset('media/img/deck-of-cards/XX.png')}}" alt="" class="h-20 -rotate-90 rounded-md">
                     </div>
                     <div class="flex flex-col justify-center items-center">
                         <div class="font-semibold ml-10 pb-2">BANKER</div>
                         <div class="flex justify-center items-center gap-2">
-                            <img src="{{asset('media/img/deck-of-cards/CJ.png')}}" alt="" class="h-20 rounded-md">
-                            <img src="{{asset('media/img/deck-of-cards/D10.png')}}" alt="" class="h-20 rounded-md">
+                            <img id="bc1" src="{{asset('media/img/deck-of-cards/XX.png')}}" alt="" class="h-20 rounded-md">
+                            <img id="bc2" src="{{asset('media/img/deck-of-cards/XX.png')}}" alt="" class="h-20 rounded-md">
                         </div>
-                        <img src="{{asset('media/img/deck-of-cards/S8.png')}}" alt="" class="h-20 -rotate-90 rounded-md">
+                        <img id="bce" src="{{asset('media/img/deck-of-cards/XX.png')}}" alt="" class="h-20 -rotate-90 rounded-md">
                     </div>
-                    <img src="{{asset('media/img/banker-wins.gif')}}" alt="" class="h-20 rounded-md">
-                    <img src="{{asset('media/img/tie.gif')}}" alt="" class="hidden rounded-md h-20">
+                    <img src="{{asset('media/img/banker-wins.gif')}}" alt="" class="hidden h-20 rounded-md" id="banker-wins">
+                    <img src="{{asset('media/img/tie.gif')}}" alt="" class="hidden rounded-md h-20" id="game-tie">
                 </div>
             </div>
 
@@ -288,7 +291,7 @@
                             </button>
                         </div>
                     </div>
-                    
+
                     <div>
                         <div class="py-4">
                             <h2 class="text-center">CHOOSE AMOUNT TO BET</h2>
@@ -319,23 +322,9 @@
                             </button>
                         </div>
                         <div class="flex justify-center flex-row gap-3 pt-6">
-                            <button class="flex bg-green-700 rounded-lg py-2 px-4 border-2 border-yellow-50 hover:bg-green-500 shadow-md justify-center items-center">
-                                <div>DEAL</div>
-                            </button>
                             <button class="flex bg-red-700 rounded-lg py-2 px-4 border-2 border-yellow-50 hover:bg-red-500 shadow-md justify-center items-center">
                                 <div>CLEAR</div>
                             </button>
-                        </div>
-                    </div>
-                    
-                    <div class="mt-6">
-                        <div class="pb-4">
-                            <h2 class="text-blue-200">PLAYER HAND:<span id="player_hand"></span></h2>
-                            <h2 class="text-red-400">BANKER HAND:<span id="banker_hand"></span></h2>
-                        </div>
-                        <div class="pb-4">
-                            <h1> Your Bet: <span id="bet"></span></h1>
-                            <h1> Your Winnings: </h1>
                         </div>
                     </div>
                 </nav>
@@ -346,6 +335,7 @@
     <!--bside ends here-->
 
     <!--scripts-->
+    <script src= "https://player.twitch.tv/js/embed/v1.js"></script>
     <script src="{{asset('js/app.js')}}"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
@@ -365,8 +355,9 @@
         var game_id;
         $(function () {
             setInterval(() => {
-                getcurrentgame();
+                getcurrentgame()
                 waitforresults()
+                checkwinner()
             }, 2000);
 
         })
@@ -382,6 +373,7 @@
                 switch(status) {
                     case 0 :
                         $('#status').text('New Game')
+                        resetTable()
                         break;
                     case 1:
                         $('#status').text('Place Your Bets')
@@ -404,19 +396,76 @@
             })
         }
 
-
-        function waitforresults()
+        function checkwinner()
         {
-
-
             var url = "{{route('get-result')}}"
             axios.post(url, {
                 id: game_id
             }).then(function(response) {
-                $('#player_hand').text(response.data['player_hand'])
-                $('#banker_hand').text(response.data['banker_hand'])
 
-                console.log(response.data)
+                var result = response.data['result']
+                if(result != null)
+                {
+                    switch(result)
+                    {
+                        case 1:
+                            $('#player-wins').css('display', 'block')
+                            resetTable()
+                            break
+                        case 2:
+                            $('#banker-wins').css('display', 'block')
+                            resetTable()
+                            break
+                        case 3:
+                            $('gamae-tie').css('display', 'block')
+                            resetTable()
+                            break
+                        default:
+                            resetTable()
+                    }
+                }
+            }).catch(function (error) {
+                console.log(error.response.data)
+            })
+        }
+
+        function resetTable()
+        {
+            var xxcardasset = "{{asset('media/img/deck-of-cards/XX.png')}}"
+            $('#player-wins').css('display', 'hidden')
+            $('#banker-wins').css('display', 'hidden')
+            $('#game-tie').css('display', 'hidden')
+            bet = 0
+            current_bet = 0
+            $('#pc1').attr('src', xxcardasset)
+            $('#pc2').attr('src', xxcardasset)
+            $('#pce').attr('src', xxcardasset)
+            $('#bc1').attr('src', xxcardasset)
+            $('#bc2').attr('src', xxcardasset)
+            $('#bce').attr('src', xxcardasset)
+            $('button').prop('disabled', false)
+            $('.betValue').text(bet.toString())
+        }
+
+
+        function waitforresults()
+        {
+            var asset_url = "{{asset('media/img/deck-of-cards/')}}"
+            var url = "{{route('get-result')}}"
+            axios.post(url, {
+                id: game_id
+            }).then(function(response) {
+
+                var playerhand = response.data['player_hand']
+                var bankerhand = response.data['banker_hand']
+                var pc = playerhand.match(/.{1,2}/g)
+                var bc = bankerhand.match(/.{1,2}/g)
+                $('#pc1').attr('src', asset_url+'/'+pc[0]+'.png')
+                $('#pc2').attr('src', asset_url+'/'+pc[1]+'.png')
+                $('#pce').attr('src', asset_url+'/'+pc[2]+'.png')
+                $('#bc1').attr('src', asset_url+'/'+bc[0]+'.png')
+                $('#bc2').attr('src', asset_url+'/'+bc[1]+'.png')
+                $('#bce').attr('src', asset_url+'/'+bc[2]+'.png')
             }).catch(function (error) {
                 console.log(error.response.data)
             })
@@ -488,7 +537,7 @@
         });
 
         $(document).click(function() {})
-        
+
         function addbet(value) {
             var x = bet += value
             $('.betValue').text(bet.toString())
@@ -557,6 +606,14 @@
                 $('#bg-bet-pp').css('background', '#14b8a6');
             }
         }
+
+        var options = {
+            width: 1280,
+            height: 720,
+            channel: "gaules",
+            parent: ["localhost", "online-casino.test"]
+        };
+        var player = new Twitch.Player("stream-div", options);
     </script>
 
     <!--scripts ends here-->
