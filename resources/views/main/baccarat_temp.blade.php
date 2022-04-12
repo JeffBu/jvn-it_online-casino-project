@@ -110,7 +110,7 @@
                     </tr>
                 </tbody>
             </table>
-            <div class="py-3">
+            <div class="flex py-3 justify-center items-center w-full">
                 <div>
                     <div id="stream-div"></div>
                 </div>
@@ -608,6 +608,9 @@
         }
 
         var options = {
+            controls: false,
+            muted: false,
+            autoplay: true,
             width: 1280,
             height: 720,
             channel: "gaules",
