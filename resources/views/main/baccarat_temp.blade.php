@@ -50,7 +50,7 @@
 
     <!--sidebar-->
     <div class="flex">
-    <div class="relative min-h-screen flex">
+    <div class="relative flex w-full">
         <div class="flex justify-center bg-neutral-800 w-64 font-semi-bold">
             <nav class="pt-16 fixed w-64 text-left">
                 <div class="shadow mt-6">
@@ -110,9 +110,9 @@
                     </tr>
                 </tbody>
             </table>
-            
-            <iframe src="{{asset('media/videos/casino-trailer.mp4')}}" frameborder="0" class="block h-full w-full py-3"></iframe>
-
+            <div class="relative">
+                <iframe src="{{asset('media/videos/casino-trailer.mp4')}}" frameborder="0" class="block h-full w-full py-3"></iframe>
+            </div>
             <div class="px-10 py-2 mb-3 bg-neutral-800 rounded-md">
                 <div class="flex justify-center items-center gap-10">
                     <img src="{{asset('media/img/player-wins.gif')}}" alt="" class="rounded-md h-20">
