@@ -610,7 +610,7 @@
         var options = {
             width: 1280,
             height: 720,
-            channel: "gaules",
+            channel: "gowthereeno",
             parent: ["localhost", "online-casino.test"]
         };
         var player = new Twitch.Player("stream-div", options);
