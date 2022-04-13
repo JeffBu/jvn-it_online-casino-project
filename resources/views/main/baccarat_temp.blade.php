@@ -322,7 +322,7 @@
                             </button>
                         </div>
                         <div class="flex justify-center flex-row gap-3 pt-6">
-                            <button class="flex bg-red-700 rounded-lg py-2 px-4 border-2 border-yellow-50 hover:bg-red-500 shadow-md justify-center items-center">
+                            <button onclick="clearBet()" class="flex bg-red-700 rounded-lg py-2 px-4 border-2 border-yellow-50 hover:bg-red-500 shadow-md justify-center items-center">
                                 <div>CLEAR</div>
                             </button>
                         </div>
@@ -537,6 +537,12 @@
         });
 
         $(document).click(function() {})
+
+        function clearbet()
+        {
+            bet = 0
+            $('.betValue').text(bet.toString())
+        }
 
         function addbet(value) {
             var x = bet += value
