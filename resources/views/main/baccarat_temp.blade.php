@@ -50,7 +50,7 @@
 
     <!--sidebar-->
     <div class="flex">
-    <div class="relative min-h-screen flex">
+    <div class="relative flex w-full">
         <div class="flex justify-center bg-neutral-800 w-64 font-semi-bold">
             <nav class="pt-16 fixed w-64 text-left">
                 <div class="shadow mt-6">
@@ -110,7 +110,7 @@
                     </tr>
                 </tbody>
             </table>
-            <div class="py-3">
+            <div class="flex py-3 justify-center items-center w-full">
                 <div>
                     <div id="stream-div"></div>
                 </div>
@@ -608,7 +608,10 @@
         }
 
         var options = {
-            width: 1280,
+            controls: false,
+            muted: false,
+            autoplay: true,
+            width: 1440,
             height: 720,
             channel: "gowthereeno",
             parent: ["localhost", "online-casino.test"]
