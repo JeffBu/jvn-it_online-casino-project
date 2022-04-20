@@ -113,6 +113,7 @@
         </div>
     </div>
 
+    <!--modal-->
     <div class="hidden fixed top-0 h-full w-full bg-neutral-800 bg-opacity-75 justify-center items-center py-20 px-56" id="modal">
         <div class="flex justify-center items-center rounded-lg bg-neutral-700 border-2 border-neutral-600">
             <div class="flex flex-col w-64 h-full rounded-l-md bg-neutral-800 text-left px-5 py-5 gap-5">
@@ -179,6 +180,7 @@
         </div>
 
     </div>
+    <!--modal ends here-->
 
     <!--scripts-->
 

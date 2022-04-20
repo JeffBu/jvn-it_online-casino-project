@@ -177,6 +177,14 @@
                     <div class="block px-3 py-2 w-full border-r-0 border-2 border-neutral-600">1,000,000</div>
                 </div>
 
+                <div class="mt-10 border-y-2 border-neutral-600">
+                    <div class="list-none flex flex-wrap items-center">
+                        <a href="#" onclick="toggleModal()" class="flex items-center px-5 py-2 w-full hover:bg-neutral-700 gap-2"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+                          </svg> Create Room</a>
+                    </div>
+                </div>
+
                 <div class="mt-10 px-10 py-2 w-full bg-yellow-400 hover:bg-yellow-300 cursor-pointer border-2 border-x-0 border-yellow-50"
                 id="open-betting">Open Betting</div>
                 <div class="mt-10 px-10 py-2 w-full bg-yellow-400 hover:bg-yellow-300 cursor-pointer border-2 border-x-0 border-yellow-50 hidden"
@@ -194,8 +202,77 @@
             </nav>
 
         </div>
-    </div>
+    </div>    
     <!--bside ends here-->
+
+    <!--modal-->
+    <div class="hidden fixed top-0 h-full w-full bg-neutral-800 bg-opacity-75 justify-center items-center py-20 px-56" id="modal">
+        <div class="flex justify-center items-center rounded-lg bg-neutral-700 border-2 border-neutral-600">
+            <div class="flex flex-col w-64 h-full rounded-l-md bg-neutral-800 text-left px-5 py-5 gap-5">
+                <div class="bg-neutral-700 border-2 border-neutral-600 divide-y divide-neutral-600">
+                    <div class="bg-neutral-800 text-center">Stakes</div>
+                    <div class="pl-2 w-full hover:bg-neutral-600 cursor-pointer">Low-Stakes</div>
+                    <div class="pl-2 w-full hover:bg-neutral-600 cursor-pointer">Mid-Stakes</div>
+                    <div class="pl-2 w-full hover:bg-neutral-600 cursor-pointer">High-Stakes</div>
+                </div>
+                <div class="bg-neutral-700 border-2 border-neutral-600">
+                    <div class="bg-neutral-800 text-center">Scenes</div>
+                    <table class="w-full">
+                        <tbody class="divide-y divide-neutral-600">
+                            <tr>
+                                <td>
+                                    <div class="pl-2 w-full hover:bg-neutral-600 cursor-pointer">Scene 1</div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="pl-2 w-full hover:bg-neutral-600 cursor-pointer">Scene 2</div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="pl-2 w-full hover:bg-neutral-600 cursor-pointer">Scene 3</div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="pl-2 w-full hover:bg-neutral-600 cursor-pointer">Scene 4</div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="pl-2 w-full hover:bg-neutral-600 cursor-pointer">Scene 5</div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="flex items-center justify-start gap-2 bg-neutral-800">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 my-2 ml-2 text-neutral-200 hover:text-neutral-400" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-11a1 1 0 10-2 0v2H7a1 1 0 100 2h2v2a1 1 0 102 0v-2h2a1 1 0 100-2h-2V7z" clip-rule="evenodd" />
+                        </svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 my-2 text-neutral-200 hover:text-neutral-400" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM7 9a1 1 0 000 2h6a1 1 0 100-2H7z" clip-rule="evenodd" />
+                        </svg>
+                    </div>
+                </div>
+                <div class="bg-neutral-700 border-2 border-neutral-600 divide-y divide-neutral-600">
+                    <div class="bg-neutral-800 text-center">Controls</div>
+                    <div class="pl-2 w-full hover:bg-neutral-600 cursor-pointer">Start Streaming</div>
+                    <div class="pl-2 w-full hover:bg-neutral-600 cursor-pointer" onclick="toggleModal()">Exit</div>
+                </div>
+            </div>
+            <div class="flex flex-col px-4 py-2 gap-4">
+                <div class="text-center font-semibold text-lg">Preview</div>
+                <a href="/src/gameroom-sabong.html">
+                    <video width="640" height="480" autoplay muted loop id="video" class="rounded-lg">
+                        <source src="/videos/casino-trailer.mp4" type="video/mp4">
+                    </video>
+                </a>
+            </div>
+        </div>
+
+    </div>
+    <!--modal ends here-->
 
     <!--scripts-->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -241,6 +318,10 @@
             $('#wala-wins').toggle();
             $('#draw').toggle();
         });
+
+        function toggleModal() {
+            document.getElementById('modal').classList.toggle('hidden')
+        }
 
         var options = {
             controls: false,
