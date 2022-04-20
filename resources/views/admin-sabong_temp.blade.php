@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Sabong</title>
-    <link href="/dist/output.css" rel="stylesheet">
+    <link href="{{asset('css/app.css')}}" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit&display=swap" rel="stylesheet">
@@ -13,7 +13,7 @@
     <style>
         .bg-custom 
         {
-            background-image: url('/img/cards-bg.png');
+            background-image: url('{{asset("media/img/cards-bg.png")}}');
             background-repeat: no-repeat;
 
         }
@@ -25,7 +25,7 @@
     <header class="flex flex-row bg-neutral-900 justify-between items-center py-5 px-5 h-16 text-sm tracking-widest fixed w-full z-50" id="header_frame">
 
         <a href="admin-dashboard.html" class="">
-            <img src="/img/alpha-logo.png" alt="alpha" class="h-10">
+            <img src="{{asset('media/img/alpha-logo.png')}}" alt="alpha" class="h-10">
         </a>
         
         <div class="text-xl font-bold">Room Name</div>
@@ -33,7 +33,7 @@
         <div class="flex gap-8 items-center">
             <div class="cursor-pointer" id="user">
                 <div class="flex items-center gap-3">
-                    <img src="/img/logo.png" alt="user-logo" class="h-8 w-8 rounded-full">
+                    <img src="{{asset('media/img/logo.png')}}" alt="user-logo" class="h-8 w-8 rounded-full">
                     <p id="" class="font-semibold text-orange-400">admin354</p>
                 </div>
                 <div class="hidden items-center gap-2 border-2 border-neutral-700 hover:border-neutral-600 hover:bg-neutral-700 bg-neutral-800 justify-center mt-3 w-28 cursor-pointer absolute" id="logout">
@@ -155,13 +155,15 @@
                     </tr>
                 </tbody>
             </table>
-            <div class="py-3">
-                <div>
-                    <video width="w-full" autoplay muted loop id="video"
-                    class="rounded-lg">
-                        <source src="/videos/casino-trailer.mp4" type="video/mp4">
-                    </video>
-                </div>
+
+            <div class="py-3 justify-center items-center hidden sm:flex">
+                <div id="stream-sm"></div>
+            </div>
+            <div class="py-3 justify-center items-center hidden md:flex">
+                <div id="stream-md"></div>
+            </div>
+            <div class="py-3 justify-center items-center hidden lg:flex">
+                <div id="stream-lg"></div>
             </div>
 
         </div>
@@ -174,13 +176,21 @@
                     <div class="block px-3 py-2 w-full border-x-0 border-2 border-neutral-600">Banker's Pot</div>
                     <div class="block px-3 py-2 w-full border-r-0 border-2 border-neutral-600">1,000,000</div>
                 </div>
-                <div class="block mt-10 px-10 py-2 w-full bg-yellow-400 hover:bg-yellow-300 cursor-pointer border-2 border-x-0 border-yellow-50">Close Betting</div>
-                <div class="block px-10 py-2 w-full bg-orange-400 hover:bg-orange-300 cursor-pointer border-t-0 border-2 border-x-0 border-yellow-50">Game Finish</div>
+
+                <div class="mt-10 px-10 py-2 w-full bg-yellow-400 hover:bg-yellow-300 cursor-pointer border-2 border-x-0 border-yellow-50"
+                id="open-betting">Open Betting</div>
+                <div class="mt-10 px-10 py-2 w-full bg-yellow-400 hover:bg-yellow-300 cursor-pointer border-2 border-x-0 border-yellow-50 hidden"
+                id="close-betting">Close Betting</div>
+                <div class="px-10 py-2 w-full bg-orange-400 hover:bg-orange-300 cursor-pointer border-t-0 border-2 border-x-0 border-yellow-50 hidden"
+                id="game-finish">Game Finish</div>
                 <div class="flex">
-                    <div class="block px-10 py-2 w-full bg-red-700 hover:bg-red-500 cursor-pointer border-t-0 border-l-0 border-2 border-yellow-50">Meron Wins</div>
-                    <div class="block px-10 py-2 w-full bg-blue-700 hover:bg-blue-500 cursor-pointer border-t-0 border-x-0 border-2 border-yellow-50">Wala Wins</div>
+                    <div class="px-10 py-2 w-full bg-red-700 hover:bg-red-500 cursor-pointer border-t-0 border-l-0 border-2 border-yellow-50 hidden"
+                    id="meron-wins">Meron Wins</div>
+                    <div class="px-10 py-2 w-full bg-blue-700 hover:bg-blue-500 cursor-pointer border-t-0 border-x-0 border-2 border-yellow-50 hidden"
+                    id="wala-wins">Wala Wins</div>
                 </div>
-                <div class="block px-10 py-2 w-full bg-green-700 hover:bg-green-500 cursor-pointer border-t-0 border-x-0 border-2 border-yellow-50">Draw</div>
+                <div class="px-10 py-2 w-full bg-green-700 hover:bg-green-500 cursor-pointer border-t-0 border-x-0 border-2 border-yellow-50 hidden"
+                id="draw">Draw</div>
             </nav>
 
         </div>
@@ -189,6 +199,7 @@
 
     <!--scripts-->
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="{{asset('js/app.js')}}"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
     <script>
@@ -208,6 +219,59 @@
         });
 
         $(document).click(function() {})
+
+        jQuery('#open-betting').on('click', function() {
+            $('#close-betting').toggle();
+            $('#open-betting').css('display', 'none');
+            $('#meron-wins').css('display', 'none');
+            $('#wala-wins').css('display', 'none');
+            $('#draw').css('display', 'none');
+            $('#game-finish').css('display', 'none');
+        });
+
+        jQuery('#close-betting').on('click', function() {
+            $('#close-betting').toggle();
+            $('#open-betting').toggle();
+            $('#game-finish').toggle();
+        });
+
+        jQuery('#game-finish').on('click', function() {
+            $('#game-finish').toggle();
+            $('#meron-wins').toggle();
+            $('#wala-wins').toggle();
+            $('#draw').toggle();
+        });
+
+        var options = {
+            controls: false,
+            autoplay: true,
+            width: 1440,
+            height: 720,
+            channel: "mch_AGG",
+            parent: ["localhost", "online-casino.test"]
+        };
+        var player = new Twitch.Player("stream-lg", options);
+
+        var options = {
+            controls: false,
+            autoplay: true,
+            width: 800,
+            height: 450,
+            channel: "mch_AGG",
+            parent: ["localhost", "online-casino.test"]
+        };
+        var player = new Twitch.Player("stream-md", options);
+
+        var options = {
+            controls: false,
+            autoplay: true,
+            width: 400,
+            height: 400,
+            channel: "mch_AGG",
+            parent: ["localhost", "online-casino.test"]
+        };
+        var player = new Twitch.Player("stream-sm", options);
+
     </script>
 
     <!--scripts ends here-->

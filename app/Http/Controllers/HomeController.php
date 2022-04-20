@@ -25,12 +25,27 @@ class HomeController extends Controller
     //=============================for tests=============================
     public function baccaratGame()
     {
-        return View::make('main.baccarat_temp');
+        return View::make('baccarat_temp');
+    }
+
+    public function sabongGame()
+    {
+        return View::make('sabong_temp');
     }
 
     public function adminBaccarat()
     {
         return View::make('admin-baccarat_temp');
+    }
+
+    public function adminSabong()
+    {
+        return View::make('admin-sabong_temp');
+    }
+
+    public function adminDashboard()
+    {
+        return View::make('admin-dashboard_temp');
     }
     //=============================for tests=============================
 

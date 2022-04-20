@@ -94,10 +94,15 @@
                     </tr>
                 </tbody>
             </table>
-            <div class="py-3">
-                <div>
-                    <div id="stream-div"></div>
-                </div>
+            
+            <div class="py-3 justify-center items-center hidden sm:flex">
+                <div id="stream-sm"></div>
+            </div>
+            <div class="py-3 justify-center items-center hidden md:flex">
+                <div id="stream-md"></div>
+            </div>
+            <div class="py-3 justify-center items-center hidden lg:flex">
+                <div id="stream-lg"></div>
             </div>
 
         </div>
@@ -364,12 +369,34 @@
         });
 
         var options = {
-            width: 1280,
+            controls: false,
+            autoplay: true,
+            width: 1440,
             height: 720,
-            channel: "gowthereeno",
+            channel: "mch_AGG",
             parent: ["localhost", "online-casino.test"]
         };
-        var player = new Twitch.Player("stream-div", options);
+        var player = new Twitch.Player("stream-lg", options);
+
+        var options = {
+            controls: false,
+            autoplay: true,
+            width: 800,
+            height: 450,
+            channel: "mch_AGG",
+            parent: ["localhost", "online-casino.test"]
+        };
+        var player = new Twitch.Player("stream-md", options);
+
+        var options = {
+            controls: false,
+            autoplay: true,
+            width: 400,
+            height: 400,
+            channel: "mch_AGG",
+            parent: ["localhost", "online-casino.test"]
+        };
+        var player = new Twitch.Player("stream-sm", options);
 
         $('#player-wins').on('click', function() {
             axios.post(urlforupdatingresults, {

@@ -21,9 +21,14 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [HomeController::class, 'index']);
 Route::get('get-current-room', [HomeController::class, 'getCurrentGame'])->name('get-current-game');
 
-Route::get('/baccarat', [HomeController::class, 'baccaratGame']);
-Route::get('/admin-baccarat', [HomeController::class, 'adminBaccarat']);
 
+//=============================for tests=============================
+Route::get('/baccarat', [HomeController::class, 'baccaratGame']);
+Route::get('/sabong', [HomeController::class, 'sabongGame']);
+Route::get('/admin-baccarat', [HomeController::class, 'adminBaccarat']);
+Route::get('/admin-sabong', [HomeController::class, 'adminSabong']);
+Route::get('/admin-dashboard', [HomeController::class, 'adminDashboard']);
+//=============================for tests=============================
 
 Route::post('update-game-status', [BaccaratGameController::class, 'updateStatus'])->name('update-game-status');
 Route::post('update-game-result', [BaccaratGameResultController::class, 'updateGameResult'])->name('update-game-result');
