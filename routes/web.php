@@ -28,6 +28,8 @@ Route::get('/sabong', [HomeController::class, 'sabongGame']);
 Route::get('/admin-baccarat', [HomeController::class, 'adminBaccarat']);
 Route::get('/admin-sabong', [HomeController::class, 'adminSabong']);
 Route::get('/admin-dashboard', [HomeController::class, 'adminDashboard']);
+Route::get('/coins-wallet', [HomeController::class, 'coinsWallet']);
+Route::get('/dashboard', [HomeController::class, 'dashboard']);
 //=============================for tests=============================
 
 Route::post('update-game-status', [BaccaratGameController::class, 'updateStatus'])->name('update-game-status');

@@ -113,15 +113,14 @@
                 </tbody>
             </table>
             
-            <div class="py-3 justify-center items-center hidden sm:flex">
-                <div id="stream-sm"></div>
+            <!--livestreams-->
+            <div class="py-3 justify-center items-center hidden xl:flex 2xl:hidden">
+                <div id="stream-xl"></div>
             </div>
-            <div class="py-3 justify-center items-center hidden md:flex">
-                <div id="stream-md"></div>
+            <div class="py-3 justify-center items-center hidden 2xl:flex">
+                <div id="stream-2xl"></div>
             </div>
-            <div class="py-3 justify-center items-center hidden lg:flex">
-                <div id="stream-lg"></div>
-            </div>
+            <!--livestreams ends here-->
 
             <div class="px-2 bg-neutral-800 rounded-md overflow-auto">
                 <h2 class="text-center pt-2">*SCROLL OR SWIPE DOWN TO SEE MATCH HISTORY</h2>
@@ -283,6 +282,7 @@
     <!--bside ends here-->
 
     <!--scripts-->
+    <script src= "https://player.twitch.tv/js/embed/v1.js"></script>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="{{asset('js/app.js')}}"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -403,7 +403,7 @@
             channel: "mch_AGG",
             parent: ["localhost", "online-casino.test"]
         };
-        var player = new Twitch.Player("stream-lg", options);
+        var player = new Twitch.Player("stream-2xl", options);
 
         var options = {
             controls: false,
@@ -413,17 +413,7 @@
             channel: "mch_AGG",
             parent: ["localhost", "online-casino.test"]
         };
-        var player = new Twitch.Player("stream-md", options);
-
-        var options = {
-            controls: false,
-            autoplay: true,
-            width: 400,
-            height: 400,
-            channel: "mch_AGG",
-            parent: ["localhost", "online-casino.test"]
-        };
-        var player = new Twitch.Player("stream-sm", options);
+        var player = new Twitch.Player("stream-xl", options);
 
     </script>
 

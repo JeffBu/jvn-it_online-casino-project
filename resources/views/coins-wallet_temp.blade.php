@@ -13,7 +13,7 @@
     <style>
         .bg-custom 
         {
-            background-image: url('/img/cards-bg.png');
+            background-image: url('{{asset("media/img/cards-bg.png")}}');
             background-repeat: no-repeat;
 
         }
@@ -27,7 +27,7 @@
     <!--header-->
     <header class="flex flex-row bg-neutral-900 justify-between items-center py-5 px-5 h-16 text-sm tracking-widest fixed w-full z-50" id="header_frame">
         <a href="/src/dashboard.html" class="">
-            <img src="/img/alpha-logo.png" alt="alpha" class="h-10">
+            <img src="{{asset('media/img/alpha-logo.png')}}" alt="alpha" class="h-10">
         </a>
     </header>
     <!--header ends here-->
@@ -42,7 +42,7 @@
                 </svg>
                 <div class="flex items-center gap-2">
                     <p class="font-bold text-xl">1</p>
-                    <img src="/img/alpha-coin.png" alt="" class="h-5 pl-1">
+                    <img src="{{asset('media/img/alpha-coin.png')}}" alt="" class="h-5 pl-1">
                     <p class="font-bold text-xl">COIN</p>
                 </div>
             </div>
@@ -50,11 +50,11 @@
                 <div class="px-4 py-2 items-center text-left">
                     <p class="pb-2">Your Alpha Coins</p>
                     <div class="flex items-center px-4 py-4 bg-neutral-700 rounded-xl gap-4">
-                        <img src="/img/user-logo.png" alt="" class="h-10 rounded-full">
+                        <img src="{{asset('media/img/user-logo.png')}}" alt="" class="h-10 rounded-full">
                         <div class="flex flex-col text-left">
                             <p class="font-semibold">zombakel</p>
                             <div class="flex gap-2 items-center">
-                                <img src="/img/alpha-coin.png" alt="" class="h-4">
+                                <img src="{{asset('media/img/alpha-coin.png')}}" alt="" class="h-4">
                                 <p class="font-semibold">1,000,000</p>
                             </div>
                         </div>
@@ -70,15 +70,15 @@
                 </div>
                 <div class="flex flex-row items-center justify-center gap-4 py-4">
                     <a href="#" class="border-orange-400 focus:border-orange-400 focus:border-2 hover:border-2 rounded-lg hover:-m-0.5 focus:-m-0.5">
-                        <img src="/img/gcash-cashin.png" alt="baccarat"
+                        <img src="{{asset('media/img/gcash-cashin.png')}}" alt="baccarat"
                         class="rounded-lg p-0.5 h-32">
                     </a>
                     <a href="#" class="border-orange-400 focus:border-orange-400 focus:border-2 hover:border-2 rounded-lg hover:-m-0.5 focus:-m-0.5">
-                        <img src="/img/paymaya-cashin.png" alt=""
+                        <img src="{{asset('media/img/paymaya-cashin.png')}}" alt=""
                         class="rounded-lg p-0.5 h-32">
                     </a>
                     <a href="#" class="border-orange-400 focus:border-orange-400 focus:border-2 hover:border-2 rounded-lg hover:-m-0.5 focus:-m-0.5">
-                        <img src="/img/coinsph-cashin.png" alt=""
+                        <img src="{{asset('media/img/coinsph-cashin.png')}}" alt=""
                         class="rounded-lg p-0.5 h-32">
                     </a>
                 </div>
@@ -154,7 +154,7 @@
     <!--footer-->
     <footer class="flex flex-row justify-between items-center bg-neutral-900 py-2 px-60 text-sm tracking-widest">
         <div class="flex items-center gap-2">
-            <img src="/img/logo.png" alt="logo" class="max-h-10">
+            <img src="{{asset('media/img/logo.png')}}" alt="logo" class="max-h-10">
             <p class="text-yellow-50">© 2022 Alpha Test. All rights reserved.</p>
         </div>
         <div class="flex items-center gap-2">

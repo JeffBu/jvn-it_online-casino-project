@@ -341,7 +341,30 @@
     </div>
 
     <div class="bg-neutral-800 flex flex-col items-center min-h-screen sm:hidden md:hidden lg:hidden xl:hidden 2xl:hidden">
-        <div class="flex flex-col text-center py-2 px-8 w-full">
+        <div class="flex flex-col text-center py-2 px-8 w-full items-center">
+                <img src="{{asset('media/img/player-wins.gif')}}" alt="" class="w-60 hidden rounded-md pb-4" id="player-wins">
+                <img src="{{asset('media/img/banker-wins.gif')}}" alt="" class="w-60 hidden h-20 rounded-md pb-4" id="banker-wins">
+                <img src="{{asset('media/img/tie.gif')}}" alt="" class="w-60 hidden rounded-md h-20 pb-4" id="game-tie">
+                <div class="flex justify-center items-center gap-10 pb-4">
+                    <div class="flex flex-col justify-center items-center">
+                        <div class="font-semibold mr-10 pb-2">PLAYER</div>
+                        <div class="flex justify-center items-center gap-2">
+                            <img id="pc1" src="{{asset('media/img/deck-of-cards/XX.png')}}" alt="" class="h-20 rounded-md">
+                            <img id="pc2" src="{{asset('media/img/deck-of-cards/XX.png')}}" alt="" class="h-20 rounded-md">
+                        </div>
+                        <img id="pce" src="{{asset('media/img/deck-of-cards/XX.png')}}" alt="" class="h-20 -rotate-90 rounded-md">
+                    </div>
+                    <div class="flex flex-col justify-center items-center">
+                        <div class="font-semibold ml-10 pb-2">BANKER</div>
+                        <div class="flex justify-center items-center gap-2">
+                            <img id="bc1" src="{{asset('media/img/deck-of-cards/XX.png')}}" alt="" class="h-20 rounded-md">
+                            <img id="bc2" src="{{asset('media/img/deck-of-cards/XX.png')}}" alt="" class="h-20 rounded-md">
+                        </div>
+                        <img id="bce" src="{{asset('media/img/deck-of-cards/XX.png')}}" alt="" class="h-20 -rotate-90 rounded-md">
+                    </div>
+
+                </div>
+
                 <div class="pb-4">
                     <h3 class="text-center" id="game_number">Game ID: </h3>
                 </div>
@@ -350,7 +373,7 @@
                 </div>
                 <div class="radio-group">
                     <div class="flex justify-center pb-2 gap-2">
-                        <button class="container bg-red-700 py-2 px-2 border-2 border-yellow-50 rounded-lg hover:bg-red-500 focus:bg-red-500 shadow-md text-center bet-option radio" data-value="B-" style="cursor: pointer"
+                        <button class="container bg-red-700 py-2 px-4 border-2 border-yellow-50 rounded-lg hover:bg-red-500 focus:bg-red-500 shadow-md text-center bet-option radio" data-value="B-" style="cursor: pointer"
                         id="banker">
                             <div>BANKER</div>
                             <div class="hidden" id="place-bet-b">
@@ -362,7 +385,7 @@
                             </div>
                             <div>1:1</div>
                         </button>
-                        <button data-value="T-" class="radio container bg-green-700 py-2 px-2 border-2 border-yellow-50 rounded-lg hover:bg-green-500 focus:bg-green-500 shadow-md text-center bet-option"
+                        <button data-value="T-" class="radio container bg-green-700 py-2 px-4 border-2 border-yellow-50 rounded-lg hover:bg-green-500 focus:bg-green-500 shadow-md text-center bet-option"
                         id="tie">
                             <div>TIE</div>
                             <div class="hidden" id="place-bet-t">
@@ -374,7 +397,7 @@
                             </div>
                             <div>8:1</div>
                         </button>
-                        <button data-value="P-" class="radio container bg-blue-700 py-2 px-2 border-2 border-yellow-50 rounded-lg hover:bg-blue-500 focus:bg-blue-500 shadow-md text-center bet-option"
+                        <button data-value="P-" class="radio container bg-blue-700 py-2 px-4 border-2 border-yellow-50 rounded-lg hover:bg-blue-500 focus:bg-blue-500 shadow-md text-center bet-option"
                         id="player">
                             <div>PLAYER</div>
                             <div class="hidden" id="place-bet-p">
@@ -388,7 +411,7 @@
                         </button>
                     </div>
                     <div class="flex justify-center pb-2 gap-2">
-                        <button data-value="BP-" class="radio container bg-red-700 py-2 px-2 border-2 border-yellow-50 rounded-lg hover:bg-red-500 focus:bg-red-500 shadow-md text-center bet-option"
+                        <button data-value="BP-" class="radio container bg-red-700 py-2 px-4 border-2 border-yellow-50 rounded-lg hover:bg-red-500 focus:bg-red-500 shadow-md text-center bet-option"
                         id="banker-pair">
                             <div>BANKER</div>
                             <div>PAIR</div>
@@ -401,7 +424,7 @@
                             </div>
                             <div>8:1</div>
                         </button>
-                        <button data-value="PP-" class="radio container bg-blue-700 py-2 px-2 border-2 border-yellow-50 rounded-lg hover:bg-blue-500 focus:bg-blue-500 shadow-md text-center bet-option"
+                        <button data-value="PP-" class="radio container bg-blue-700 py-2 px-4 border-2 border-yellow-50 rounded-lg hover:bg-blue-500 focus:bg-blue-500 shadow-md text-center bet-option"
                         id="player-pair">
                             <div>PLAYER</div>
                             <div>PAIR</div>
@@ -460,6 +483,7 @@
 
     <!--scripts-->
     <script src= "https://player.twitch.tv/js/embed/v1.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
     <script src="{{asset('js/app.js')}}"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 

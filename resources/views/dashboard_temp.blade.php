@@ -13,7 +13,7 @@
     <style>
         .bg-custom
         {
-            background-image: url('/img/cards-bg.png');
+            background-image: url('{{asset("media/img/cards-bg.png")}}');
             background-repeat: no-repeat;
 
         }
@@ -25,7 +25,7 @@
     <header class="flex flex-row bg-neutral-900 justify-between items-center py-5 px-5 h-16 text-sm tracking-widest fixed w-full z-50">
 
         <a href="#" class="">
-            <img src="/img/alpha-logo.png" alt="alpha" class="h-10">
+            <img src="{{asset('media/img/alpha-logo.png')}}" alt="alpha" class="h-10">
         </a>
 
         <div class="flex items-center gap-5 text-xl font-semibold">
@@ -35,12 +35,12 @@
         
         <div class="flex gap-8 items-center">
             <div class="flex gap-2 items-center">
-                <img src="/img/alpha-coin.png" alt="" class="h-5">
+                <img src="{{asset('media/img/alpha-coin.png')}}" alt="" class="h-5">
                 <p class="font-semibold">1,000,000</p>
             </div>
             <div class="cursor-pointer" id="user">
                 <div class="flex items-center gap-3">
-                    <img src="/img/user-logo.png" alt="user-logo" class="h-8 w-8 rounded-full">
+                    <img src="{{asset('media/img/user-logo.png')}}" alt="user-logo" class="h-8 w-8 rounded-full">
                     <p id="" class="font-semibold">zombakel</p>
                 </div>
                 <div class="hidden items-center gap-2 border-2 border-neutral-700 hover:border-neutral-600 hover:bg-neutral-700 bg-neutral-800 justify-center mt-3 w-28 cursor-pointer absolute" id="logout">
@@ -64,7 +64,7 @@
                         <h3 class="flex flex-1 px-5 py-2 font-semibold">Account</h3>
                     </div>
                     <div class="list-none flex flex-wrap items-center divide-y divide-red-800">
-                        <a href="/src/coins-wallet.html" class="block px-10 py-2 w-full hover:bg-neutral-700">My Coins / Cash-in</a>
+                        <a href="#" class="block px-10 py-2 w-full hover:bg-neutral-700">My Coins / Cash-in</a>
                         <a href="#" class="block px-10 py-2 w-full hover:bg-neutral-700">My Profile</a>
                     </div>
                 </div>
@@ -87,10 +87,10 @@
             <div id="content-sabong">
                 <div class="grid col grid-cols-2 gap-10 px-5 py-5">
                     
-                    <a href="/src/gameroom-sabong.html" class="hover:-m-0.5">
+                    <a href="#" class="hover:-m-0.5">
                         <video width="640" height="480" autoplay muted loop id="video"
                         class="rounded-lg hover:border-2 hover:border-orange-400 -m-0.5 p-0.5">
-                            <source src="/videos/casino-trailer.mp4" type="video/mp4">
+                            <source src="{{asset('media/videos/casino-trailer.mp4')}}" type="video/mp4">
                         </video>
                     </a>
 
@@ -123,10 +123,10 @@
             <div id="content-baccarat" class="hidden">
                 <div class="grid col grid-cols-2 gap-10 px-5 py-5">
                     
-                    <a href="/src/gameroom-baccarat.html" class="hover:-m-0.5">
+                    <a href="#" class="hover:-m-0.5">
                         <video width="640" height="480" autoplay muted loop id="video"
                         class="rounded-lg hover:border-2 hover:border-orange-400 -m-0.5 p-0.5">
-                            <source src="/videos/casino-trailer.mp4" type="video/mp4">
+                            <source src="{{asset('media/videos/casino-trailer.mp4')}}" type="video/mp4">
                         </video>
                     </a>
 
