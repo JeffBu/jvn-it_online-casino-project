@@ -28,19 +28,19 @@
             <img src="{{asset('media/img/alpha-logo.png')}}" alt="alpha" class="h-10">
         </a>
 
-        <div class="text-xl font-bold hidden sm:flex">Room Name</div>
+        <div class="text-xl font-bold">Room Name</div>
 
         <div class="flex gap-6 items-center">
-            <div class="flex gap-3 items-center">
+            <div class="gap-3 items-center hidden xl:flex">
                 <img src="{{asset('media/img/alpha-coin.png')}}" alt="" class="h-5">
                 <p class="font-semibold">1,000,000</p>
             </div>
-            <div>
+            <div class="hidden xl:flex">
                 <div class="flex items-center gap-3 cursor-pointer" id="user">
-                    <img src="{{asset('media/img/user-logo.png')}}" alt="user-logo" class="h-8 w-8 rounded-full">
+                    <img src="{{asset('media/img/user-logo.png')}}" alt="user-logo" class="h-8 w-8 rounded-full bg-neutral-900 border-2 border-yellow-50">
                     <p id="" class="font-semibold">zombakel</p>
                 </div>
-                <div class="hidden items-center gap-2 border-2 border-neutral-700 hover:border-neutral-600 hover:bg-neutral-700 bg-neutral-800 justify-center mt-3 w-28 px-2 cursor-pointer absolute"
+                <div class="hidden items-center border-2 border-neutral-700 hover:border-neutral-600 hover:bg-neutral-700 bg-neutral-800 justify-center mt-10 w-28 px-2 cursor-pointer absolute"
                 id="logout">
                     <a href="#" class="py-2 flex justify-center gap-2">Log Out <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
                             <path fill-rule="evenodd" d="M3 3a1 1 0 00-1 1v12a1 1 0 102 0V4a1 1 0 00-1-1zm10.293 9.293a1 1 0 001.414 1.414l3-3a1 1 0 000-1.414l-3-3a1 1 0 10-1.414 1.414L14.586 9H7a1 1 0 100 2h7.586l-1.293 1.293z" clip-rule="evenodd" />
@@ -48,6 +48,51 @@
                     </a>
                 </div>
             </div>
+            <div class="flex flex-col gap-3">
+                <button class="flex cursor-pointer xl:hidden 2xl:hidden">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"
+                    id="menu">
+                        <path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd" />
+                    </svg>
+                </button>
+                <div class="justify-center bg-neutral-800 w-60 font-semi-bold rounded-md right-5 top-14 fixed hidden border border-neutral-700"
+                id="nav-menu">
+                    <nav class="w-full text-left">
+                        <div class="flex gap-3 items-center mt-2 py-2 px-5 border-b-neutral-700 border-b">
+                            <img src="{{asset('media/img/user-logo.png')}}" alt="" class="h-6 bg-neutral-900 rounded-full border-2 border-yellow-50">
+                            <p class="font-semibold">zombakel</p>
+                        </div>
+                        <div class="flex gap-3 items-center py-2 px-5 border-b-neutral-700 border-b">
+                            <img src="{{asset('media/img/alpha-coin.png')}}" alt="" class="h-5">
+                            <p class="font-semibold">1,000,000</p>
+                        </div>
+                        
+                        <div class="shadow mt-4">
+                            <div class="list-none flex flex-wrap items-center">
+                                <h3 class="flex flex-1 px-5 py-2 font-semibold">Account</h3>
+                            </div>
+                            <div class="items-center">
+                                <a href="#" class="block px-10 py-2 w-full hover:bg-neutral-700 border-b-neutral-700 border-b">My Coins / Wallet</a>
+                                <a href="#" class="block px-10 py-2 w-full hover:bg-neutral-700 border-b-neutral-700 border-b">My Profile</a>
+                                <a href="#" class="flex gap-2 px-10 py-2 w-full hover:bg-neutral-700">Log Out <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                                        <path fill-rule="evenodd" d="M3 3a1 1 0 00-1 1v12a1 1 0 102 0V4a1 1 0 00-1-1zm10.293 9.293a1 1 0 001.414 1.414l3-3a1 1 0 000-1.414l-3-3a1 1 0 10-1.414 1.414L14.586 9H7a1 1 0 100 2h7.586l-1.293 1.293z" clip-rule="evenodd" />
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="my-4">
+                            <div class="list-none flex flex-wrap items-center">
+                                <h3 class="flex flex-1 px-5 py-2 font-semibold">Support</h3>
+                            </div>
+                            <div class="list-none flex flex-wrap items-center hover:bg-neutral-700">
+                                <a href="#" class="block px-10 py-2 w-full hover:bg-neutral-700">Chat with us</a>
+                            </div>
+                        </div>
+                    </nav>
+
+                </div>
+            </div>
+            
         </div>
 
     </header>
@@ -641,6 +686,10 @@
 
         jQuery('#user').on('click', function() {
             $('#logout').toggle();
+        });
+
+        jQuery('#menu').on('click', function() {
+            $('#nav-menu').toggle();
         });
 
         jQuery('#banker').on('click', function() {
