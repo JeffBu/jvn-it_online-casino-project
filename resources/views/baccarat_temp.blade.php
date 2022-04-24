@@ -28,9 +28,13 @@
             <img src="{{asset('media/img/alpha-logo.png')}}" alt="alpha" class="h-10">
         </a>
 
-        <div class="text-xl font-bold hidden md:flex">Room Name</div>
+        <div class="text-xl font-bold hidden sm:flex">Room Name</div>
 
-        <div class="flex gap-8 items-center">
+        <div class="flex gap-6 items-center">
+            <div class="flex gap-3 items-center">
+                <img src="{{asset('media/img/alpha-coin.png')}}" alt="" class="h-5">
+                <p class="font-semibold">1,000,000</p>
+            </div>
             <div>
                 <div class="flex items-center gap-3 cursor-pointer" id="user">
                     <img src="{{asset('media/img/user-logo.png')}}" alt="user-logo" class="h-8 w-8 rounded-full">
@@ -49,7 +53,7 @@
     </header>
 
     
-    <div class="w-full justify-center hidden xl:flex">
+    <div class="w-full justify-center hidden px-64 xl:flex">
     <!--sidebar-->
         <div class="justify-center bg-neutral-800 w-64 font-semi-bold min-h-screen left-0 fixed hidden xl:flex">
             <nav class="pt-16 w-64 text-left">
@@ -76,7 +80,7 @@
     <!--sidebar ends here-->
 
     <!--content-->
-        <div class="m-5 pt-12 text-xl font-semi-bold flex-col">
+        <div class="m-5 pt-12 text-xl font-semi-bold flex-col w-full">
             <table class="flex flex-row justify-center items-center bg-neutral-800 mt-3 px-2 py-2 rounded-md">
                 <tbody>
                     <tr>
@@ -113,10 +117,10 @@
             
             <!--livestreams-->
             <div class="py-3 justify-center items-center hidden xl:flex 2xl:hidden">
-                <div id="stream-xl"></div>
+                <div id="stream-xl" class="w-full"></div>
             </div>
             <div class="py-3 justify-center items-center hidden 2xl:flex">
-                <div id="stream-2xl"></div>
+                <div id="stream-2xl" class="w-full"></div>
             </div>
             <!--livestreams ends here-->
 
@@ -336,11 +340,11 @@
     <!--bside ends here-->
 
     <!--mobile view-->
-    <div class="bg-neutral-800 pt-20 pb-3 justify-center items-center sm:hidden md:hidden lg:hidden xl:hidden 2xl:hidden">
+    <div class="bg-neutral-800 pt-20 pb-3 justify-center items-center xl:hidden 2xl:hidden">
             <div id="stream-sm"></div>
     </div>
 
-    <div class="bg-neutral-800 flex flex-col items-center min-h-screen sm:hidden md:hidden lg:hidden xl:hidden 2xl:hidden">
+    <div class="bg-neutral-800 flex flex-col items-center min-h-screen xl:hidden 2xl:hidden">
         <div class="flex flex-col text-center py-2 px-8 w-full items-center">
                 <img src="{{asset('media/img/player-wins.gif')}}" alt="" class="w-60 hidden rounded-md pb-4" id="player-wins">
                 <img src="{{asset('media/img/banker-wins.gif')}}" alt="" class="w-60 hidden h-20 rounded-md pb-4" id="banker-wins">
@@ -764,7 +768,7 @@
         var options = {
             controls: false,
             autoplay: true,
-            width: 1440,
+            width: '100%',
             height: 720,
             channel: "mch_AGG",
             parent: ["localhost", "online-casino.test"]
@@ -774,7 +778,7 @@
         var options = {
             controls: false,
             autoplay: true,
-            width: 800,
+            width: '100%',
             height: 450,
             channel: "mch_AGG",
             parent: ["localhost", "online-casino.test"]
