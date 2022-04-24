@@ -21,7 +21,7 @@
 
 </head>
 
-<body class="text-yellow-50 w-full h-full bg-[url('{{asset("media/img/table.png")}}')] bg-no-repeat bg-cover">
+<body class="text-yellow-50 w-full h-full bg-custom bg-no-repeat bg-cover">
 
     <!--header-->
 

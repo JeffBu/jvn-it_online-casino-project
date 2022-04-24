@@ -17,9 +17,9 @@
 
     <header class="flex flex-row bg-neutral-900 justify-between items-center py-5 px-5 h-16 text-sm tracking-widest fixed w-full z-50" id="header_frame">
 
-        <a href="#" class="">
+        <div>
             <img src="{{asset('media/img/alpha-logo.png')}}" alt="alpha" class="h-10">
-        </a>
+        </div>
 
         <ul class="hidden md:flex flex-row items-center align-middle gap-3">
 
@@ -32,9 +32,9 @@
                 </a>
             </li>
 
-            <li><a href="/src/login.html" class="bg-red-800 font py-2 px-4 rounded-full hover:bg-red-500 shadow-md">SIGN IN</a></li>
+            <li><a href="http://127.0.0.1:8000/login" class="bg-red-800 font py-2 px-4 rounded-full hover:bg-red-500 shadow-md">SIGN IN</a></li>
 
-            <li><a href="/src/register.html" class="bg-red-800 font py-2 px-4 rounded-full hover:bg-red-500 shadow-md">SIGN UP</a></li>
+            <li><a href="http://127.0.0.1:8000/register" class="bg-red-800 font py-2 px-4 rounded-full hover:bg-red-500 shadow-md">SIGN UP</a></li>
         </ul>
 
         <button class="md:hidden">

@@ -53,9 +53,19 @@ class HomeController extends Controller
         return View::make('coins-wallet_temp');
     }
 
-    public function dashboard()
+    public function dashboardPage()
     {
         return View::make('dashboard_temp');
+    }
+
+    public function loginPage()
+    {
+        return View::make('auth.login');
+    }
+
+    public function registerPage()
+    {
+        return View::make('auth.register');
     }
     //=============================for tests=============================
 

@@ -24,7 +24,7 @@
 <body class="bg-custom bg-fixed bg-cover text-yellow-50" onload="getcurrentgame()">
     <header class="flex flex-row bg-neutral-900 justify-between items-center py-5 px-5 h-16 text-sm tracking-widest fixed w-full z-50" id="header_frame">
 
-        <a href="#" class="">
+        <a href="http://127.0.0.1:8000/dashboard" class="">
             <img src="{{asset('media/img/alpha-logo.png')}}" alt="alpha" class="h-10">
         </a>
 
@@ -37,7 +37,7 @@
             </div>
             <div class="hidden xl:flex">
                 <div class="flex items-center gap-3 cursor-pointer" id="user">
-                    <img src="{{asset('media/img/user-logo.png')}}" alt="user-logo" class="h-8 w-8 rounded-full bg-neutral-900 border-2 border-yellow-50">
+                    <img src="{{asset('media/img/user-logo.png')}}" alt="user-logo" class="h-6 w-6 rounded-full bg-neutral-900">
                     <p id="" class="font-semibold">zombakel</p>
                 </div>
                 <div class="hidden items-center border-2 border-neutral-700 hover:border-neutral-600 hover:bg-neutral-700 bg-neutral-800 justify-center mt-10 w-28 px-2 cursor-pointer absolute"
@@ -59,7 +59,7 @@
                 id="nav-menu">
                     <nav class="w-full text-left">
                         <div class="flex gap-3 items-center mt-2 py-2 px-5 border-b-neutral-700 border-b">
-                            <img src="{{asset('media/img/user-logo.png')}}" alt="" class="h-6 bg-neutral-900 rounded-full border-2 border-yellow-50">
+                            <img src="{{asset('media/img/user-logo.png')}}" alt="" class="h-5 w-5 bg-neutral-900 rounded-full">
                             <p class="font-semibold">zombakel</p>
                         </div>
                         <div class="flex gap-3 items-center py-2 px-5 border-b-neutral-700 border-b">
@@ -107,7 +107,7 @@
                         <h3 class="flex flex-1 px-5 py-2 font-semibold">Account</h3>
                     </div>
                     <div class="list-none flex flex-wrap items-center divide-y divide-red-800">
-                        <a href="#" class="block px-10 py-2 w-full hover:bg-neutral-700">My Coins / Wallet</a>
+                        <a href="http://127.0.0.1:8000/coins-wallet" class="block px-10 py-2 w-full hover:bg-neutral-700">My Coins / Cash-in</a>
                         <a href="#" class="block px-10 py-2 w-full hover:bg-neutral-700">My Profile</a>
                     </div>
                 </div>
@@ -125,7 +125,7 @@
     <!--sidebar ends here-->
 
     <!--content-->
-        <div class="m-5 pt-12 text-xl font-semi-bold flex-col w-full">
+        <div class="m-5 pt-12 text-xl font-semi-bold flex-col w-full px-4">
             <table class="flex flex-row justify-center items-center bg-neutral-800 mt-3 px-2 py-2 rounded-md">
                 <tbody>
                     <tr>

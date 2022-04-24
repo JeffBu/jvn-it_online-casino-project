@@ -26,7 +26,7 @@
 
     <!--header-->
     <header class="flex flex-row bg-neutral-900 justify-between items-center py-5 px-5 h-16 text-sm tracking-widest fixed w-full z-50" id="header_frame">
-        <a href="/src/dashboard.html" class="">
+        <a href="javascript:history.back()" class="">
             <img src="{{asset('media/img/alpha-logo.png')}}" alt="alpha" class="h-10">
         </a>
     </header>
@@ -50,7 +50,7 @@
                 <div class="px-4 py-2 items-center text-left">
                     <p class="pb-2">Your Alpha Coins</p>
                     <div class="flex items-center px-4 py-4 bg-neutral-700 rounded-xl gap-4">
-                        <img src="{{asset('media/img/user-logo.png')}}" alt="" class="h-10 rounded-full">
+                        <img src="{{asset('media/img/user-logo.png')}}" alt="" class="h-10 rounded-full bg-neutral-900">
                         <div class="flex flex-col text-left">
                             <p class="font-semibold">zombakel</p>
                             <div class="flex gap-2 items-center">
