@@ -49,26 +49,23 @@
 
     </header>
 
+    <div class="w-full justify-center hidden pl-64 xl:flex">
     <!--sidebar-->
-
-    <div class="relative min-h-screen flex">
-        <div class="flex justify-center bg-neutral-800 w-64 font-semi-bold">
-            <nav class="pt-16 fixed w-64 text-left">
-                <div class="shadow mt-6">
-                    <div class="list-none flex flex-wrap items-center">
-                        <h3 class="flex flex-1 px-5 py-2 font-semibold">Account</h3>
-                    </div>
-                    <div class="list-none flex flex-wrap items-center divide-y divide-red-800">
-                        <a href="http://127.0.0.1:8000/coins-wallet" class="block px-10 py-2 w-full hover:bg-neutral-700">My Coins / Cash-in</a>
-                        <a href="#" class="block px-10 py-2 w-full hover:bg-neutral-700">My Profile</a>
+        <div class="justify-center bg-neutral-900 bg-opacity-80 w-64 font-semi-bold min-h-screen left-0 fixed hidden xl:flex">
+            <nav class="flex flex-col mt-5 pt-14 w-64 text-left px-4 gap-4">
+                <div class="bg-neutral-700 border border-neutral-600 rounded-lg">
+                    <h3 class="pl-5 pr-4 py-2 font-semibold bg-neutral-800 rounded-t-lg">Account</h3>
+                    <div class="divide-y divide-neutral-600">
+                        <a href="http://127.0.0.1:8000/coins-wallet" class="block pl-10 pr-4 py-2 hover:bg-neutral-600">My Coins / Cash-in</a>
+                        <a href="#" class="block pl-10 pr-4 py-2 hover:bg-neutral-600">My Profile</a>
                     </div>
                 </div>
-                <div class="shadow mt-6">
-                    <div class="list-none flex flex-wrap items-center">
-                        <h3 class="flex flex-1 px-5 py-2 font-semibold">Support</h3>
+                <div class="bg-neutral-700 border border-neutral-600 rounded-lg">
+                    <div class="bg-neutral-800 rounded-t-lg">
+                        <h3 class="px-5 py-2 font-semibold">Support</h3>
                     </div>
-                    <div class="list-none flex flex-wrap items-center hover:bg-neutral-700 divide-y divide-red-800">
-                        <a href="#" class="block px-10 py-2 w-full hover:bg-neutral-700">Chat with us</a>
+                    <div class="divide-y divide-neutral-600">
+                        <a href="#" class="block px-10 py-2 hover:bg-neutral-600">Chat with us</a>
                     </div>
                 </div>
             </nav>
@@ -77,14 +74,14 @@
 
     <!--content-->
     
-        <div class="flex-1 m-5 pt-14 text-xl font-semi-bold w-full">
-            <div class="flex items-center gap-5 text-xl font-semibold w-full justify-center px-4 py-2 bg-neutral-800 rounded-lg border border-neutral-600">
+        <div class="flex-1 m-5 pt-14 text-xl font-semi-bold w-full px-4 py-2">
+            <div class="flex items-center gap-5 text-xl font-semibold w-full justify-center px-4 py-2 bg-neutral-900 rounded-lg border border-neutral-600">
                 <a href="#" class="hover:text-orange-400 text-yellow-50 focus:text-orange-400 focus:outline-none" id="tabs-sabong">Sabong</a>
                 <a href="#" class="hover:text-orange-400 text-yellow-50 focus:text-orange-400" id="tabs-baccarat">Baccarat</a>
             </div>
             <!--sabong-->
             <div id="content-sabong">
-                <div class="grid col grid-cols-2 gap-10 px-5 py-5">
+                <div class="grid col grid-cols-2 gap-10 py-5">
                     
                     <a href="http://127.0.0.1:8000/sabong" class="hover:-m-0.5">
                         <video width="640" height="480" autoplay muted loop id="video"
@@ -99,7 +96,7 @@
 
             <!--baccarat-->
             <div id="content-baccarat" class="hidden">
-                <div class="grid col grid-cols-2 gap-10 px-5 py-5">
+                <div class="grid col grid-cols-2 gap-10 py-5">
                     
                     <a href="http://127.0.0.1:8000/baccarat" class="hover:-m-0.5">
                         <video width="640" height="480" autoplay muted loop id="video"

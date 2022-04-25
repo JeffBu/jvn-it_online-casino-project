@@ -100,7 +100,7 @@
     <div class="w-full justify-center hidden px-64 xl:flex">
     <!--sidebar-->
         <div class="justify-center bg-neutral-900 bg-opacity-80 w-64 font-semi-bold min-h-screen left-0 fixed hidden xl:flex">
-            <nav class="flex flex-col mt-6 pt-16 w-64 text-left px-4 gap-4">
+            <nav class="flex flex-col mt-5 pt-14 w-64 text-left px-4 gap-4">
                 <div class="bg-neutral-700 border border-neutral-600 rounded-lg">
                     <h3 class="pl-5 pr-4 py-2 font-semibold bg-neutral-800 rounded-t-lg">Account</h3>
                     <div class="divide-y divide-neutral-600">
@@ -122,8 +122,8 @@
     <!--sidebar ends here-->
 
     <!--content-->
-    <div class="m-5 pt-12 text-xl font-semi-bold flex-col w-full px-4">
-            <table class="flex flex-row justify-center items-center bg-neutral-900 mt-3 px-2 py-2 rounded-lg">
+    <div class="m-5 pt-14 text-xl font-semi-bold flex-col w-full px-4">
+            <table class="flex flex-row justify-center items-center bg-neutral-900 px-2 py-2 rounded-lg">
                 <tbody>
                     <tr>
                         <td class="px-1"><div class="border-2 border-yellow-50 bg-red-600 p-2 mx-auto rounded-full"></div></td>
@@ -265,7 +265,7 @@
 
     <!--bside-->
         <div class="justify-center bg-neutral-900 bg-opacity-80 w-64 font-semi-bold fixed right-0 min-h-screen hidden xl:flex">
-                <nav class="pt-20 w-64 text-left px-4">
+                <nav class="mt-5 pt-14 w-64 text-left px-4">
 
                     <div class="pb-4">
                         <h2 class="text-center">PLACE YOUR BET</h2>
