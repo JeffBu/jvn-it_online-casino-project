@@ -100,23 +100,21 @@
     
     <div class="w-full justify-center hidden px-64 xl:flex">
     <!--sidebar-->
-        <div class="justify-center bg-neutral-800 w-64 font-semi-bold min-h-screen left-0 fixed hidden xl:flex">
-            <nav class="pt-16 w-64 text-left">
-                <div class="shadow mt-6">
-                    <div class="list-none flex flex-wrap items-center">
-                        <h3 class="flex flex-1 px-5 py-2 font-semibold">Account</h3>
-                    </div>
-                    <div class="list-none flex flex-wrap items-center divide-y divide-red-800">
-                        <a href="http://127.0.0.1:8000/coins-wallet" class="block px-10 py-2 w-full hover:bg-neutral-700">My Coins / Cash-in</a>
-                        <a href="#" class="block px-10 py-2 w-full hover:bg-neutral-700">My Profile</a>
+        <div class="justify-center bg-neutral-900 bg-opacity-80 w-64 font-semi-bold min-h-screen left-0 fixed hidden xl:flex">
+            <nav class="flex flex-col mt-6 pt-16 w-64 text-left px-4 gap-4">
+                <div class="bg-neutral-700 border border-neutral-600 rounded-lg">
+                    <h3 class="pl-5 pr-4 py-2 font-semibold bg-neutral-800 rounded-t-lg">Account</h3>
+                    <div class="divide-y divide-neutral-600">
+                        <a href="http://127.0.0.1:8000/coins-wallet" class="block pl-10 pr-4 py-2 hover:bg-neutral-600">My Coins / Cash-in</a>
+                        <a href="#" class="block pl-10 pr-4 py-2 hover:bg-neutral-600">My Profile</a>
                     </div>
                 </div>
-                <div class="shadow mt-6">
-                    <div class="list-none flex flex-wrap items-center">
-                        <h3 class="flex flex-1 px-5 py-2 font-semibold">Support</h3>
+                <div class="bg-neutral-700 border border-neutral-600 rounded-lg">
+                    <div class="bg-neutral-800 rounded-t-lg">
+                        <h3 class="px-5 py-2 font-semibold">Support</h3>
                     </div>
-                    <div class="list-none flex flex-wrap items-center hover:bg-neutral-700 divide-y divide-red-800">
-                        <a href="#" class="block px-10 py-2 w-full hover:bg-neutral-700">Chat with us</a>
+                    <div class="divide-y divide-neutral-600">
+                        <a href="#" class="block px-10 py-2 hover:bg-neutral-600">Chat with us</a>
                     </div>
                 </div>
             </nav>
@@ -160,14 +158,14 @@
                 </tbody>
             </table>
             
-            <!--livestreams-->
+            <!--livestream-->
             <div class="py-3 justify-center items-center hidden xl:flex 2xl:hidden">
                 <div id="stream-xl" class="w-full"></div>
             </div>
             <div class="py-3 justify-center items-center hidden 2xl:flex">
                 <div id="stream-2xl" class="w-full"></div>
             </div>
-            <!--livestreams ends here-->
+            <!--livestream ends here-->
 
             <div class="px-10 py-2 mb-3 bg-neutral-800 rounded-md">
                 <div class="flex justify-center items-center gap-10">
@@ -267,7 +265,7 @@
     <!--content ends here-->
 
     <!--bside-->
-        <div class="justify-center bg-neutral-800 w-64 font-semi-bold fixed right-0 min-h-screen hidden xl:flex">
+        <div class="justify-center bg-neutral-900 bg-opacity-80 w-64 font-semi-bold fixed right-0 min-h-screen hidden xl:flex">
             <nav class="pt-20 w-64 text-left px-4">
                 <div class="pb-4">
                     <h3 class="text-center" id="game_number">Game ID: </h3>
@@ -527,7 +525,6 @@
         </div>
 
     </div>
-    
     <!--mobile view ends here-->
 
     <!--scripts-->
@@ -815,8 +812,9 @@
         }
 
         var options = {
+            muted: true,
             controls: false,
-            autoplay: true,
+            autoplay: false,
             width: '100%',
             height: 720,
             channel: "mch_AGG",
@@ -825,8 +823,9 @@
         var player = new Twitch.Player("stream-2xl", options);
 
         var options = {
+            muted: true,
             controls: false,
-            autoplay: true,
+            autoplay: false,
             width: '100%',
             height: 450,
             channel: "mch_AGG",
@@ -835,8 +834,9 @@
         var player = new Twitch.Player("stream-xl", options);
 
         var options = {
+            muted: true,
             controls: false,
-            autoplay: true,
+            autoplay: false,
             width: '100%',
             height: 250,
             channel: "mch_AGG",

@@ -26,11 +26,6 @@
 
         <div>
             <img src="{{asset('media/img/alpha-logo.png')}}" alt="alpha" class="h-10">
-    </div>
-
-        <div class="flex items-center gap-5 text-xl font-semibold">
-            <a href="#" class="hover:text-orange-400 text-yellow-50 focus:text-orange-400 focus:outline-none" id="tabs-sabong">Sabong</a>
-            <a href="#" class="hover:text-orange-400 text-yellow-50 focus:text-orange-400" id="tabs-baccarat">Baccarat</a>
         </div>
         
         <div class="flex gap-8 items-center">
@@ -82,7 +77,11 @@
 
     <!--content-->
     
-        <div class="flex-1 m-5 pt-12 text-xl font-semi-bold">
+        <div class="flex-1 m-5 pt-14 text-xl font-semi-bold w-full">
+            <div class="flex items-center gap-5 text-xl font-semibold w-full justify-center px-4 py-2 bg-neutral-800 rounded-lg border border-neutral-600">
+                <a href="#" class="hover:text-orange-400 text-yellow-50 focus:text-orange-400 focus:outline-none" id="tabs-sabong">Sabong</a>
+                <a href="#" class="hover:text-orange-400 text-yellow-50 focus:text-orange-400" id="tabs-baccarat">Baccarat</a>
+            </div>
             <!--sabong-->
             <div id="content-sabong">
                 <div class="grid col grid-cols-2 gap-10 px-5 py-5">
@@ -93,27 +92,6 @@
                             <source src="{{asset('media/videos/casino-trailer.mp4')}}" type="video/mp4">
                         </video>
                     </a>
-
-                    <div class="hover:-m-0.5">
-                        <video width="640" height="480" autoplay muted loop id="video"
-                        class="rounded-lg hover:border-2 hover:border-orange-400 -m-0.5 p-0.5">
-                            <source src="/videos/casino-trailer.mp4" type="video/mp4">
-                        </video>
-                    </div>
-
-                    <div class="hover:-m-0.5">
-                        <video width="640" height="480" autoplay muted loop id="video"
-                        class="rounded-lg hover:border-2 hover:border-orange-400 p-0.5">
-                            <source src="/videos/casino-trailer.mp4" type="video/mp4">
-                        </video>
-                    </div>
-
-                    <div class="hover:-m-0.5">
-                        <video width="640" height="480" autoplay muted loop id="video"
-                        class="rounded-lg hover:border-2 hover:border-orange-400 -m-0.5 p-0.5">
-                            <source src="/videos/casino-trailer.mp4" type="video/mp4">
-                        </video>
-                    </div>
 
                 </div>
             </div>
@@ -129,20 +107,6 @@
                             <source src="{{asset('media/videos/casino-trailer.mp4')}}" type="video/mp4">
                         </video>
                     </a>
-
-                    <div class="hover:-m-0.5">
-                        <video width="640" height="480" autoplay muted loop id="video"
-                        class="rounded-lg hover:border-2 hover:border-orange-400 -m-0.5 p-0.5">
-                            <source src="/videos/casino-trailer.mp4" type="video/mp4">
-                        </video>
-                    </div>
-
-                    <div class="hover:-m-0.5">
-                        <video width="640" height="480" autoplay muted loop id="video"
-                        class="rounded-lg hover:border-2 hover:border-orange-400 p-0.5">
-                            <source src="/videos/casino-trailer.mp4" type="video/mp4">
-                        </video>
-                    </div>
 
                 </div>
             </div>

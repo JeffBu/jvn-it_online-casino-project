@@ -49,7 +49,7 @@
     </header>
 
     
-    <div class="flex w-full justify-center">
+    <div class="w-full justify-center hidden px-64 xl:flex">
     <!--sidebar-->
         <div class="justify-center bg-neutral-800 w-64 font-semi-bold min-h-screen left-0 fixed hidden md:flex">
             <nav class="pt-16 w-64 text-left">
@@ -59,7 +59,7 @@
     <!--sidebar ends here-->
 
     <!--content-->
-        <div class="m-5 pt-12 text-xl font-semi-bold hidden flex-col md:flex lg:flex">
+        <div class="m-5 pt-12 text-xl font-semi-bold flex-col w-full px-4">
         <table class="flex flex-row justify-center items-center bg-neutral-800 mt-3 px-2 py-2 rounded-md">
                 <tbody>
                     <tr>
@@ -94,12 +94,14 @@
                 </tbody>
             </table>
             
+            <!--livestream-->
             <div class="py-3 justify-center items-center hidden xl:flex 2xl:hidden">
-                <div id="stream-xl"></div>
+                <div id="stream-xl" class="w-full"></div>
             </div>
             <div class="py-3 justify-center items-center hidden 2xl:flex">
-                <div id="stream-2xl"></div>
+                <div id="stream-2xl" class="w-full"></div>
             </div>
+            <!--livestream ends here-->
 
         </div>
     <!--content ends here-->
@@ -363,9 +365,10 @@
         });
 
         var options = {
+            muted: true,
             controls: false,
-            autoplay: true,
-            width: 1440,
+            autoplay: false,
+            width: '100%',
             height: 720,
             channel: "mch_AGG",
             parent: ["localhost", "online-casino.test"]
@@ -373,9 +376,10 @@
         var player = new Twitch.Player("stream-2xl", options);
 
         var options = {
+            muted: true,
             controls: false,
-            autoplay: true,
-            width: 800,
+            autoplay: false,
+            width: '100%',
             height: 450,
             channel: "mch_AGG",
             parent: ["localhost", "online-casino.test"]

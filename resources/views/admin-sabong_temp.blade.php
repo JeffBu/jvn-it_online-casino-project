@@ -47,15 +47,82 @@
 
     </header>
 
+    <div class="w-full justify-center hidden px-64 xl:flex">
     <!--sidebar-->
-    <div class="flex w-full justify-center">
         <div class="justify-center bg-neutral-800 w-64 font-semi-bold min-h-screen left-0 fixed hidden md:flex">
             <nav class="mt-16 w-64 text-left">
-                <table class="mt-3">
+                <div></div>
+            </nav>
+        </div>
+    <!--sidebar ends here-->
+
+    <!--content-->
+        <div class="m-5 pt-12 text-xl font-semi-bold flex-col w-full px-4">
+            <table class="flex flex-row justify-center items-center bg-neutral-800 mt-3 px-2 py-2 rounded-md">
+                <tbody>
+                    <tr>
+                        <td class="px-1"><div class="border-2 border-yellow-50 bg-red-600 p-2 mx-auto rounded-full"></div></td>
+                        <td class="px-1"><div class="border-2 border-yellow-50 bg-blue-600 p-2 mx-auto rounded-full"></div></td>
+                        <td class="px-1"><div class="border-2 border-yellow-50 bg-red-600 p-2 mx-auto rounded-full"></div></td>
+                        <td class="px-1"><div class="border-2 border-yellow-50 bg-red-600 p-2 mx-auto rounded-full"></div></td>
+                        <td class="px-1"><div class="border-2 border-yellow-50 bg-blue-600 p-2 mx-auto rounded-full"></div></td>
+                        <td class="px-1"><div class="border-2 border-yellow-50 bg-red-600 p-2 mx-auto rounded-full"></div></td>
+                        <td class="px-1"><div class="border-2 border-yellow-50 bg-red-600 p-2 mx-auto rounded-full"></div></td>
+                        <td class="px-1"><div class="border-2 border-yellow-50 bg-red-600 p-2 mx-auto rounded-full"></div></td>
+                        <td class="px-1"><div class="border-2 border-yellow-50 bg-blue-600 p-2 mx-auto rounded-full"></div></td>
+                        <td class="px-1"><div class="border-2 border-yellow-50 bg-blue-600 p-2 mx-auto rounded-full"></div></td>
+                        <td class="px-1"><div class="border-2 border-yellow-50 bg-red-600 p-2 mx-auto rounded-full"></div></td>
+                        <td class="px-1"><div class="border-2 border-yellow-50 bg-blue-600 p-2 mx-auto rounded-full"></div></td>
+                        <td class="px-1"><div class="border-2 border-yellow-50 bg-blue-600 p-2 mx-auto rounded-full"></div></td>
+                        <td class="px-1"><div class="border-2 border-yellow-50 bg-blue-600 p-2 mx-auto rounded-full"></div></td>
+                        <td class="px-1"><div class="border-2 border-yellow-50 bg-blue-600 p-2 mx-auto rounded-full"></div></td>
+                        <td class="px-1"><div class="border-2 border-yellow-50 bg-green-600 p-2 mx-auto rounded-full"></div></td>
+                        <td class="px-1"><div class="border-2 border-yellow-50 bg-blue-600 p-2 mx-auto rounded-full"></div></td>
+                        <td class="px-1"><div class="border-2 border-yellow-50 bg-red-600 p-2 mx-auto rounded-full"></div></td>
+                        <td class="px-1"><div class="border-2 border-yellow-50 bg-blue-600 p-2 mx-auto rounded-full"></div></td>
+                        <td class="px-1"><div class="border-2 border-yellow-50 bg-red-600 p-2 mx-auto rounded-full"></div></td>
+                        <td class="px-1"><div class="border-2 border-yellow-50 bg-green-600 p-2 mx-auto rounded-full"></div></td>
+                        <td class="px-1"><div class="border-2 border-yellow-50 bg-blue-600 p-2 mx-auto rounded-full"></div></td>
+                        <td class="px-1"><div class="border-2 border-yellow-50 bg-blue-600 p-2 mx-auto rounded-full"></div></td>
+                        <td class="px-1"><div class="border-2 border-yellow-50 bg-red-600 p-2 mx-auto rounded-full"></div></td>
+                        <td class="px-1"><div class="border-2 border-yellow-50 bg-blue-600 p-2 mx-auto rounded-full"></div></td>
+                        <td class="px-1"><div class="border-2 border-yellow-50 bg-blue-600 p-2 mx-auto rounded-full"></div></td>
+                        <td class="px-1"><div class="border-2 border-yellow-50 bg-blue-600 p-2 mx-auto rounded-full"></div></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <!--livestream-->
+            <div class="py-3 justify-center items-center hidden xl:flex 2xl:hidden">
+                <div id="stream-xl" class="w-full"></div>
+            </div>
+            <div class="py-3 justify-center items-center hidden 2xl:flex">
+                <div id="stream-2xl" class="w-full"></div>
+            </div>
+            <!--livestream ends here-->
+
+        </div>
+    <!--content ends here-->
+
+    <!--bside-->
+        <div class="justify-center bg-neutral-800 w-64 font-semi-bold fixed top-0 bottom-0 right-0 min-h-screen hidden md:flex overflow-y-auto">
+            <nav class="w-64 mt-20 text-center">
+                <div class="flex text-left">
+                    <div class="block px-3 py-2 w-full border-x-0 border-2 border-neutral-600">Banker's Pot</div>
+                    <div class="block px-3 py-2 w-full border-r-0 border-2 border-neutral-600">1,000,000</div>
+                </div>
+
+                <div class="border-neutral-600 cursor-pointer">
+                    <div class="list-none flex flex-wrap items-center">
+                        <div id="total-bets" class="flex items-center px-5 py-2 w-full hover:bg-neutral-700 gap-2"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M5 4a3 3 0 00-3 3v6a3 3 0 003 3h10a3 3 0 003-3V7a3 3 0 00-3-3H5zm-1 9v-1h5v2H5a1 1 0 01-1-1zm7 1h4a1 1 0 001-1v-1h-5v2zm0-4h5V8h-5v2zM9 8H4v2h5V8z" clip-rule="evenodd" />
+                            </svg> Total Bets
+                        </div>
+                    </div>
+                </div>
+
+                <table class="hidden mb-10" id="table">
                     <tbody class="divide-y-2 divide-neutral-600">
-                        <tr>
-                            <td class="pl-3 font-semibold pb-2">Total Bets</td>
-                        </tr>
                         <tr>
                             <td class="pl-10 font-semibold bg-neutral-600">Meron</td>
                             <td class="bg-neutral-600"> </td>
@@ -116,65 +183,8 @@
                         </tr>
                     </tbody>
                 </table>
-            </nav>
-        </div>
-    <!--sidebar ends here-->
 
-    <!--content-->
-        <div class="m-5 pt-12 text-xl font-semi-bold hidden flex-col md:flex lg:flex">
-            <table class="flex flex-row justify-center items-center bg-neutral-800 mt-3 px-2 py-2 rounded-md">
-                <tbody>
-                    <tr>
-                        <td class="px-1"><div class="border-2 border-yellow-50 bg-red-600 p-2 mx-auto rounded-full"></div></td>
-                        <td class="px-1"><div class="border-2 border-yellow-50 bg-blue-600 p-2 mx-auto rounded-full"></div></td>
-                        <td class="px-1"><div class="border-2 border-yellow-50 bg-red-600 p-2 mx-auto rounded-full"></div></td>
-                        <td class="px-1"><div class="border-2 border-yellow-50 bg-red-600 p-2 mx-auto rounded-full"></div></td>
-                        <td class="px-1"><div class="border-2 border-yellow-50 bg-blue-600 p-2 mx-auto rounded-full"></div></td>
-                        <td class="px-1"><div class="border-2 border-yellow-50 bg-red-600 p-2 mx-auto rounded-full"></div></td>
-                        <td class="px-1"><div class="border-2 border-yellow-50 bg-red-600 p-2 mx-auto rounded-full"></div></td>
-                        <td class="px-1"><div class="border-2 border-yellow-50 bg-red-600 p-2 mx-auto rounded-full"></div></td>
-                        <td class="px-1"><div class="border-2 border-yellow-50 bg-blue-600 p-2 mx-auto rounded-full"></div></td>
-                        <td class="px-1"><div class="border-2 border-yellow-50 bg-blue-600 p-2 mx-auto rounded-full"></div></td>
-                        <td class="px-1"><div class="border-2 border-yellow-50 bg-red-600 p-2 mx-auto rounded-full"></div></td>
-                        <td class="px-1"><div class="border-2 border-yellow-50 bg-blue-600 p-2 mx-auto rounded-full"></div></td>
-                        <td class="px-1"><div class="border-2 border-yellow-50 bg-blue-600 p-2 mx-auto rounded-full"></div></td>
-                        <td class="px-1"><div class="border-2 border-yellow-50 bg-blue-600 p-2 mx-auto rounded-full"></div></td>
-                        <td class="px-1"><div class="border-2 border-yellow-50 bg-blue-600 p-2 mx-auto rounded-full"></div></td>
-                        <td class="px-1"><div class="border-2 border-yellow-50 bg-green-600 p-2 mx-auto rounded-full"></div></td>
-                        <td class="px-1"><div class="border-2 border-yellow-50 bg-blue-600 p-2 mx-auto rounded-full"></div></td>
-                        <td class="px-1"><div class="border-2 border-yellow-50 bg-red-600 p-2 mx-auto rounded-full"></div></td>
-                        <td class="px-1"><div class="border-2 border-yellow-50 bg-blue-600 p-2 mx-auto rounded-full"></div></td>
-                        <td class="px-1"><div class="border-2 border-yellow-50 bg-red-600 p-2 mx-auto rounded-full"></div></td>
-                        <td class="px-1"><div class="border-2 border-yellow-50 bg-green-600 p-2 mx-auto rounded-full"></div></td>
-                        <td class="px-1"><div class="border-2 border-yellow-50 bg-blue-600 p-2 mx-auto rounded-full"></div></td>
-                        <td class="px-1"><div class="border-2 border-yellow-50 bg-blue-600 p-2 mx-auto rounded-full"></div></td>
-                        <td class="px-1"><div class="border-2 border-yellow-50 bg-red-600 p-2 mx-auto rounded-full"></div></td>
-                        <td class="px-1"><div class="border-2 border-yellow-50 bg-blue-600 p-2 mx-auto rounded-full"></div></td>
-                        <td class="px-1"><div class="border-2 border-yellow-50 bg-blue-600 p-2 mx-auto rounded-full"></div></td>
-                        <td class="px-1"><div class="border-2 border-yellow-50 bg-blue-600 p-2 mx-auto rounded-full"></div></td>
-                    </tr>
-                </tbody>
-            </table>
-
-            <div class="py-3 justify-center items-center hidden xl:flex 2xl:hidden">
-                <div id="stream-xl"></div>
-            </div>
-            <div class="py-3 justify-center items-center hidden 2xl:flex">
-                <div id="stream-2xl"></div>
-            </div>
-
-        </div>
-    <!--content ends here-->
-
-    <!--bside-->
-        <div class="justify-center bg-neutral-800 w-64 font-semi-bold fixed right-0 min-h-screen hidden md:flex">
-            <nav class="w-64 mt-20 text-center">
-                <div class="flex text-left">
-                    <div class="block px-3 py-2 w-full border-x-0 border-2 border-neutral-600">Banker's Pot</div>
-                    <div class="block px-3 py-2 w-full border-r-0 border-2 border-neutral-600">1,000,000</div>
-                </div>
-
-                <div class="mt-10 border-y-2 border-neutral-600">
+                <div class="border-y-2 border-neutral-600">
                     <div class="list-none flex flex-wrap items-center">
                         <a href="#" onclick="toggleModal()" class="flex items-center px-5 py-2 w-full hover:bg-neutral-700 gap-2"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />
@@ -182,20 +192,22 @@
                     </div>
                 </div>
 
-                <div class="mt-10 px-10 py-2 w-full bg-yellow-400 hover:bg-yellow-300 cursor-pointer border-2 border-x-0 border-yellow-50"
-                id="open-betting">Open Betting</div>
-                <div class="mt-10 px-10 py-2 w-full bg-yellow-400 hover:bg-yellow-300 cursor-pointer border-2 border-x-0 border-yellow-50 hidden"
-                id="close-betting">Close Betting</div>
-                <div class="px-10 py-2 w-full bg-orange-400 hover:bg-orange-300 cursor-pointer border-t-0 border-2 border-x-0 border-yellow-50 hidden"
-                id="game-finish">Game Finish</div>
-                <div class="flex">
-                    <div class="px-10 py-2 w-full bg-red-700 hover:bg-red-500 cursor-pointer border-t-0 border-l-0 border-2 border-yellow-50 hidden"
-                    id="meron-wins">Meron Wins</div>
-                    <div class="px-10 py-2 w-full bg-blue-700 hover:bg-blue-500 cursor-pointer border-t-0 border-x-0 border-2 border-yellow-50 hidden"
-                    id="wala-wins">Wala Wins</div>
+                <div class="pb-10">
+                    <div class="mt-10 px-10 py-2 w-full bg-yellow-400 hover:bg-yellow-300 cursor-pointer border-2 border-x-0 border-yellow-50"
+                    id="open-betting">Open Betting</div>
+                    <div class="mt-10 px-10 py-2 w-full bg-yellow-400 hover:bg-yellow-300 cursor-pointer border-2 border-x-0 border-yellow-50 hidden"
+                    id="close-betting">Close Betting</div>
+                    <div class="px-10 py-2 w-full bg-orange-400 hover:bg-orange-300 cursor-pointer border-t-0 border-2 border-x-0 border-yellow-50 hidden"
+                    id="game-finish">Game Finish</div>
+                    <div class="flex">
+                        <div class="px-10 py-2 w-full bg-red-700 hover:bg-red-500 cursor-pointer border-t-0 border-l-0 border-2 border-yellow-50 hidden"
+                        id="meron-wins">Meron Wins</div>
+                        <div class="px-10 py-2 w-full bg-blue-700 hover:bg-blue-500 cursor-pointer border-t-0 border-x-0 border-2 border-yellow-50 hidden"
+                        id="wala-wins">Wala Wins</div>
+                    </div>
+                    <div class="px-10 py-2 w-full bg-green-700 hover:bg-green-500 cursor-pointer border-t-0 border-x-0 border-2 border-yellow-50 hidden"
+                    id="draw">Draw</div>
                 </div>
-                <div class="px-10 py-2 w-full bg-green-700 hover:bg-green-500 cursor-pointer border-t-0 border-x-0 border-2 border-yellow-50 hidden"
-                id="draw">Draw</div>
             </nav>
 
         </div>
@@ -203,8 +215,8 @@
     <!--bside ends here-->
 
     <!--modal-->
-    <div class="hidden fixed top-0 h-full w-full bg-neutral-800 bg-opacity-75 justify-center items-center py-20 px-56" id="modal">
-        <div class="flex justify-center items-center rounded-lg bg-neutral-700 border-2 border-neutral-600">
+    <div class="hidden fixed top-0 h-full w-full bg-neutral-800 bg-opacity-75 justify-center items-center py-24 xl:px-56 2xl:px-96" id="modal">
+        <div class="flex flex-row justify-start items-center rounded-lg bg-neutral-700 border-2 border-neutral-600 2xl:mx-48">
             <div class="flex flex-col w-64 h-full rounded-l-md bg-neutral-800 text-left px-5 py-5 gap-5">
                 <div class="bg-neutral-700 border-2 border-neutral-600 divide-y divide-neutral-600">
                     <div class="bg-neutral-800 text-center">Stakes</div>
@@ -260,11 +272,10 @@
             </div>
             <div class="flex flex-col px-4 py-2 gap-4">
                 <div class="text-center font-semibold text-lg">Preview</div>
-                <a href="/src/gameroom-sabong.html">
-                    <video width="640" height="480" autoplay muted loop id="video" class="rounded-lg">
-                        <source src="/videos/casino-trailer.mp4" type="video/mp4">
-                    </video>
-                </a>
+                <video width="640" height="480" autoplay muted loop id="video" class="rounded-lg">
+                    <source src="{{asset('media/videos/casino-trailer.mp4')}}" type="video/mp4">
+                </video>
+
             </div>
         </div>
 
@@ -291,6 +302,10 @@
 
         jQuery('#user').on('click', function() {
             $('#logout').toggle();
+        });
+
+        jQuery('#total-bets').on('click', function() {
+            $('#table').toggle();
         });
 
         $(document).click(function() {})
@@ -322,9 +337,10 @@
         }
 
         var options = {
+            muted: true,
             controls: false,
-            autoplay: true,
-            width: 1440,
+            autoplay: false,
+            width: '100%',
             height: 720,
             channel: "mch_AGG",
             parent: ["localhost", "online-casino.test"]
@@ -332,9 +348,10 @@
         var player = new Twitch.Player("stream-2xl", options);
 
         var options = {
+            muted: true,
             controls: false,
-            autoplay: true,
-            width: 800,
+            autoplay: false,
+            width: '100%',
             height: 450,
             channel: "mch_AGG",
             parent: ["localhost", "online-casino.test"]
