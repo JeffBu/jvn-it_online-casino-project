@@ -166,31 +166,6 @@
             </div>
             <!--livestream ends here-->
 
-            <div class="px-10 py-2 mb-3 bg-neutral-900 rounded-lg">
-                <div class="flex justify-center items-center gap-10">
-                    <img src="{{asset('media/img/player-wins.gif')}}" alt="" class="hidden rounded-md h-20" id="player-wins">
-                    <img src="{{asset('media/img/tie.gif')}}" alt="" class="hidden rounded-md h-20" id="game-tie">
-                    <div class="flex flex-col justify-center items-center">
-                        <div class="font-semibold mr-10 pb-2">PLAYER</div>
-                        <div class="flex justify-center items-center gap-2">
-                            <img id="pc1" src="{{asset('media/img/deck-of-cards/XX.png')}}" alt="" class="h-20 rounded-md">
-                            <img id="pc2" src="{{asset('media/img/deck-of-cards/XX.png')}}" alt="" class="h-20 rounded-md">
-                        </div>
-                        <img id="pce" src="{{asset('media/img/deck-of-cards/XX.png')}}" alt="" class="h-20 -rotate-90 rounded-md">
-                    </div>
-                    <div class="flex flex-col justify-center items-center">
-                        <div class="font-semibold ml-10 pb-2">BANKER</div>
-                        <div class="flex justify-center items-center gap-2">
-                            <img id="bc1" src="{{asset('media/img/deck-of-cards/XX.png')}}" alt="" class="h-20 rounded-md">
-                            <img id="bc2" src="{{asset('media/img/deck-of-cards/XX.png')}}" alt="" class="h-20 rounded-md">
-                        </div>
-                        <img id="bce" src="{{asset('media/img/deck-of-cards/XX.png')}}" alt="" class="h-20 -rotate-90 rounded-md">
-                    </div>
-                    <img src="{{asset('media/img/banker-wins.gif')}}" alt="" class="hidden h-20 rounded-md" id="banker-wins">
-                    <img src="{{asset('media/img/tie.gif')}}" alt="" class="hidden rounded-md h-20" id="game-tie">
-                </div>
-            </div>
-
             <div class="px-2 bg-neutral-900 rounded-lg overflow-auto">
                 <h2 class="text-center pt-2">*SCROLL OR SWIPE DOWN TO SEE MATCH HISTORY</h2>
 
@@ -357,33 +332,11 @@
 
     <div class="bg-neutral-800 flex flex-col items-center min-h-screen xl:hidden 2xl:hidden">
         <div class="flex flex-col text-center py-2 px-8 w-full items-center">
-                <img src="{{asset('media/img/player-wins.gif')}}" alt="" class="w-60 hidden rounded-md pb-4" id="player-wins">
-                <img src="{{asset('media/img/banker-wins.gif')}}" alt="" class="w-60 hidden h-20 rounded-md pb-4" id="banker-wins">
-                <img src="{{asset('media/img/tie.gif')}}" alt="" class="w-60 hidden rounded-md h-20 pb-4" id="game-tie">
-                <div class="flex justify-center items-center gap-10 pb-4">
-                    <div class="flex flex-col justify-center items-center">
-                        <div class="font-semibold mr-10 pb-2">PLAYER</div>
-                        <div class="flex justify-center items-center gap-2">
-                            <img id="pc1" src="{{asset('media/img/deck-of-cards/XX.png')}}" alt="" class="h-20 rounded-md">
-                            <img id="pc2" src="{{asset('media/img/deck-of-cards/XX.png')}}" alt="" class="h-20 rounded-md">
-                        </div>
-                        <img id="pce" src="{{asset('media/img/deck-of-cards/XX.png')}}" alt="" class="h-20 -rotate-90 rounded-md">
-                    </div>
-                    <div class="flex flex-col justify-center items-center">
-                        <div class="font-semibold ml-10 pb-2">BANKER</div>
-                        <div class="flex justify-center items-center gap-2">
-                            <img id="bc1" src="{{asset('media/img/deck-of-cards/XX.png')}}" alt="" class="h-20 rounded-md">
-                            <img id="bc2" src="{{asset('media/img/deck-of-cards/XX.png')}}" alt="" class="h-20 rounded-md">
-                        </div>
-                        <img id="bce" src="{{asset('media/img/deck-of-cards/XX.png')}}" alt="" class="h-20 -rotate-90 rounded-md">
-                    </div>
-
-                </div>
 
                 <div class="pb-4">
                     <h3 class="text-center" id="game_number">Game ID: </h3>
                 </div>
-                <div class="pb-4">
+                <div class="pb-6">
                     <h2 class="text-center" id="status">New Game</h2>
                 </div>
                 <div class="radio-group">
