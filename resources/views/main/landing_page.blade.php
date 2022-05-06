@@ -32,9 +32,9 @@
                 </a>
             </li>
 
-            <li><a href="http://127.0.0.1:8000/login" class="bg-red-800 font py-2 px-4 rounded-full hover:bg-red-500 shadow-md">SIGN IN</a></li>
+            <li><a href="{{route('login')}}" class="bg-red-800 font py-2 px-4 rounded-full hover:bg-red-500 shadow-md">SIGN IN</a></li>
 
-            <li><a href="http://127.0.0.1:8000/register" class="bg-red-800 font py-2 px-4 rounded-full hover:bg-red-500 shadow-md">SIGN UP</a></li>
+            <li><a href="{{route('register')}}" class="bg-red-800 font py-2 px-4 rounded-full hover:bg-red-500 shadow-md">SIGN UP</a></li>
         </ul>
 
         <button class="md:hidden">

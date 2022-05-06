@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\BaccaratGame;
 use App\Http\Controllers\BaccaratGameController;
 use App\Http\Controllers\BaccaratGameResultController;
@@ -18,7 +19,22 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [HomeController::class, 'index']);
+Auth::routes();
+
+Route::get('/', [HomeController::class, 'index'])->name('frontpage');
+
+Route::prefix('player')->group(function () {
+    Route::get('/', [PlayerController::class, 'index'])->name('player-home')->middleware('2fa');
+});
+
+//User-related routes
+Route::post('player-registration', [UserController::class, 'playerRegistration'])->name('player-registration');
+Route::get('2fa', [App\Http\Controllers\TwoFAController::class, 'index'])->name('2fa.index');
+Route::post('2fa', [App\Http\Controllers\TwoFAController::class, 'store'])->name('2fa.post');
+Route::get('2fa/reset', [App\Http\Controllers\TwoFAController::class, 'resend'])->name('2fa.resend');
+
+
+
 Route::get('get-current-room', [HomeController::class, 'getCurrentGame'])->name('get-current-game');
 
 
@@ -41,3 +57,7 @@ Route::post('get-result', [BaccaratGameResultController::class, 'getGameResult']
 Route::resource('/baccarat-game-room', BaccaratGameController::class);
 Route::resource('/baccarat-games', BaccaratGameController::class);
 Route::resource('/baccarat-game-result', BaccaratGameResultController::class);
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

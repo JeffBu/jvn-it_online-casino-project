@@ -27,7 +27,7 @@
 
     <header class="flex flex-row justify-between items-center pt-10 px-6 h-16 text-sm tracking-widest w-full z-50">
 
-        <a href="{{route('/')}}" class="">
+        <a href="{{route('frontpage')}}" class="">
             <img src="{{asset('media/img/alpha-logo.png')}}" alt="alpha" class="h-14">
         </a>
     </header>
