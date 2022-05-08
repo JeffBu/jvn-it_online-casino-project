@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateGamesTable extends Migration
+class CreateSabongRecordsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,11 @@ class CreateGamesTable extends Migration
      */
     public function up()
     {
-        Schema::create('games', function (Blueprint $table) {
+        Schema::create('sabong_records', function (Blueprint $table) {
             $table->id();
-            $table->string('tag');
-            $table->string('description');
-            $table->boolean('is_vip_only');
+            $table->foreignId('game_room_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+            $table->tinyInteger('result');
             $table->timestamps();
-            $table->softDeletes();
         });
     }
 
@@ -30,6 +28,6 @@ class CreateGamesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('games');
+        Schema::dropIfExists('sabong_records');
     }
 }

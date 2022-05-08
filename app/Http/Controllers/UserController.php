@@ -41,6 +41,7 @@ class UserController extends Controller
                 'email' => $validated['email'],
                 'password' => Hash::make($validated['password']),
                 'phone' => $validated['phone'],
+                'role_id' => 1,
                 'remember_token' => Str::random(60),
             ]);
 

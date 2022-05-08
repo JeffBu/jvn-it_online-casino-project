@@ -19,14 +19,30 @@ class LoginController extends Controller
     |
     */
 
-    use AuthenticatesUsers;
+    use AuthenticatesUsers {
+        logout as performLogout;
+    }
 
     /**
      * Where to redirect users after login.
      *
      * @var string
      */
-    protected $redirectTo = RouteServiceProvider::HOME;
+    public function redirectTo()
+    {
+        $role_id = auth()->user()->role_id;
+
+        switch($role_id) {
+            case 1:
+                return '/player';
+                break;
+            case 2:
+                return '/gamemaster';
+                break;
+            default:
+                return '/';
+        }
+    }
 
     /**
      * Create a new controller instance.
@@ -38,21 +54,8 @@ class LoginController extends Controller
         $this->middleware('guest')->except('logout');
     }
 
-    public function login(Request $request)
+    public function username()
     {
-        $request->validate([
-            'email' => 'required',
-            'password' => 'required',
-        ]);
-     
-        $credentials = $request->only('email', 'password');
-        if (Auth::attempt($credentials)) {
-  
-            auth()->user()->generateCode();
-  
-            return redirect()->route('2fa.index');
-        }
-    
-        return redirect("login")->withSuccess('Oppes! You have entered invalid credentials');
+        return 'username';
     }
 }

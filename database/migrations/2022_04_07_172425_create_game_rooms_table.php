@@ -15,8 +15,13 @@ class CreateGameRoomsTable extends Migration
     {
         Schema::create('game_rooms', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->tinyInteger('type')->default(1);
-            $table->tinyInteger('access_level')->default(1);
+            $table->foreignId('user_id')->constrained()->onDelete('cascade')->onUpdate('cascade');
+            $table->foreignId('game_id')->constrained()->onDelete('cascade')->onUpdate('cascade');
+            $table->string('feed_source');
+            $table->boolean('low_raise_enabled')->default(false);
+            $table->boolean('common_table_enabled')->default(false);
+            $table->boolean('high_stakes_enabled')->default(false);
+            $table->tinyInteger('status')->default(0);
             $table->timestamps();
             $table->softDeletes();
         });

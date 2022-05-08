@@ -24,7 +24,7 @@ class GameRoomController extends Controller
      */
     public function create()
     {
-        //
+
     }
 
     /**

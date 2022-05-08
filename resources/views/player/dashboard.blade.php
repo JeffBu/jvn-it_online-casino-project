@@ -9,6 +9,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit&display=swap" rel="stylesheet">
+    <script src="https://embed.twitch.tv/embed/v1.js"></script>
 
     <style>
         .bg-custom
@@ -27,7 +28,7 @@
         <div>
             <img src="{{asset('media/img/alpha-logo.png')}}" alt="alpha" class="h-10">
         </div>
-        
+
         <div class="flex gap-8 items-center">
             <div class="flex gap-2 items-center">
                 <img src="{{asset('media/img/alpha-coin.png')}}" alt="" class="h-5">
@@ -73,7 +74,7 @@
         </div>
 
     <!--content-->
-    
+
         <div class="flex-1 m-5 pt-14 text-xl font-semi-bold w-full px-4 py-2">
             <div class="flex items-center gap-5 text-xl font-semibold w-full justify-center px-4 py-2 bg-neutral-900 rounded-lg border border-neutral-600">
                 <a href="#" class="hover:text-orange-400 text-yellow-50 focus:text-orange-400 focus:outline-none" id="tabs-sabong">Sabong</a>
@@ -81,13 +82,13 @@
             </div>
             <!--sabong-->
             <div id="content-sabong">
-                <div class="grid col grid-cols-2 gap-10 py-5">
-                    
-                    <a href="http://127.0.0.1:8000/sabong" class="hover:-m-0.5">
-                        <video width="640" height="480" autoplay muted loop id="video"
-                        class="rounded-lg hover:border-2 hover:border-orange-400 -m-0.5 p-0.5">
-                            <source src="{{asset('media/videos/casino-trailer.mp4')}}" type="video/mp4">
-                        </video>
+                <div class="grid col grid-cols-2 gap-8 px-5 py-5">
+
+                    <a href="{{route('play-game')}}" class="hover:-m-0.5">
+                        <div width="640" height="480"
+                        class="rounded-lg hover:border-2 hover:border-orange-400 -m-0.5 p-0.5" >
+                        <div id="stream-xl" class="w-full"></div>
+                    </div>
                     </a>
 
                 </div>
@@ -97,7 +98,7 @@
             <!--baccarat-->
             <div id="content-baccarat" class="hidden">
                 <div class="grid col grid-cols-2 gap-10 py-5">
-                    
+
                     <a href="http://127.0.0.1:8000/baccarat" class="hover:-m-0.5">
                         <video width="640" height="480" autoplay muted loop id="video"
                         class="rounded-lg hover:border-2 hover:border-orange-400 -m-0.5 p-0.5">
@@ -130,12 +131,23 @@
             $('#tabs-sabong').focus();
         });
 
-        
+
         jQuery('#user').on('click', function() {
             $('#logout').toggle();
         });
 
         $(document).click(function() {})
+
+        var options = {
+            muted: true,
+            controls: false,
+            autoplay: false,
+            width: '100%',
+            height: 480,
+            channel: 'gowthereeno',
+            parent: ["localhost", "online-casino.test"]
+        };
+        var player = new Twitch.Player("stream-xl", options);
     </script>
 
     <!--scripts ends here-->

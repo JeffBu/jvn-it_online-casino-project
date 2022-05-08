@@ -11,7 +11,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Outfit&display=swap" rel="stylesheet">
 
     <style>
-        .bg-custom 
+        .bg-custom
         {
             background-image: url('{{asset("media/img/cards-bg.png")}}');
             background-repeat: no-repeat;
@@ -66,7 +66,7 @@
                             <img src="{{asset('media/img/alpha-coin.png')}}" alt="" class="h-5">
                             <p class="font-semibold">1,000,000</p>
                         </div>
-                        
+
                         <div class="shadow mt-4">
                             <div class="list-none flex flex-wrap items-center">
                                 <h3 class="flex flex-1 px-5 py-2 font-semibold">Account</h3>
@@ -92,7 +92,7 @@
 
                 </div>
             </div>
-            
+
         </div>
 
     </header>
@@ -156,7 +156,7 @@
                     </tr>
                 </tbody>
             </table>
-            
+
             <!--livestream-->
             <div class="py-3 justify-center items-center hidden xl:flex 2xl:hidden">
                 <div id="stream-xl" class="w-full"></div>
@@ -285,7 +285,7 @@
                                 <div>WINNING PERCENTAGE</div>
                         </button>
                     </div>
-                    
+
                     <div class="pb-4">
                         <h2 class="text-center">CHOOSE AMOUNT TO BET</h2>
                     </div>
@@ -458,6 +458,8 @@
         var current_bet = 0;
         var bet =0;
 
+        jQuery(window).on
+
         jQuery(window).on('scroll', function() {
             if(jQuery(window).scrollTop() > 0) {
                 jQuery('#header_frame').css('background-color', '#171717');
@@ -466,7 +468,7 @@
                 jQuery('#header_frame').css('background-color', '#171717');
             }
         });
-        
+
         $(document).scroll(function() {})
 
         jQuery('#user').on('click', function() {
@@ -587,7 +589,7 @@
             autoplay: false,
             width: '100%',
             height: 450,
-            channel: "mch_AGG",
+            channel: "gowthereeno",
             parent: ["localhost", "online-casino.test"]
         };
         var player = new Twitch.Player("stream-xl", options);
@@ -598,7 +600,7 @@
             autoplay: false,
             width: '100%',
             height: 250,
-            channel: "mch_AGG",
+            channel: "gowthereeno",
             parent: ["localhost", "online-casino.test"]
         };
         var player = new Twitch.Player("stream-sm", options);

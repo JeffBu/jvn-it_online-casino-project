@@ -1,10 +1,11 @@
 module.exports = {
-  content: [
-      "./resources/**/**/*.blade.php",
-      "./resources/**/*.blade.php",
-      "./resources/**/*.js",
-      "./reources/**/*.vue",
-  ],
+    purge: [],
+    purge: [
+        './resources/**/*.blade.php',
+        './resources/**/*.js',
+        './resources/**/*.vue',
+    ],
+        darkMode: false, // or 'media' or 'class'
   theme: {
     extend: {},
   },

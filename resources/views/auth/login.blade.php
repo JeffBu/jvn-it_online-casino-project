@@ -41,18 +41,21 @@
             <p class="text-2xl font-bold pb-4 pt-14">Sign in to your account</p>
             <div class="bg-custom bg-cover relative mt-4 border-yellow-50 text-yellow-50 text-center border-8 w-80 shadow-2xl sm:rounded-lg">
                 <div class="py-6 px-8">
-                    <label class="block font-semibold">Username / Email<label>
-                    <input type="text" placeholder="Username / Email" class="border w-full h-5 px-3 py-5 mt-3 text-neutral-800 focus:text-neutral-800 hover:outline-none focus:outline-none rounded-md">
-                    <label class="block mt-6 font-semibold">Password<label>
-                    <input type="password" placeholder="Password" class="border w-full h-5 px-3 py-5 mt-3 focus:text-neutral-800 hover:outline-none focus:outline-none rounded-md">
-                    <div class="flex justify-between items-baseline mt-9">
-                        <a href="#" class="bg-yellow-50 font-semibold text-neutral-800 py-2 px-6 rounded-lg shadow-md">Sign In</a>
-                        <a href="#" class="text-sm hover:underline">Forgot password?</a>
-                    </div>
-                    <div class="flex flex-row justify-center items-baseline gap-5 pb-4 pt-20 font-semibold">
-                        <p class="text-sm">Don't have an account?</p>
-                        <a href="/src/register.html" class="text-md hover:underline">Sign Up</a>
-                    </div>
+                    <form action="{{route('login')}}" method="POST">
+                        @csrf
+                        <label class="block font-semibold">Username / Email<label>
+                        <input type="text" name="username" placeholder="Username" class="border w-full h-5 px-3 py-5 mt-3 text-neutral-800 focus:text-neutral-800 hover:outline-none focus:outline-none rounded-md">
+                        <label class="block mt-6 font-semibold">Password<label>
+                        <input type="password" name="password" placeholder="Password" class="border w-full h-5 px-3 py-5 mt-3 focus:text-neutral-800 hover:outline-none focus:outline-none rounded-md">
+                        <div class="flex justify-between items-baseline mt-9">
+                            <button type="password" class="bg-yellow-50 font-semibold text-neutral-800 py-2 px-6 rounded-lg shadow-md">Sign In</button>
+                            <a href="#" class="text-sm hover:underline">Forgot password?</a>
+                        </div>
+                        <div class="flex flex-row justify-center items-baseline gap-5 pb-4 pt-20 font-semibold">
+                            <p class="text-sm">Don't have an account?</p>
+                            <a href="{{route('register')}}" class="text-md hover:underline">Sign Up</a>
+                        </div>
+                </form>
                 </div>
             </div>
         </div>

@@ -11,7 +11,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Outfit&display=swap" rel="stylesheet">
 
     <style>
-        .bg-custom 
+        .bg-custom
         {
             background-image: url('{{asset("media/img/cards-bg.png")}}');
             background-repeat: no-repeat;
@@ -27,7 +27,7 @@
         <a href="admin-dashboard.html" class="">
             <img src="{{asset('media/img/alpha-logo.png')}}" alt="alpha" class="h-10">
         </a>
-        
+
         <div class="text-xl font-bold">Room Name</div>
 
         <div class="flex gap-8 items-center">
@@ -184,17 +184,9 @@
                     </tbody>
                 </table>
 
-                <div class="border-y-2 border-neutral-600">
-                    <div class="list-none flex flex-wrap items-center">
-                        <a href="#" onclick="toggleModal()" class="flex items-center px-5 py-2 w-full hover:bg-neutral-700 gap-2"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />
-                          </svg> Create Room</a>
-                    </div>
-                </div>
-
                 <div class="pb-10">
-                    <div class="mt-10 px-10 py-2 w-full bg-yellow-400 hover:bg-yellow-300 cursor-pointer border-2 border-x-0 border-yellow-50"
-                    id="open-betting">Open Betting</div>
+                    <button type="button" class="mt-10 px-10 py-2 w-full bg-yellow-400 hover:bg-yellow-300 cursor-pointer border-2 border-x-0 border-yellow-50"
+                    id="open-betting">Open Betting</button>
                     <div class="mt-10 px-10 py-2 w-full bg-yellow-400 hover:bg-yellow-300 cursor-pointer border-2 border-x-0 border-yellow-50 hidden"
                     id="close-betting">Close Betting</div>
                     <div class="px-10 py-2 w-full bg-orange-400 hover:bg-orange-300 cursor-pointer border-t-0 border-2 border-x-0 border-yellow-50 hidden"
@@ -211,7 +203,7 @@
             </nav>
 
         </div>
-    </div>    
+    </div>
     <!--bside ends here-->
 
     <!--modal-->
@@ -297,7 +289,7 @@
                 jQuery('#header_frame').css('background-color', '#171717');
             }
         });
-        
+
         $(document).scroll(function() {})
 
         jQuery('#user').on('click', function() {
@@ -311,26 +303,107 @@
         $(document).click(function() {})
 
         jQuery('#open-betting').on('click', function() {
-            $('#close-betting').toggle();
-            $('#open-betting').css('display', 'none');
-            $('#meron-wins').css('display', 'none');
-            $('#wala-wins').css('display', 'none');
-            $('#draw').css('display', 'none');
-            $('#game-finish').css('display', 'none');
+
+            var url = "{{route('update-sabong-game')}}";
+
+            axios.post(url, {
+                game_room_id : 2,
+                status: 1
+            }).then(function (response) {
+                $('#close-betting').toggle();
+                $('#open-betting').css('display', 'none');
+                $('#meron-wins').css('display', 'none');
+                $('#wala-wins').css('display', 'none');
+                $('#draw').css('display', 'none');
+                $('#game-finish').css('display', 'none');
+            }).catch(function (error) {
+                console.log(error.response.data)
+            })
         });
 
         jQuery('#close-betting').on('click', function() {
-            $('#close-betting').toggle();
-            $('#open-betting').toggle();
-            $('#game-finish').toggle();
+            var url = "{{route('update-sabong-game')}}";
+
+            axios.post(url, {
+                game_room_id : 2,
+                status: 2
+            }).then(function (response) {
+                $('#close-betting').toggle();
+                $('#open-betting').toggle();
+                $('#game-finish').toggle();
+            }).catch(function (error) {
+                console.log(error.response.data)
+            })
+
         });
 
         jQuery('#game-finish').on('click', function() {
-            $('#game-finish').toggle();
-            $('#meron-wins').toggle();
-            $('#wala-wins').toggle();
-            $('#draw').toggle();
+
+            var url = "{{route('update-sabong-game')}}";
+
+            axios.post(url, {
+                game_room_id : 2,
+                status: 2
+            }).then(function (response) {
+                $('#game-finish').toggle();
+                $('#meron-wins').toggle();
+                $('#wala-wins').toggle();
+                $('#draw').toggle();
+            }).catch(function (error) {
+                console.log(error.response.data)
+            })
+
         });
+
+        jQuery('#meron-wins').on('click', function () {
+            var url = "{{route('create-sabong-record')}}"
+            axios.post(url, {
+                game_room_id : 2,
+                result : 1
+            }).then(function(response) {
+                $('#open-betting').toggle();
+                $('#close-betting').css('display', 'none');
+                $('#meron-wins').css('display', 'none');
+                $('#wala-wins').css('display', 'none');
+                $('#draw').css('display', 'none');
+                $('#game-finish').css('display', 'none');
+            }).catch(function (error) {
+                console.log(error.response.data)
+            })
+        })
+
+        jQuery('#wala-wins').on('click', function () {
+            var url = "{{route('create-sabong-record')}}"
+            axios.post(url, {
+                game_room_id : 2,
+                result : 2
+            }).then(function(response) {
+                $('#open-betting').toggle();
+                $('#close-betting').css('display', 'none');
+                $('#meron-wins').css('display', 'none');
+                $('#wala-wins').css('display', 'none');
+                $('#draw').css('display', 'none');
+                $('#game-finish').css('display', 'none');
+            }).catch(function (error) {
+                console.log(error.response.data)
+            })
+        })
+
+        jQuery('#draw').on('click', function () {
+            var url = "{{route('create-sabong-record')}}"
+            axios.post(url, {
+                game_room_id : 2,
+                result : 3
+            }).then(function(response) {
+                $('#close-betting').css('display', 'none');
+                $('#meron-wins').css('display', 'none');
+                $('#wala-wins').css('display', 'none');
+                $('#draw').css('display', 'none');
+                $('#game-finish').css('display', 'none');
+            }).catch(function (error) {
+                console.log(error.response.data)
+            })
+        })
 
         function toggleModal() {
             document.getElementById('modal').classList.toggle('hidden')
@@ -346,14 +419,13 @@
             parent: ["localhost", "online-casino.test"]
         };
         var player = new Twitch.Player("stream-2xl", options);
-
         var options = {
             muted: true,
             controls: false,
             autoplay: false,
             width: '100%',
             height: 450,
-            channel: "mch_AGG",
+            channel: 'gowthereeno',
             parent: ["localhost", "online-casino.test"]
         };
         var player = new Twitch.Player("stream-xl", options);

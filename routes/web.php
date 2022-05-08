@@ -2,9 +2,12 @@
 
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\PlayerController;
+use App\Http\Controllers\GameMasterController;
 use App\Http\Controllers\BaccaratGame;
 use App\Http\Controllers\BaccaratGameController;
 use App\Http\Controllers\BaccaratGameResultController;
+use App\Http\Controllers\Auth\LoginController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -22,11 +25,23 @@ use Illuminate\Support\Facades\Route;
 Auth::routes();
 
 Route::get('/', [HomeController::class, 'index'])->name('frontpage');
+Route::get('logout', [LoginController::class, 'logout']);
 
-Route::prefix('player')->group(function () {
-    Route::get('/', [PlayerController::class, 'index'])->name('player-home')->middleware('2fa');
+//GameMaster routes
+Route::prefix('gamemaster')->group(function () {
+    Route::get('/', [GameMasterController::class, 'index'])->name('game-master-home');
 });
 
+Route::get('manage-game-room', [GameMasterController::class, 'viewGameRoom'])->name('manage-game-room');
+
+Route::post('create-game-room', [GameMasterController::class, 'createGameRoom'])->name('create-game-room');
+Route::post('update-sabong-game', [GameMasterController::class, 'updateGameRoomStatus'])->name('update-sabong-game');
+Route::post('create-sabong-record', [GameMasterController::class, 'createSabongRecord'])->name('create-sabong-record');
+//Player routes
+Route::prefix('player')->group(function () {
+    Route::get('/', [PlayerController::class, 'index']);
+});
+Route::get('play-game', [PlayerController::class, 'playGame'])->name('play-game');
 //User-related routes
 Route::post('player-registration', [UserController::class, 'playerRegistration'])->name('player-registration');
 Route::get('2fa', [App\Http\Controllers\TwoFAController::class, 'index'])->name('2fa.index');
