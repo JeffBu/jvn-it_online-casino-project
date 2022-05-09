@@ -17,11 +17,18 @@
             background-repeat: no-repeat;
 
         }
+        
+        .bg-auth
+        {
+            background-image: url("{{asset('media/img/table.png')}}");
+            background-repeat: no-repeat;
+
+        }
     </style>
 
 </head>
 
-<body class="text-yellow-50 w-full h-full bg-custom bg-no-repeat bg-cover">
+<body class="text-yellow-50 w-full h-full bg-auth bg-no-repeat bg-cover">
 
     <!--header-->
 

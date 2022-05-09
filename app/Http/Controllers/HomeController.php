@@ -30,12 +30,12 @@ class HomeController extends Controller
 
     public function sabongGame()
     {
-        return View::make('sabong_temp');
+        return View::make('player.sabong');
     }
 
     public function adminBaccarat()
     {
-        return View::make('admin-baccarat_temp');
+        return View::make('gamemaster.admin-baccarat_temp');
     }
 
     public function adminSabong()
@@ -55,7 +55,7 @@ class HomeController extends Controller
 
     public function dashboardPage()
     {
-        return View::make('dashboard_temp');
+        return View::make('player.dashboard');
     }
 
     public function loginPage()

@@ -75,8 +75,8 @@
                             <a href="{{route('manage-game-room', ['game_room_id' => $gameroom->id])}}" class="hover:-m-0.5">
                                 <div width="640" height="480"
                                 class="rounded-lg hover:border-2 hover:border-orange-400 -m-0.5 p-0.5" >
-                                <div id="stream-xl" class="w-full"></div>
-                            </div>
+                                    <div id="stream-sm" class="w-full"></div>
+                                </div>
 
                                 {{-- <video src="{{asset('media/videos/casino-trailer.mp4')}}" width="640" height="480" autoplay muted loop id="video"
                                 class="rounded-lg hover:border-2 hover:border-orange-400 -m-0.5 p-0.5">
@@ -193,11 +193,11 @@
             controls: false,
             autoplay: false,
             width: '100%',
-            height: 450,
-            channel: 'gowthereeno',
+            height: 250,
+            channel: "mch_AGG",
             parent: ["localhost", "online-casino.test"]
         };
-        var player = new Twitch.Player("stream-xl", options);
+        var player = new Twitch.Player("stream-sm", options);
     </script>
 
     <!--scripts ends here-->

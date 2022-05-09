@@ -121,6 +121,7 @@
                     </div>
                 </div>
 
+                <!--
                 <table class="hidden mb-10" id="table">
                     <tbody class="divide-y-2 divide-neutral-600">
                         <tr>
@@ -183,6 +184,7 @@
                         </tr>
                     </tbody>
                 </table>
+                -->
 
                 <div class="pb-10">
                     <button type="button" class="mt-10 px-10 py-2 w-full bg-yellow-400 hover:bg-yellow-300 cursor-pointer border-2 border-x-0 border-yellow-50"
