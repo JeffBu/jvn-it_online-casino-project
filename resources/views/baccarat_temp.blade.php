@@ -33,7 +33,7 @@
         <div class="flex gap-6 items-center">
             <div class="gap-3 items-center hidden xl:flex">
                 <img src="{{asset('media/img/alpha-coin.png')}}" alt="" class="h-5">
-                <p class="font-semibold">1,000,000</p>
+                <p class="font-semibold" id="wallet">1,000,000</p>
             </div>
             <div class="hidden xl:flex">
                 <div class="flex items-center gap-3 cursor-pointer" id="user">
@@ -420,7 +420,7 @@
                 </div>
                 <div class="radio-group">
                     <div class="flex justify-center pb-2 gap-2">
-                        <button class="container bg-red-700 py-2 px-4 border-2 border-yellow-50 rounded-lg hover:bg-red-500 focus:bg-red-500 shadow-md text-center bet-option radio" data-value="B-" style="cursor: pointer"
+                        <button class="container bg-red-700 py-2 px-2 border-2 border-yellow-50 rounded-lg hover:bg-red-500 focus:bg-red-500 shadow-md text-center bet-option radio" data-value="B-" style="cursor: pointer"
                         id="banker">
                             <div>BANKER</div>
                             <div class="hidden" id="place-bet-b">
@@ -432,7 +432,7 @@
                             </div>
                             <div>1:1</div>
                         </button>
-                        <button data-value="T-" class="radio container bg-green-700 py-2 px-4 border-2 border-yellow-50 rounded-lg hover:bg-green-500 focus:bg-green-500 shadow-md text-center bet-option"
+                        <button data-value="T-" class="radio container bg-green-700 py-2 px-2 border-2 border-yellow-50 rounded-lg hover:bg-green-500 focus:bg-green-500 shadow-md text-center bet-option"
                         id="tie">
                             <div>TIE</div>
                             <div class="hidden" id="place-bet-t">
@@ -444,7 +444,7 @@
                             </div>
                             <div>8:1</div>
                         </button>
-                        <button data-value="P-" class="radio container bg-blue-700 py-2 px-4 border-2 border-yellow-50 rounded-lg hover:bg-blue-500 focus:bg-blue-500 shadow-md text-center bet-option"
+                        <button data-value="P-" class="radio container bg-blue-700 py-2 px-2 border-2 border-yellow-50 rounded-lg hover:bg-blue-500 focus:bg-blue-500 shadow-md text-center bet-option"
                         id="player">
                             <div>PLAYER</div>
                             <div class="hidden" id="place-bet-p">
@@ -458,7 +458,7 @@
                         </button>
                     </div>
                     <div class="flex justify-center pb-2 gap-2">
-                        <button data-value="BP-" class="radio container bg-red-700 py-2 px-4 border-2 border-yellow-50 rounded-lg hover:bg-red-500 focus:bg-red-500 shadow-md text-center bet-option"
+                        <button data-value="BP-" class="radio container bg-red-700 py-2 px-2 border-2 border-yellow-50 rounded-lg hover:bg-red-500 focus:bg-red-500 shadow-md text-center bet-option"
                         id="banker-pair">
                             <div>BANKER</div>
                             <div>PAIR</div>
@@ -471,7 +471,7 @@
                             </div>
                             <div>8:1</div>
                         </button>
-                        <button data-value="PP-" class="radio container bg-blue-700 py-2 px-4 border-2 border-yellow-50 rounded-lg hover:bg-blue-500 focus:bg-blue-500 shadow-md text-center bet-option"
+                        <button data-value="PP-" class="radio container bg-blue-700 py-2 px-2 border-2 border-yellow-50 rounded-lg hover:bg-blue-500 focus:bg-blue-500 shadow-md text-center bet-option"
                         id="player-pair">
                             <div>PLAYER</div>
                             <div>PAIR</div>
@@ -535,7 +535,9 @@
 
     <script>
         var current_bet = 0;
-        var bet =0;
+        var bet = 0;
+        var bal = 1000000;
+
         jQuery(window).on('scroll', function() {
             if(jQuery(window).scrollTop() > 0) {
                 jQuery('#header_frame').css('background-color', '#171717');
@@ -736,17 +738,35 @@
 
         $(document).click(function() {})
 
-        function clearbet()
+        function clearBet()
         {
             bet = 0
+            bal = 1000000
+
             $('.betValue').text(bet.toString())
+            $('#wallet').text(bal.toString())
+
+            $('#bg-bet-b').css('background', '#404040');
+            $('#bg-bet-t').css('background', '#404040');
+            $('#bg-bet-p').css('background', '#404040');
+            $('#bg-bet-bp').css('background', '#404040');
+            $('#bg-bet-pp').css('background', '#404040');
         }
 
         function addbet(value) {
             var x = bet += value
+            bal -= value
             $('.betValue').text(bet.toString())
+            $('#wallet').text(bal.toString())
 
-            if (x >= 5 && x <= 9) {
+            if (x >= 0 && x <= 4) {
+                $('#bg-bet-b').css('background', '#404040');
+                $('#bg-bet-t').css('background', '#404040');
+                $('#bg-bet-p').css('background', '#404040');
+                $('#bg-bet-bp').css('background', '#404040');
+                $('#bg-bet-pp').css('background', '#404040');
+            }
+            else if (x >= 5 && x <= 9) {
                 $('#bg-bet-b').css('background', '#22c55e');
                 $('#bg-bet-t').css('background', '#22c55e');
                 $('#bg-bet-p').css('background', '#22c55e');
