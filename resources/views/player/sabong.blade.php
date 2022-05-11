@@ -33,7 +33,7 @@
         <div class="flex gap-6 items-center">
             <div class="gap-3 items-center hidden xl:flex">
                 <img src="{{asset('media/img/alpha-coin.png')}}" alt="" class="h-5">
-                <p class="font-semibold">1,000,000</p>
+                <p class="font-semibold" id="wallet">1,000,000</p>
             </div>
             <div class="hidden xl:flex">
                 <div class="flex items-center gap-3 cursor-pointer" id="user">
@@ -166,7 +166,83 @@
             </div>
             <!--livestream ends here-->
 
-            <div class="px-2 bg-neutral-900 rounded-lg overflow-auto">
+            <div class="px-10 py-2 mb-3 bg-neutral-800 rounded-lg">
+                <div class="flex justify-center items-center gap-10">
+                    <img src="{{asset('media/img/meron-wins.gif')}}" alt="" class="visible rounded-md h-20" id="meron-wins">
+                    <img src="{{asset('media/img/draw.gif')}}" alt="" class="hidden rounded-md h-20" id="game-draw">
+                    <div class="flex flex-col justify-center items-center">
+                        <div class="font-semibold mr-10 pb-2 text-red-600">MERON</div>
+                        <div class="border border-neutral-600 rounded-md">
+                            <table class="text-base text-center w-full">
+                                <tbody class="divide-y divide-neutral-600">
+                                    <tr class="divide-x divide-neutral-600 gap-2">
+                                        <td class="px-2">Owner:</td>
+                                        <td class="px-2">ABCDE</td>
+                                    </tr>
+                                    <tr class="divide-x divide-neutral-600 gap-2">
+                                        <td class="px-2">Type:</td>
+                                        <td class="px-2">Talisayin</td>
+                                    </tr>
+                                    <tr class="divide-x divide-neutral-600 gap-2">
+                                        <td class="px-2">Weight:</td>
+                                        <td class="px-2">2kg</td>
+                                    </tr>
+                                    <tr class="divide-x divide-neutral-600 gap-2">
+                                        <td class="px-2">Wins:</td>
+                                        <td class="px-2">10</td>
+                                    </tr>
+                                    <tr class="divide-x divide-neutral-600 gap-2">
+                                        <td class="px-2">Losses:</td>
+                                        <td class="px-2">5</td>
+                                    </tr>
+                                    <tr class="divide-x divide-neutral-600 gap-2">
+                                        <td class="px-2">Total:</td>
+                                        <td class="px-2">15</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="flex flex-col justify-center items-center">
+                        <div class="font-semibold ml-10 pb-2 text-blue-600">WALA</div>
+                        <div class="border border-neutral-600 rounded-md">
+                            <table class="text-base text-center w-full">
+                                <tbody class="divide-y divide-neutral-600">
+                                    <tr class="divide-x divide-neutral-600 gap-2">
+                                        <td class="px-2">Owner:</td>
+                                        <td class="px-2">VWXYZ</td>
+                                    </tr>
+                                    <tr class="divide-x divide-neutral-600 gap-2">
+                                        <td class="px-2">Type:</td>
+                                        <td class="px-2">Pula</td>
+                                    </tr>
+                                    <tr class="divide-x divide-neutral-600 gap-2">
+                                        <td class="px-2">Weight:</td>
+                                        <td class="px-2">2kg</td>
+                                    </tr>
+                                    <tr class="divide-x divide-neutral-600 gap-2">
+                                        <td class="px-2">Wins:</td>
+                                        <td class="px-2">8</td>
+                                    </tr>
+                                    <tr class="divide-x divide-neutral-600 gap-2">
+                                        <td class="px-2">Losses:</td>
+                                        <td class="px-2">2</td>
+                                    </tr>
+                                    <tr class="divide-x divide-neutral-600 gap-2">
+                                        <td class="px-2">Total:</td>
+                                        <td class="px-2">10</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <img src="{{asset('media/img/wala-wins.gif')}}" alt="" class="visible h-20 rounded-md" id="wala-wins">
+                    <img src="{{asset('media/img/draw.gif')}}" alt="" class="hidden rounded-md h-20" id="game-draw">
+                </div>
+            </div>
+
+            <div class="px-2 bg-neutral-800 rounded-lg overflow-auto">
+
                 <h2 class="text-center pt-2">*SCROLL OR SWIPE DOWN TO SEE MATCH HISTORY</h2>
 
                 <table class="flex items-start flex-start py-8 px-4">
@@ -332,6 +408,78 @@
 
     <div class="bg-neutral-800 flex flex-col items-center min-h-screen xl:hidden 2xl:hidden">
         <div class="flex flex-col text-center py-2 px-8 w-full items-center">
+                <img src="{{asset('media/img/meron-wins.gif')}}" alt="" class="w-60 hidden rounded-md pb-4" id="meron-wins">
+                <img src="{{asset('media/img/wala-wins.gif')}}" alt="" class="w-60 hidden h-20 rounded-md pb-4" id="wala-wins">
+                <img src="{{asset('media/img/draw.gif')}}" alt="" class="w-60 hidden rounded-md h-20 pb-4" id="game-draw">
+                
+                <div class="flex justify-center items-center gap-10 mb-6">
+                    <div class="flex flex-col justify-center items-center">
+                        <div class="font-semibold mr-10 pb-2 text-red-600">MERON</div>
+                        <div class="border border-neutral-600 rounded-md">
+                            <table class="text-base text-center w-full">
+                                <tbody class="divide-y divide-neutral-600">
+                                    <tr class="divide-x divide-neutral-600 gap-2">
+                                        <td class="px-2">Owner:</td>
+                                        <td class="px-2">ABCDE</td>
+                                    </tr>
+                                    <tr class="divide-x divide-neutral-600 gap-2">
+                                        <td class="px-2">Type:</td>
+                                        <td class="px-2">Talisayin</td>
+                                    </tr>
+                                    <tr class="divide-x divide-neutral-600 gap-2">
+                                        <td class="px-2">Weight:</td>
+                                        <td class="px-2">2kg</td>
+                                    </tr>
+                                    <tr class="divide-x divide-neutral-600 gap-2">
+                                        <td class="px-2">Wins:</td>
+                                        <td class="px-2">10</td>
+                                    </tr>
+                                    <tr class="divide-x divide-neutral-600 gap-2">
+                                        <td class="px-2">Losses:</td>
+                                        <td class="px-2">5</td>
+                                    </tr>
+                                    <tr class="divide-x divide-neutral-600 gap-2">
+                                        <td class="px-2">Total:</td>
+                                        <td class="px-2">15</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="flex flex-col justify-center items-center">
+                        <div class="font-semibold ml-10 pb-2 text-blue-600">WALA</div>
+                        <div class="border border-neutral-600 rounded-md">
+                            <table class="text-base text-center w-full">
+                                <tbody class="divide-y divide-neutral-600">
+                                    <tr class="divide-x divide-neutral-600 gap-2">
+                                        <td class="px-2">Owner:</td>
+                                        <td class="px-2">VWXYZ</td>
+                                    </tr>
+                                    <tr class="divide-x divide-neutral-600 gap-2">
+                                        <td class="px-2">Type:</td>
+                                        <td class="px-2">Pula</td>
+                                    </tr>
+                                    <tr class="divide-x divide-neutral-600 gap-2">
+                                        <td class="px-2">Weight:</td>
+                                        <td class="px-2">2kg</td>
+                                    </tr>
+                                    <tr class="divide-x divide-neutral-600 gap-2">
+                                        <td class="px-2">Wins:</td>
+                                        <td class="px-2">8</td>
+                                    </tr>
+                                    <tr class="divide-x divide-neutral-600 gap-2">
+                                        <td class="px-2">Losses:</td>
+                                        <td class="px-2">2</td>
+                                    </tr>
+                                    <tr class="divide-x divide-neutral-600 gap-2">
+                                        <td class="px-2">Total:</td>
+                                        <td class="px-2">10</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
 
                 <div class="pb-4">
                     <h3 class="text-center" id="game_number">Game ID: </h3>
@@ -339,73 +487,45 @@
                 <div class="pb-6">
                     <h2 class="text-center" id="status">New Game</h2>
                 </div>
-                <div class="radio-group">
-                    <div class="flex justify-center pb-2 gap-2">
-                        <button class="container bg-red-700 py-2 px-4 border-2 border-yellow-50 rounded-lg hover:bg-red-500 focus:bg-red-500 shadow-md text-center bet-option radio" data-value="B-" style="cursor: pointer"
-                        id="banker">
-                            <div>BANKER</div>
-                            <div class="hidden" id="place-bet-b">
-                                <div class="flex justify-center items-center">
-                                    <div  id="bg-bet-b" class="flex bg-neutral-700 rounded-full py-4 px-4 border-dashed border-2 border-yellow-50 shadow-md text-xs justify-center items-center absolute">
-                                        <div class="absolute betValue">0</div>
+                <div class="radio-group pb-6 flex flex-col gap-2">
+                        <button data-value="MERON-" class="radio container bg-red-700 py-2 px-2 border-2 border-yellow-50 rounded-lg hover:bg-red-500 focus:bg-red-500 shadow-md text-center bet-option"
+                            id="meron">
+                                <div class="pb-2">MERON</div>
+                                <div class="pb-2">TOTAL AMOUNT OF BETS</div>
+                                <div class="hidden" id="place-bet-meron">
+                                    <div class="flex justify-center items-center">
+                                        <div id="bg-bet-meron" class="flex bg-neutral-700 rounded-full py-4 px-4 border-dashed border-2 border-yellow-50 shadow-md text-xs justify-center items-center absolute">
+                                            <div class="absolute betValue">0</div>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div>1:1</div>
+                                <div>WINNING PERCENTAGE</div>
                         </button>
-                        <button data-value="T-" class="radio container bg-green-700 py-2 px-4 border-2 border-yellow-50 rounded-lg hover:bg-green-500 focus:bg-green-500 shadow-md text-center bet-option"
-                        id="tie">
-                            <div>TIE</div>
-                            <div class="hidden" id="place-bet-t">
-                                <div class="flex justify-center items-center">
-                                    <div id="bg-bet-t" class="flex bg-neutral-700 rounded-full py-4 px-4 border-dashed border-2 border-yellow-50 shadow-md text-xs justify-center items-center absolute">
-                                        <div class="absolute betValue">0</div>
+                        <button data-value="DRAW-" class="radio container bg-green-700 py-2 px-2 border-2 border-yellow-50 rounded-lg hover:bg-green-500 focus:bg-green-500 shadow-md text-center bet-option"
+                            id="draw">
+                                <div class="pb-2">DRAW</div>
+                                <div class="hidden" id="place-bet-draw">
+                                    <div class="flex justify-center items-center">
+                                        <div id="bg-bet-draw" class="flex bg-neutral-700 rounded-full py-4 px-4 border-dashed border-2 border-yellow-50 shadow-md text-xs justify-center items-center absolute">
+                                            <div class="absolute betValue">0</div>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div>8:1</div>
+                                <div>x3</div>
                         </button>
-                        <button data-value="P-" class="radio container bg-blue-700 py-2 px-4 border-2 border-yellow-50 rounded-lg hover:bg-blue-500 focus:bg-blue-500 shadow-md text-center bet-option"
-                        id="player">
-                            <div>PLAYER</div>
-                            <div class="hidden" id="place-bet-p">
-                                <div class="flex justify-center items-center">
-                                    <div id="bg-bet-p" class="flex bg-neutral-700 rounded-full py-4 px-4 border-dashed border-2 border-yellow-50 shadow-md text-xs justify-center items-center absolute">
-                                        <div class="absolute betValue">0</div>
+                        <button data-value="WALA-" class="radio container bg-blue-700 py-2 px-2 border-2 border-yellow-50 rounded-lg hover:bg-blue-500 focus:bg-blue-500 shadow-md text-center bet-option"
+                            id="wala">
+                                <div class="pb-2">WALA</div>
+                                <div class="pb-2">TOTAL AMOUNT OF BETS</div>
+                                <div class="hidden" id="place-bet-wala">
+                                    <div class="flex justify-center items-center">
+                                        <div id="bg-bet-wala" class="flex bg-neutral-700 rounded-full py-4 px-4 border-dashed border-2 border-yellow-50 shadow-md text-xs justify-center items-center absolute">
+                                            <div class="absolute betValue">0</div>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div>1:1</div>
+                                <div>WINNING PERCENTAGE</div>
                         </button>
-                    </div>
-                    <div class="flex justify-center pb-2 gap-2">
-                        <button data-value="BP-" class="radio container bg-red-700 py-2 px-4 border-2 border-yellow-50 rounded-lg hover:bg-red-500 focus:bg-red-500 shadow-md text-center bet-option"
-                        id="banker-pair">
-                            <div>BANKER</div>
-                            <div>PAIR</div>
-                            <div class="hidden" id="place-bet-bp">
-                                <div class="flex justify-center items-center">
-                                    <div id="bg-bet-bp" class="flex bg-neutral-700 rounded-full py-4 px-4 border-dashed border-2 border-yellow-50 shadow-md text-xs justify-center items-center absolute">
-                                        <div class="absolute betValue">0</div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div>8:1</div>
-                        </button>
-                        <button data-value="PP-" class="radio container bg-blue-700 py-2 px-4 border-2 border-yellow-50 rounded-lg hover:bg-blue-500 focus:bg-blue-500 shadow-md text-center bet-option"
-                        id="player-pair">
-                            <div>PLAYER</div>
-                            <div>PAIR</div>
-                            <div class="hidden" id="place-bet-pp">
-                                <div class="flex justify-center items-center">
-                                    <div id="bg-bet-pp" class="flex bg-neutral-700 rounded-full py-4 px-4 border-dashed border-2 border-yellow-50 shadow-md text-xs justify-center items-center absolute">
-                                        <div class="absolute betValue">0</div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div>8:1</div>
-                        </button>
-                    </div>
                 </div>
 
                 <div>
@@ -456,7 +576,8 @@
 
     <script>
         var current_bet = 0;
-        var bet =0;
+        var bet = 0;
+        var bal = 1000000;
 
         jQuery(window).on
 
@@ -492,11 +613,31 @@
             $('#bet').text(choice+current_bet)
         }
 
+        function clearBet()
+        {
+            bet = 0
+            bal = 1000000
+
+            $('.betValue').text(bet.toString())
+            $('#wallet').text(bal.toString())
+
+            $('#bg-bet-meron').css('background', '#404040');
+            $('#bg-bet-draw').css('background', '#404040');
+            $('#bg-bet-wala').css('background', '#404040');
+        }
+
         function addbet(value) {
             var x = bet += value
+            bal -= value
             $('.betValue').text(bet.toString())
+            $('#wallet').text(bal.toString())
 
-            if (x >= 5 && x <= 9) {
+            if (x >= 0 && x <= 4) {
+                $('#bg-bet-meron').css('background', '#404040');
+                $('#bg-bet-draw').css('background', '#404040');
+                $('#bg-bet-wala').css('background', '#404040');
+            }
+            else if (x >= 5 && x <= 9) {
                 $('#bg-bet-meron').css('background', '#22c55e');
                 $('#bg-bet-draw').css('background', '#22c55e');
                 $('#bg-bet-wala').css('background', '#22c55e');
