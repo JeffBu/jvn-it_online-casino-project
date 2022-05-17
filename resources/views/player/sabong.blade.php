@@ -123,7 +123,51 @@
 
     <!--content-->
     <div class="m-5 pt-14 text-xl font-semi-bold flex-col w-full px-4">
-            <table class="flex flex-row justify-center items-center bg-neutral-900 px-2 py-2 rounded-lg">
+
+            <!--livestream-->
+            <div class="py-3 justify-center items-center hidden xl:flex 2xl:hidden">
+                <div id="stream-xl" class="w-full"></div>
+            </div>
+            <div class="py-3 justify-center items-center hidden 2xl:flex">
+                <div id="stream-2xl" class="w-full"></div>
+            </div>
+            <!--livestream ends here-->
+            <div class="flex justify-center items-center px-4 py-4 mb-3 bg-neutral-800 rounded-lg gap-4">
+                <div class="flex flex-col justify-center items-center text-base font-semibold text-center border-2 border-neutral-600 rounded-lg w-full">
+                    <div class="text-red-600 w-full border-b-2 border-neutral-600">MERON</div>
+                    <div class="flex w-full px-2">
+                        <div class="w-full border-r-2 border-neutral-600 px-2">Record</div>
+                        <div class="w-full px-2">Weight</div>
+                    </div>
+                    <div class="w-full border-y-2 border-neutral-600">Entry Name</div>
+                    <div class="w-full">Owner</div>
+                </div>
+                    
+                <div class="flex flex-col justify-center items-center w-64">
+                    <div class="font-bold text-red-600 text-center">LAST CALL</div>
+                    <div id="timer" class="text-red-600 text-4xl font-semibold"></div>
+                </div>
+
+                <div class="flex flex-col justify-center items-center text-base font-semibold text-center border-2 border-neutral-600 rounded-lg w-full">
+                    <div class="text-blue-600 w-full border-b-2 border-neutral-600">WALA</div>
+                    <div class="flex w-full px-2">
+                        <div class="w-full border-r-2 border-neutral-600 px-2">Record</div>
+                        <div class="w-full px-2">Weight</div>
+                    </div>
+                    <div class="w-full border-y-2 border-neutral-600">Entry Name</div>
+                    <div class="w-full">Owner</div>
+                </div>
+
+            </div>
+            <div class="px-4 py-2 mb-3 bg-neutral-800 rounded-lg">
+                <div class="flex justify-center items-center gap-10">
+                    <img src="{{asset('media/img/meron-wins.gif')}}" alt="" class="visible rounded-md h-20" id="meron-wins">
+                    <img src="{{asset('media/img/draw.gif')}}" alt="" class="hidden rounded-md h-20" id="game-draw">
+                    <img src="{{asset('media/img/wala-wins.gif')}}" alt="" class="visible h-20 rounded-md" id="wala-wins">
+                </div>
+            </div>
+
+            <table class="flex flex-row justify-center items-center bg-neutral-800 px-2 py-2 mb-4 rounded-lg">
                 <tbody>
                     <tr>
                         <td class="px-1"><div class="border-2 border-yellow-50 bg-red-600 p-2 mx-auto rounded-full"></div></td>
@@ -157,94 +201,7 @@
                 </tbody>
             </table>
 
-            <!--livestream-->
-            <div class="py-3 justify-center items-center hidden xl:flex 2xl:hidden">
-                <div id="stream-xl" class="w-full"></div>
-            </div>
-            <div class="py-3 justify-center items-center hidden 2xl:flex">
-                <div id="stream-2xl" class="w-full"></div>
-            </div>
-            <!--livestream ends here-->
-
-            <div class="px-10 py-2 mb-3 bg-neutral-800 rounded-lg">
-                <div class="flex justify-center items-center gap-10">
-                    <img src="{{asset('media/img/meron-wins.gif')}}" alt="" class="visible rounded-md h-20" id="meron-wins">
-                    <img src="{{asset('media/img/draw.gif')}}" alt="" class="hidden rounded-md h-20" id="game-draw">
-                    <div class="flex flex-col justify-center items-center">
-                        <div class="font-semibold mr-10 pb-2 text-red-600">MERON</div>
-                        <div class="border border-neutral-600 rounded-md">
-                            <table class="text-base text-center w-full">
-                                <tbody class="divide-y divide-neutral-600">
-                                    <tr class="divide-x divide-neutral-600 gap-2">
-                                        <td class="px-2">Owner:</td>
-                                        <td class="px-2">ABCDE</td>
-                                    </tr>
-                                    <tr class="divide-x divide-neutral-600 gap-2">
-                                        <td class="px-2">Type:</td>
-                                        <td class="px-2">Talisayin</td>
-                                    </tr>
-                                    <tr class="divide-x divide-neutral-600 gap-2">
-                                        <td class="px-2">Weight:</td>
-                                        <td class="px-2">2kg</td>
-                                    </tr>
-                                    <tr class="divide-x divide-neutral-600 gap-2">
-                                        <td class="px-2">Wins:</td>
-                                        <td class="px-2">10</td>
-                                    </tr>
-                                    <tr class="divide-x divide-neutral-600 gap-2">
-                                        <td class="px-2">Losses:</td>
-                                        <td class="px-2">5</td>
-                                    </tr>
-                                    <tr class="divide-x divide-neutral-600 gap-2">
-                                        <td class="px-2">Total:</td>
-                                        <td class="px-2">15</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                    <div class="flex flex-col justify-center items-center">
-                        <div class="font-semibold ml-10 pb-2 text-blue-600">WALA</div>
-                        <div class="border border-neutral-600 rounded-md">
-                            <table class="text-base text-center w-full">
-                                <tbody class="divide-y divide-neutral-600">
-                                    <tr class="divide-x divide-neutral-600 gap-2">
-                                        <td class="px-2">Owner:</td>
-                                        <td class="px-2">VWXYZ</td>
-                                    </tr>
-                                    <tr class="divide-x divide-neutral-600 gap-2">
-                                        <td class="px-2">Type:</td>
-                                        <td class="px-2">Pula</td>
-                                    </tr>
-                                    <tr class="divide-x divide-neutral-600 gap-2">
-                                        <td class="px-2">Weight:</td>
-                                        <td class="px-2">2kg</td>
-                                    </tr>
-                                    <tr class="divide-x divide-neutral-600 gap-2">
-                                        <td class="px-2">Wins:</td>
-                                        <td class="px-2">8</td>
-                                    </tr>
-                                    <tr class="divide-x divide-neutral-600 gap-2">
-                                        <td class="px-2">Losses:</td>
-                                        <td class="px-2">2</td>
-                                    </tr>
-                                    <tr class="divide-x divide-neutral-600 gap-2">
-                                        <td class="px-2">Total:</td>
-                                        <td class="px-2">10</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                    <img src="{{asset('media/img/wala-wins.gif')}}" alt="" class="visible h-20 rounded-md" id="wala-wins">
-                    <img src="{{asset('media/img/draw.gif')}}" alt="" class="hidden rounded-md h-20" id="game-draw">
-                </div>
-            </div>
-
             <div class="px-2 bg-neutral-800 rounded-lg overflow-auto">
-
-                <h2 class="text-center pt-2">*SCROLL OR SWIPE DOWN TO SEE MATCH HISTORY</h2>
-
                 <table class="flex items-start flex-start py-8 px-4">
                     <tbody>
                         <tr>
@@ -745,6 +702,29 @@
             parent: ["localhost", "online-casino.test"]
         };
         var player = new Twitch.Player("stream-sm", options);
+
+        var timeoutHandle;
+        function countdown(minutes, seconds) {
+            function tick() {
+                var counter = document.getElementById("timer");
+                counter.innerHTML =
+                    minutes.toString() + ":" + (seconds < 10 ? "0" : "") + String(seconds);
+                seconds--;
+                if (seconds >= 0) {
+                    timeoutHandle = setTimeout(tick, 1000);
+                } else {
+                    if (minutes >= 1) {
+                        // countdown(mins-1);   never reach “00″ issue solved:Contributed by Victor Streithorst
+                        setTimeout(function () {
+                            countdown(minutes - 1, 59);
+                        }, 1000);
+                    }
+                }
+            }
+            tick();
+        }
+
+        countdown(2, 00);
 
     </script>
 
