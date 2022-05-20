@@ -66,7 +66,7 @@
                             <img src="{{asset('media/img/alpha-coin.png')}}" alt="" class="h-5">
                             <p class="font-semibold">1,000,000</p>
                         </div>
-                        
+
                         <div class="shadow mt-4">
                             <div class="list-none flex flex-wrap items-center">
                                 <h3 class="flex flex-1 px-5 py-2 font-semibold">Account</h3>
@@ -92,12 +92,12 @@
 
                 </div>
             </div>
-            
+
         </div>
 
     </header>
 
-    
+
     <div class="w-full justify-center hidden px-64 xl:flex">
     <!--sidebar-->
         <div class="justify-center bg-neutral-900 bg-opacity-80 w-64 font-semi-bold min-h-screen left-0 fixed hidden xl:flex">
@@ -157,7 +157,7 @@
                     </tr>
                 </tbody>
             </table>
-            
+
             <!--livestream-->
             <div class="py-3 justify-center items-center hidden xl:flex 2xl:hidden">
                 <div id="stream-xl" class="w-full"></div>
@@ -378,7 +378,7 @@
                     </div>
                 </div>
             </nav>
-        </div>        
+        </div>
     </div>
     <!--bside ends here-->
 

@@ -21,7 +21,7 @@
     </style>
 
 </head>
-<body class="bg-custom bg-fixed bg-cover text-yellow-50" onload="getcurrentgame()">
+<body class="bg-custom bg-fixed bg-cover text-yellow-50">
     <header class="flex flex-row bg-neutral-900 justify-between items-center py-5 px-5 h-16 text-sm tracking-widest fixed w-full z-50" id="header_frame">
 
         <a href="#" class="">
@@ -48,7 +48,7 @@
 
     </header>
 
-    
+
     <div class="w-full justify-center hidden px-64 xl:flex">
     <!--sidebar-->
         <div class="justify-center bg-neutral-800 w-64 font-semi-bold min-h-screen left-0 fixed hidden md:flex">
@@ -93,7 +93,7 @@
                     </tr>
                 </tbody>
             </table>
-            
+
             <!--livestream-->
             <div class="py-3 justify-center items-center hidden xl:flex 2xl:hidden">
                 <div id="stream-xl" class="w-full"></div>
@@ -110,14 +110,14 @@
         <div class="justify-center bg-neutral-800 w-64 font-semi-bold fixed right-0 min-h-screen hidden md:flex">
                 <nav class="mt-20 w-64 text-center">
                     <div class="block px-10 py-2 w-full bg-yellow-400 hover:bg-yellow-300 cursor-pointer border-2 border-x-0 border-yellow-50"
-                    id="open-table">Open Table</div>
+                    id="open-table" onclick="openTable()">Open Table</div>
                     <div class="hidden" id="close-table">
                         <div class="block px-10 py-2 w-full bg-yellow-400 hover:bg-yellow-300 cursor-pointer border-2 border-x-0 border-yellow-50">Close Table</div>
                     </div>
                         <div class="hidden px-10 py-2 w-full bg-orange-400 hover:bg-orange-300 cursor-pointer border-t-0 border-2 border-x-0 border-yellow-50"
-                        id="open-betting">Open Betting</div>
+                        id="open-betting" onclick="openBetting()">Open Betting</div>
                         <div class="hidden px-10 py-2 w-full bg-orange-400 hover:bg-orange-300 cursor-pointer border-t-0 border-2 border-x-0 border-yellow-50"
-                        id="close-betting">Close Betting</div>
+                        id="close-betting" onclick="closeBetting()">Close Betting</div>
                         <div class="hidden" id="cards-drawn">
                             <input class="block px-10 py-2 w-full bg-neutral-700 focus:outline-none border-t-0 border-2 border-x-0 border-yellow-50" type="text" placeholder="Player Card 1" id="p1" maxlength="2">
                             <input class="block px-10 py-2 w-full bg-neutral-700 focus:outline-none border-t-0 border-2 border-x-0 border-yellow-50" type="text" placeholder="Banker Card 1" id="b1" maxlength="2">
@@ -126,18 +126,11 @@
                             <input class="block px-10 py-2 w-full bg-neutral-700 focus:outline-none border-t-0 border-2 border-x-0 border-yellow-50" type="text" placeholder="Player Card 3" id="pe" maxlength="2">
                             <input class="block px-10 py-2 w-full bg-neutral-700 focus:outline-none border-t-0 border-2 border-x-0 border-yellow-50" type="text" placeholder="Banker Card 3" id="be" maxlength="2">
                         </div>
-                    <div class="flex">
-                        <div class="hidden px-10 py-2 w-full bg-red-700 hover:bg-red-500 cursor-pointer border-t-0 border-l-0 border-2 border-yellow-50" id="banker-wins" style="display: hidden">Banker Wins</div>
-                        <div class="hidden px-10 py-2 w-full bg-blue-700 hover:bg-blue-500 cursor-pointer border-t-0 border-x-0 border-2 border-yellow-50" id="player-wins" style="display: hidden">Player Wins</div>
-                    </div>
-                    <div class="hidden px-10 py-2 w-full bg-green-700 hover:bg-green-500 cursor-pointer border-t-0 border-x-0 border-2 border-yellow-50" id="game-tie" style="display: hidden">Tie</div>
-                    <div class="hidden px-10 py-2 w-full bg-green-700 hover:bg-green-500 cursor-pointer border-t-0 border-x-0 border-2 border-yellow-50" id="game-new" style="display: hidden">New Game</div>
-
                 </nav>
         </div>
     <!--bside ends here-->
     </div>
-    
+
 
     <!--scripts-->
     <script src="{{asset('js/app.js')}}"></script>
@@ -145,10 +138,89 @@
     <script src= "https://player.twitch.tv/js/embed/v1.js"></script>
 
     <script>
-        var p1, b1, p2, b2, pe, be
-        var game_id
-        var urlforupdatingresults = "{{route('update-game-result')}}"
-        var result_id
+        var gameroom = "{{$gameroom->id}}";
+        var urlforupdatingresults = "{{route('update-game-result')}}";
+        var result_id = 0;
+        var gameresult = 0;
+        var game_id = 0;
+        var playerhand = 0;
+        var bankerhand = 0;
+        var player3rd = 0;
+        var p1, p2, p3, b1, b2, b3;
+
+        function openTable() {
+            var url = "{{route('baccarat-game-room.create')}}";
+
+            axios.get(url, null).then((response) => {
+                game_id = response.data
+                $('#open-betting').toggle();
+                $('#close-table').toggle();
+                $('#open-table').toggle();
+            }).catch((error) => {
+                console.log(error.response.data);
+            })
+        }
+
+        function closeTable() {
+            reset();
+        }
+
+        function reset() {
+            game_id = 0;
+            playerhand = 0;
+            bankerhand = 0;
+            player3rd = 0;
+
+            $('#close-table').toggle();
+            $('#open-table').toggle();
+            $('#open-betting').css('display', 'none');
+            $('#close-betting').css('display', 'none');
+            $('#cards-drawn').css('display', 'none');
+        }
+
+        function openBetting()
+        {
+            var url = "{{route('update-game-status')}}"
+
+            axios.post(url, {
+                status: 1,
+                id: game_id
+            }).then(function (response) {
+                $('#open-betting').toggle();
+                $('#close-betting').toggle();
+                $('#cards-drawn').css('display', 'none');
+            }).catch(function (error) {
+                console.log(error.response.data)
+            })
+        }
+
+        function closeBetting()
+        {
+
+            var url = "{{route('update-game-status')}}"
+
+            axios.post(url, {
+                status: 3,
+                id: game_id
+            }).then(function (response) {
+                $('#close-betting').toggle();
+                $('#open-betting').toggle();
+                $('#cards-drawn').toggle();
+            }).catch(function (error) {
+                console.log(error.response.data)
+            })
+
+            var url2 = "{{route('baccarat-game-result.store')}}"
+            axios.post(url2, {
+                id: game_id
+            }).then(function(response) {
+                $('#p1').focus();
+                result_id = response.data;
+            }).catch(function (error) {
+                console.log(error.response.data);
+            })
+        }
+
         $('#p1').on('input', function ()
         {
             p1 = $(this).val()
@@ -159,11 +231,13 @@
                     column: 'player_hand',
                     data: p1
                 }).then(function (response) {
-                    console.log(response.data)
+                    $('#b1').focus();
+                    var x = p1.split("");
+                    playerhand+=parseInt(x[1]);
+                    console.log(playerhand);
                 }).catch(function (error) {
                     console.log(error.response.data)
                 })
-                $('#b1').focus()
             }
         })
 
@@ -177,11 +251,14 @@
                     column: 'banker_hand',
                     data: b1
                 }).then(function (response) {
-                    console.log(response.data)
+
+                    $('#p2').focus()
+                    var x = b1.split("");
+                    bankerhand+=parseInt(x[1]);
+                    console.log(bankerhand);
                 }).catch(function (error) {
                     console.log(error.response.data)
                 })
-                $('#p2').focus()
             }
         })
 
@@ -195,11 +272,13 @@
                     column: 'player_hand',
                     data: p1+p2
                 }).then(function (response) {
-                    console.log(response.data)
+                    $('#b2').focus();
+                    var x = p2.split("");
+                    playerhand+=parseInt(x[1]);
+                    console.log(playerhand);
                 }).catch(function (error) {
                     console.log(error.response.data)
                 })
-                $('#b2').focus()
             }
         })
 
@@ -213,16 +292,13 @@
                     column: 'banker_hand',
                     data: b1+b2
                 }).then(function (response) {
-                    $('#banker-wins').toggle()
-                    $('#player-wins').toggle()
-                    $('#game-tie').toggle()
+                    var x = b2.split("");
+                    bankerhand+=parseInt(x[1]);
+                    checkPlayer();
                 }).catch(function (error) {
                     console.log(error.response.data)
                 })
-                $('#pe').focus()
             }
-
-            console.log(p1+p2+b1+b2)
         })
 
         $('#pe').on('input', function ()
@@ -235,11 +311,13 @@
                     column: 'player_hand',
                     data: p1+p2+pe
                 }).then(function (response) {
-                    console.log(response.data)
+                    var x = pe.split("");
+                    playerhand += parseInt(x[1]);
+                    player3rd = parseInt(x[1]);
+                    checkBanker();
                 }).catch(function (error) {
                     console.log(error.response.data)
                 })
-                $('#be').focus()
             }
         })
 
@@ -253,12 +331,167 @@
                     column: 'banker_hand',
                     data: b1+b2+be
                 }).then(function (response) {
-                    console.log(response.data)
+                    var x = be.split("");
+                    bankerhand += parseInt(x[1]);
+                    checkWinner();
                 }).catch(function (error) {
                     console.log(error.response.data)
                 })
             }
         })
+
+        function checkWinner()
+        {
+            if(playerhand > 10){
+                playerhand -= 10
+            }
+
+            if(bankerhand > 10) {
+                bankerhand -= 10
+            }
+
+            if(playerhand == bankerhand)
+            {
+                gameresult = 0;
+            }
+            else if(playerhand > bankerhand)
+            {
+                gameresult = 1;
+            }
+            else {
+                gameresult = 2;
+            }
+
+            axios.post(urlforupdatingresults, {
+                    id: result_id,
+                    column: 'result',
+                    data: gameresult
+                }).then((response) => {
+                    reset();
+                }).catch((error) => {
+                    console.log('error');
+                })
+
+        }
+
+        function checkPlayer()
+        {
+            if(playerhand > 10)
+            {
+                playerhand -= 10;
+            }
+
+            var playerDraw = computePlayer();
+
+            switch(playerDraw) {
+                case 0:
+                    $('#pe').focus();
+                    break;
+                case 1:
+                    $('#be').focus();
+                    break;
+                case 2:
+                    checkWinner();
+                    break;
+                default:
+                    checkWinner();
+                    break;
+
+            }
+        }
+
+        function checkBanker()
+        {
+            if(bankerhand > 10)
+            {
+                bankerhand -= 10;
+            }
+
+            var bankerDraw = computeBanker();
+
+            switch(bankerDraw) {
+                case 1:
+                    $('#be').focus();
+                    break;
+                case 0:
+                    checkWinner();
+                    break;
+                default:
+                    checkWinner();
+                    break;
+            }
+        }
+
+        function computePlayer()
+        {
+            if(playerhand <= 5)
+            {
+                return 0;
+            }
+            else if(playerhand == 6 || playerhand == 7){
+                return 1;
+            }
+            else {
+                return 2;
+            }
+        }
+
+        function computeBanker()
+        {
+            switch(bankerhand)
+            {
+                case 0:
+                case 1:
+                case 2:
+                    return 0;
+                    break;
+                case 3:
+                    if(player3rd == 8)
+                    {
+                        return 0;
+                    }
+                    else {
+                        return 1;
+                    }
+                    break;
+                case 4:
+                    if(player3rd <= 1 || player3rd == 8 || player3rd == 9)
+                    {
+                        return 0;
+                    }
+                    else {
+                        return 1;
+                    }
+                    break;
+                case 5:
+                    if(player3rd >=4 && player3rd <= 7)
+                    {
+                        return 1;
+                    }
+                    else {
+                        return 0;
+                    }
+                    break;
+                case 6:
+                    if(player3rd == 6 || player3rd == 7)
+                    {
+                        return 1;
+                    }
+                    else {
+                        return 0;
+                    }
+                    break;
+                case 7:
+                    return 0;
+                    break;
+                case 8:
+                case 9:
+                    return 0;
+                    break;
+                default:
+                    return 0;
+            }
+        }
 
         jQuery(window).on('scroll', function() {
             if(jQuery(window).scrollTop() > 0) {
@@ -271,98 +504,11 @@
 
         $(document).scroll(function() {})
 
-        $(function () {
-            setInterval(() => {
-                getcurrentgame();
-            }, 1000);
-
-        })
-
-        function getcurrentgame() {
-            var url = "{{route('get-current-game')}}"
-
-            axios.get(url, {
-                room_id : 1
-            }).then(function (response) {
-                game_id = response.data['id']
-            }).catch(function (error) {
-                console.log(error.response.data)
-            })
-        }
-
-        jQuery('#open-table').on('click', function() {
-            $('#open-betting').toggle();
-            $('#close-table').toggle();
-            $('#open-table').toggle();
-
-            new_game()
-        });
-
-        function new_game()
-        {
-            var url = "{{route('baccarat-game-room.create')}}"
-
-            axios.get(url, null).then(function (response) {
-                game_id = response.data
-            }).catch(function (error) {
-                console.log(error.response.data)
-            })
-        }
-
-        jQuery('#open-betting').on('click', function() {
-            $('#open-betting').toggle();
-            $('#close-betting').toggle();
-            $('#cards-drawn').css('display', 'none');
-
-            var url = "{{route('update-game-status')}}"
-
-            axios.post(url, {
-                status: 1,
-                id: game_id
-            }).then(function (response) {
-                console.log(response.data)
-            }).catch(function (error) {
-                console.log(error.response.data)
-            })
-        });
-
-        jQuery('#close-table').on('click', function() {
-            $('#close-table').toggle();
-            $('#open-table').toggle();
-            $('#open-betting').css('display', 'none');
-            $('#close-betting').css('display', 'none');
-            $('#cards-drawn').css('display', 'none');
-        });
-
-        jQuery('#close-betting').on('click', function() {
-            $('#close-betting').toggle();
-            $('#open-betting').toggle();
-            $('#cards-drawn').toggle();
-            var url = "{{route('update-game-status')}}"
-
-            axios.post(url, {
-                status: 3,
-                id: game_id
-            }).then(function (response) {
-                console.log(response.data)
-            }).catch(function (error) {
-                console.log(error.response.data)
-            })
-
-            var url2 = "{{route('baccarat-game-result.store')}}"
-            axios.post(url2, {
-                id: game_id
-            }).then(function(response) {
-                result_id = response.data
-            }).catch(function (error) {
-                console.log(error.response.data);
-            })
-            $('#p1').focus();
-        });
-
         jQuery('#user').on('click', function() {
             $('#logout').toggle();
         });
+
+        var channelT = "{{$gameroom->feed_source}}"
 
         var options = {
             muted: true,
@@ -370,7 +516,7 @@
             autoplay: false,
             width: '100%',
             height: 720,
-            channel: "mch_AGG",
+            channel: channelT,
             parent: ["localhost", "online-casino.test"]
         };
         var player = new Twitch.Player("stream-2xl", options);
@@ -381,65 +527,10 @@
             autoplay: false,
             width: '100%',
             height: 450,
-            channel: "mch_AGG",
+            channel: channelT,
             parent: ["localhost", "online-casino.test"]
         };
         var player = new Twitch.Player("stream-xl", options);
-
-        $('#player-wins').on('click', function() {
-            axios.post(urlforupdatingresults, {
-                id: result_id,
-                column: 'result',
-                data: 1
-            }).then(function (response) {
-                reset()
-            }).catch(function (error) {
-                console.log(error.response.data)
-            })
-        })
-
-        $('#banker-wins').on('click', function() {
-            axios.post(urlforupdatingresults, {
-                id: result_id,
-                column: 'result',
-                data: 2
-            }).then(function (response) {
-                reset()
-            }).catch(function (error) {
-                console.log(error.response.data)
-            })
-        })
-
-        $('#game-tie').on('click', function () {
-            axios.post(urlforupdatingresults, {
-                id: result_id,
-                column: 'result',
-                data: 3
-            }).then(function (response) {
-                reset()
-            }).catch(function (error) {
-                console.log(error.response.data)
-            })
-        })
-
-
-        function reset(){
-            $('#p1').val('')
-            $('#p2').val('')
-            $('#pe').val('')
-            $('#b1').val('')
-            $('#b2').val('')
-            $('#be').val('')
-            $('#close-table').toggle()
-            $('#open-table').toggle()
-            $('#open-betting').css('display', 'none')
-            $('#close-betting').css('display', 'none')
-            $('#cards-drawn').css('display', 'none')
-            $('#player-wins').toggle()
-            $('#banker-wins').toggle()
-            $('#game-tie').toggle()
-            new_game()
-        }
     </script>
 
     <!--scripts ends here-->

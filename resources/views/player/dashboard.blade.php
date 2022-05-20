@@ -84,14 +84,27 @@
             <div id="content-sabong">
                 <div class="grid col grid-cols-2 gap-8 px-5 py-5">
 
-                    <a href="{{route('play-game')}}" class="hover:-m-0.5">
-                        <div width="640" height="480"
-                        class="rounded-lg hover:border-2 hover:border-orange-400 -m-0.5 p-0.5" >
-                        <div id="stream-xl" class="w-full"></div>
-                    </div>
-                    </a>
+                    @forelse ($gamerooms as $gameroom)
+                        @if ($gameroom->game_id == 1)
+                            <a href="" class="hover:-m-0.5">
+                                {{-- <div width="640" height="480"
+                                class="rounded-lg hover:border-2 hover:border-orange-400 -m-0.5 p-0.5" >
+                                    <div id="stream-sm-2" class="w-full"></div>
+                                </div> --}}
+
+                                <video src="{{asset('media/videos/casino-trailer.mp4')}}" width="640" height="480" autoplay muted loop id="video"
+                                class="rounded-lg hover:border-2 hover:border-orange-400 -m-0.5 p-0.5">
+                                    <source src="/videos/casino-trailer.mp4" type="video/mp4">
+                                </video>
+                            </a>
+                        @endif
+                    @empty
+
+                    @endforelse
 
                 </div>
+
+
             </div>
             <!--sabong-->
 
@@ -99,12 +112,23 @@
             <div id="content-baccarat" class="hidden">
                 <div class="grid col grid-cols-2 gap-10 py-5">
 
-                    <a href="http://127.0.0.1:8000/baccarat" class="hover:-m-0.5">
-                        <video width="640" height="480" autoplay muted loop id="video"
-                        class="rounded-lg hover:border-2 hover:border-orange-400 -m-0.5 p-0.5">
-                            <source src="{{asset('media/videos/casino-trailer.mp4')}}" type="video/mp4">
-                        </video>
-                    </a>
+                    @forelse ($gamerooms as $gameroom)
+                        @if ($gameroom->game_id == 2)
+                            <a href="{{route('play-baccarat', ['game_id' =>  1])}}" class="hover:-m-0.5">
+                                {{-- <div width="640" height="480"
+                                class="rounded-lg hover:border-2 hover:border-orange-400 -m-0.5 p-0.5" >
+                                    <div id="stream-sm-2" class="w-full"></div>
+                                </div> --}}
+
+                                <video src="{{asset('media/videos/casino-trailer.mp4')}}" width="640" height="480" autoplay muted loop id="video"
+                                class="rounded-lg hover:border-2 hover:border-orange-400 -m-0.5 p-0.5">
+                                    <source src="/videos/casino-trailer.mp4" type="video/mp4">
+                                </video>
+                            </a>
+                        @endif
+                    @empty
+
+                    @endforelse
 
                 </div>
             </div>
