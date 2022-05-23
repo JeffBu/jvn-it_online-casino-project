@@ -84,11 +84,10 @@
             <div id="content-sabong">
                 <div class="grid col grid-cols-2 gap-8 px-5 py-5">
 
-                    <a href="{{route('play-game')}}" class="hover:-m-0.5">
-                        <div width="640" height="480"
-                        class="rounded-lg hover:border-2 hover:border-orange-400 -m-0.5 p-0.5" >
-                        <div id="stream-xl" class="w-full"></div>
-                    </div>
+                    <a href="{{route('play-game')}}" class="hover:-m-0.5 z-10">
+                        <div class="rounded-lg hover:border-2 hover:border-orange-400 -m-0.5 p-0.5">
+                            <div id="stream-sm" class="w-full cursor-pointer z-0"></div>
+                        </div>
                     </a>
 
                 </div>
@@ -143,11 +142,11 @@
             controls: false,
             autoplay: false,
             width: '100%',
-            height: 480,
-            channel: 'gowthereeno',
+            height: 280,
+            channel: 'Kyedae',
             parent: ["localhost", "online-casino.test"]
         };
-        var player = new Twitch.Player("stream-xl", options);
+        var player = new Twitch.Player("stream-sm", options);
     </script>
 
     <!--scripts ends here-->

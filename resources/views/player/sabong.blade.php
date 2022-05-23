@@ -676,7 +676,7 @@
             autoplay: false,
             width: '100%',
             height: 720,
-            channel: "mch_AGG",
+            channel: "Kyedae",
             parent: ["localhost", "online-casino.test"]
         };
         var player = new Twitch.Player("stream-2xl", options);
@@ -687,7 +687,7 @@
             autoplay: false,
             width: '100%',
             height: 450,
-            channel: "gowthereeno",
+            channel: "Kyedae",
             parent: ["localhost", "online-casino.test"]
         };
         var player = new Twitch.Player("stream-xl", options);
@@ -698,7 +698,7 @@
             autoplay: false,
             width: '100%',
             height: 250,
-            channel: "gowthereeno",
+            channel: "Kyedae",
             parent: ["localhost", "online-casino.test"]
         };
         var player = new Twitch.Player("stream-sm", options);
