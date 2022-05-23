@@ -15,7 +15,7 @@ class CreateGameRoomsTable extends Migration
     {
         Schema::create('game_rooms', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->foreignId('user_id')->constrained()->onDelete('cascade')->onUpdate('cascade');
+            $table->foreignId('game_master_id')->constrained()->onDelete('cascade')->onUpdate('cascade');
             $table->foreignId('game_id')->constrained()->onDelete('cascade')->onUpdate('cascade');
             $table->string('feed_source');
             $table->boolean('low_raise_enabled')->default(false);

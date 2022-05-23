@@ -10,7 +10,7 @@ class GameRoom extends Model
     use HasFactory;
 
     protected $fillable = [
-        'user_id',
+        'game_master_id',
         'game_id',
         'feed_source',
         'low_raise_enabled',

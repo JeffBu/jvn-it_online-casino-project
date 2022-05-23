@@ -17,7 +17,7 @@
             background-repeat: no-repeat;
 
         }
-        
+
         .bg-auth
         {
             background-image: url("{{asset('media/img/table.png')}}");

@@ -45,8 +45,9 @@
 
     <div class="min-h-screen px-4 py-6 flex flex-col justify-center sm:py-12">
         <div class="relative py-3 sm:max-w-xl mx-auto text-left">
-            <form action="{{route('player-registration')}}" method="post">
+            <form action="{{route('register')}}" method="post">
                 @csrf
+                <input type="hidden" name="role" id="role" value="player">
                 <p class="text-2xl font-bold pb-1 pt-14">Create an Account</p>
                 <div class="bg-custom bg-cover relative mt-4 border-yellow-50 text-yellow-50 text-center border-8 w-auto shadow-2xl sm:rounded-lg">
                     <div class="py-6 px-12">
@@ -69,7 +70,7 @@
                                 </span>
                             @enderror
                         </div>
-                        
+
                         <p class="flex text-left pt-3 font-semibold">Email</p>
                         <input type="email" name="email" placeholder="ex. juandelacruz@yahoo.com" value="{{old('email')}}" class="border w-full h-5 px-3 py-5 mt-3 text-neutral-800 focus:text-neutral-800 hover:outline-none focus:outline-none rounded-md">
                         @error('email')
@@ -108,7 +109,7 @@
                                 <strong>{{ $message }}</strong>
                             </span>
                         @enderror
-                        
+
                         <div class="flex justify-center items-baseline pt-20">
                             <button type="submit" class="bg-yellow-50 font-semibold text-neutral-800 py-2 px-6 rounded-lg shadow-md">Register</button>
                         </div>

@@ -15,7 +15,7 @@ class GameMasterController extends Controller
 {
     public function index()
     {
-        $gamerooms = GameRoom::where('user_id', auth()->user()->id)->get();
+        $gamerooms = GameRoom::all();
         $data = array(
             'gamerooms' => $gamerooms,
         );
@@ -38,7 +38,7 @@ class GameMasterController extends Controller
 
         DB::transaction(function () use($validated) {
             GameRoom::create([
-                'user_id' => auth()->user()->id,
+                'game_master_id' => 1,
                 'game_id' => $validated['game_id'],
                 'feed_source' => $validated['feed_source'],
                 'low_raise_enabled' => $validated['low_raise_enabled'] ??  0,
@@ -48,13 +48,17 @@ class GameMasterController extends Controller
             ]);
         });
 
-        return redirect()->route('game-master-home');
+        return redirect()->route('operator-home');
     }
 
     public function viewGameRoom(Request $request)
     {
         $gameroom = GameRoom::findOrFail($request->game_room_id);
-        return view('gamemaster.admin-sabong')->with(['gameroom' => $gameroom]);
+        if($gameroom->game_id == 1){
+            return view('gamemaster.admin-sabong')->with(['gameroom' => $gameroom]);
+        }
+
+        return view('gamemaster.admin-baccarat_temp')->with(['gameroom' => $gameroom]);
     }
 
     public function  updateGameRoomStatus(Request $request)
