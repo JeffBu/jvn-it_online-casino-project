@@ -48,8 +48,8 @@
             <form action="{{route('register')}}" method="post">
                 @csrf
                 <input type="hidden" name="role" id="role" value="player">
-                <p class="text-2xl text-center font-bold pb-4 pt-14">Create an Account</p>
-                <div class="flex flex-col sm:flex-row justify-center gap-8">
+                <p class="text-2xl text-center font-bold pb-4 lg:pb-8">Create an Account</p>
+                <div class="flex flex-col sm:flex-row justify-center gap-8 lg:gap-20">
                     <div class="bg-custom bg-cover relative mt-4 border-yellow-50 text-yellow-50 text-center border-8 w-auto shadow-2xl rounded-lg">
                         <div class="py-6 px-8 w-80 pb-20">
                             <p class="flex justify-left font-semibold">Name</p>

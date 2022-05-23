@@ -152,13 +152,13 @@
     <!--content ends here-->
 
     <!--footer-->
-    <footer class="flex flex-row justify-between items-center bg-neutral-900 py-2 px-60 text-sm tracking-widest">
+    <footer class="flex flex-row justify-between items-center bg-neutral-900 py-2 px-4 lg:px-60 text-sm gap-4 w-full tracking-widest">
         <div class="flex items-center gap-2">
             <img src="{{asset('media/img/logo.png')}}" alt="logo" class="max-h-10">
             <p class="text-yellow-50">© 2022 Alpha Test. All rights reserved.</p>
         </div>
         <div class="flex items-center gap-2">
-            <p class="pl-96">Back to top</p>
+            <p>Back to top</p>
             <a href="#">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 hover:text-orange-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M5 15l7-7 7 7" />
