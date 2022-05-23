@@ -48,74 +48,80 @@
             <form action="{{route('register')}}" method="post">
                 @csrf
                 <input type="hidden" name="role" id="role" value="player">
-                <p class="text-2xl font-bold pb-1 pt-14">Create an Account</p>
-                <div class="bg-custom bg-cover relative mt-4 border-yellow-50 text-yellow-50 text-center border-8 w-auto shadow-2xl sm:rounded-lg">
-                    <div class="py-6 px-12">
-                        <p class="flex justify-left pt-3 font-semibold">Name</p>
-                        <div class="grid col grid-cols-1 gap-3">
-                            <input type="text" name="name" placeholder="ex. Juan dela Cruz" value="{{old('name')}}" class="border w-full h-5 px-3 py-5 mt-3 text-neutral-800 focus:text-neutral-800 hover:outline-none focus:outline-none rounded-md">
-                            @error('name')
+                <p class="text-2xl text-center font-bold pb-4 pt-14">Create an Account</p>
+                <div class="flex flex-col sm:flex-row justify-center gap-8">
+                    <div class="bg-custom bg-cover relative mt-4 border-yellow-50 text-yellow-50 text-center border-8 w-auto shadow-2xl rounded-lg">
+                        <div class="py-6 px-8 w-80 pb-20">
+                            <p class="flex justify-left font-semibold">Name</p>
+                            <div class="grid col grid-cols-1 gap-3">
+                                <input type="text" name="name" placeholder="ex. Juan dela Cruz" value="{{old('name')}}" class="border w-full h-5 px-3 py-5 mt-3 text-neutral-800 focus:text-neutral-800 hover:outline-none focus:outline-none rounded-md">
+                                @error('name')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+
+                            <p class="flex justify-left pt-3 font-semibold">Birthdate</p>
+                            <div class="grid col grid-cols-1 gap-3">
+                                <input type="date" name="birthdate" placeholder="date" value="{{old('birthdate')}}" class="border w-full h-5 px-3 py-5 mt-3 text-neutral-800 focus:text-neutral-800 hover:outline-none focus:outline-none rounded-md">
+                                @error('birthdate')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+
+                            <p class="flex text-left pt-3 font-semibold">Email</p>
+                            <input type="email" name="email" placeholder="ex. juandelacruz@yahoo.com" value="{{old('email')}}" class="border w-full h-5 px-3 py-5 mt-3 text-neutral-800 focus:text-neutral-800 hover:outline-none focus:outline-none rounded-md">
+                            @error('email')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
+
+                            <p class="flex text-left pt-3 font-semibold">Mobile Number</p>
+                            <input type="text" name="phone" placeholder="ex. 09991234567"  value="{{old('phone')}}" class="border w-full h-5 px-3 py-5 mt-3 text-neutral-800 focus:text-neutral-800 hover:outline-none focus:outline-none rounded-md">
+                            @error('phone')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>
                             @enderror
                         </div>
-
-                        <p class="flex justify-left pt-3 font-semibold">Birthdate</p>
-                        <div class="grid col grid-cols-1 gap-3">
-                            <input type="date" name="birthdate" placeholder="date" value="{{old('birthdate')}}" class="border w-full h-5 px-3 py-5 mt-3 text-neutral-800 focus:text-neutral-800 hover:outline-none focus:outline-none rounded-md">
-                            @error('birthdate')
+                    </div>
+                    <!--divide-->
+                    <div class="bg-custom bg-cover relative mt-4 border-yellow-50 text-yellow-50 text-center border-8 w-auto shadow-2xl rounded-lg">
+                        <div class="py-6 px-8 w-80">
+                            <p class="flex text-left font-semibold">Username</p>
+                            <input type="text" name="username" placeholder="ex. jdelacruz"  value="{{old('username')}}" class="border w-full h-5 px-3 py-5 mt-3 text-neutral-800 focus:text-neutral-800 hover:outline-none focus:outline-none rounded-md">
+                            @error('username')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>
                             @enderror
-                        </div>
 
-                        <p class="flex text-left pt-3 font-semibold">Email</p>
-                        <input type="email" name="email" placeholder="ex. juandelacruz@yahoo.com" value="{{old('email')}}" class="border w-full h-5 px-3 py-5 mt-3 text-neutral-800 focus:text-neutral-800 hover:outline-none focus:outline-none rounded-md">
-                        @error('email')
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                        @enderror
+                            <p class="flex text-left pt-3 font-semibold">Password</p>
+                            <input type="password" name="password" placeholder="Password"  class="border w-full h-5 px-3 py-5 mt-3 text-neutral-800 focus:text-neutral-800 hover:outline-none focus:outline-none rounded-md">
+                            @error('password')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
 
-                        <p class="flex text-left pt-3 font-semibold">Mobile Number</p>
-                        <input type="text" name="phone" placeholder="ex. 09991234567"  value="{{old('phone')}}" class="border w-full h-5 px-3 py-5 mt-3 text-neutral-800 focus:text-neutral-800 hover:outline-none focus:outline-none rounded-md">
-                        @error('phone')
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                        @enderror
+                            <input type="password" name="password_confirmation" placeholder="Confirm Password" class="border w-full h-5 px-3 py-5 mt-3 text-neutral-800 focus:text-neutral-800 hover:outline-none focus:outline-none rounded-md">
+                            @error('password_confirmation')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
 
-                        <p class="flex text-left pt-3 font-semibold">Username</p>
-                        <input type="text" name="username" placeholder="ex. jdelacruz"  value="{{old('username')}}" class="border w-full h-5 px-3 py-5 mt-3 text-neutral-800 focus:text-neutral-800 hover:outline-none focus:outline-none rounded-md">
-                        @error('username')
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                        @enderror
-
-                        <p class="flex text-left pt-3 font-semibold">Password</p>
-                        <input type="password" name="password" placeholder="Password"  class="border w-full h-5 px-3 py-5 mt-3 text-neutral-800 focus:text-neutral-800 hover:outline-none focus:outline-none rounded-md">
-                        @error('password')
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                        @enderror
-
-                        <input type="password" name="password_confirmation" placeholder="Confirm Password" class="border w-full h-5 px-3 py-5 mt-3 text-neutral-800 focus:text-neutral-800 hover:outline-none focus:outline-none rounded-md">
-                        @error('password_confirmation')
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                        @enderror
-
-                        <div class="flex justify-center items-baseline pt-20">
-                            <button type="submit" class="bg-yellow-50 font-semibold text-neutral-800 py-2 px-6 rounded-lg shadow-md">Register</button>
-                        </div>
-                        <div class="flex flex-row justify-center items-baseline gap-5 pb-4 pt-20 font-semibold">
-                            <p class="text-sm">Already have an account?</p>
-                            <a href="{{route('login')}}" class="text-md hover:underline">Sign In</a>
+                            <div class="flex justify-center items-baseline pt-10">
+                                <button type="submit" class="bg-yellow-50 font-semibold text-neutral-800 py-2 px-6 rounded-lg shadow-md">Register</button>
+                            </div>
+                            <div class="flex flex-row justify-center items-baseline gap-5 pb-10 pt-10 font-semibold">
+                                <p class="text-sm">Already have an account?</p>
+                                <a href="{{route('login')}}" class="text-md hover:underline">Sign In</a>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -141,6 +147,7 @@
 
     <script src="{{asset('js/app.js')}}"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
 
     <script>
         jQuery(window).on('scroll', function() {

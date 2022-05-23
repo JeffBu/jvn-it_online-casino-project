@@ -46,7 +46,7 @@
     <div class="min-h-screen px-4 py-6 flex flex-col justify-center sm:py-12">
         <div class="relative py-3 sm:max-w-xl mx-auto text-center">
             <p class="text-2xl font-bold pb-4 pt-14">Sign in to your account</p>
-            <div class="bg-custom bg-cover relative mt-4 border-yellow-50 text-yellow-50 text-center border-8 w-80 shadow-2xl sm:rounded-lg">
+            <div class="bg-custom bg-cover relative mt-4 border-yellow-50 text-yellow-50 text-center border-8 w-80 shadow-2xl rounded-lg">
                 <div class="py-6 px-8">
                     <form action="{{route('login')}}" method="POST">
                         @csrf
@@ -86,6 +86,7 @@
 
     <script src="{{asset('js/app.js')}}"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
 
     <script>
         jQuery(window).on('scroll', function() {

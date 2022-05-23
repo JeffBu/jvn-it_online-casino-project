@@ -122,7 +122,7 @@
     <!--sidebar ends here-->
 
     <!--content-->
-    <div class="m-5 pt-14 text-xl font-semi-bold flex-col w-full px-4">
+    <div class="m-2 pt-14 text-xl font-semi-bold flex-col w-full px-4">
 
             <!--livestream-->
             <div class="py-3 justify-center items-center hidden xl:flex 2xl:hidden">
@@ -160,46 +160,12 @@
 
             </div>
             <div class="px-4 py-2 mb-3 bg-neutral-800 rounded-lg">
-                <div class="flex justify-center items-center gap-10">
+                <div class="flex justify-center items-center gap-10 h-24">
                     <img src="{{asset('media/img/meron-wins.gif')}}" alt="" class="visible rounded-md h-20" id="meron-wins">
                     <img src="{{asset('media/img/draw.gif')}}" alt="" class="hidden rounded-md h-20" id="game-draw">
                     <img src="{{asset('media/img/wala-wins.gif')}}" alt="" class="visible h-20 rounded-md" id="wala-wins">
                 </div>
             </div>
-
-            <table class="flex flex-row justify-center items-center bg-neutral-800 px-2 py-2 mb-4 rounded-lg">
-                <tbody>
-                    <tr>
-                        <td class="px-1"><div class="border-2 border-yellow-50 bg-red-600 p-2 mx-auto rounded-full"></div></td>
-                        <td class="px-1"><div class="border-2 border-yellow-50 bg-blue-600 p-2 mx-auto rounded-full"></div></td>
-                        <td class="px-1"><div class="border-2 border-yellow-50 bg-red-600 p-2 mx-auto rounded-full"></div></td>
-                        <td class="px-1"><div class="border-2 border-yellow-50 bg-red-600 p-2 mx-auto rounded-full"></div></td>
-                        <td class="px-1"><div class="border-2 border-yellow-50 bg-blue-600 p-2 mx-auto rounded-full"></div></td>
-                        <td class="px-1"><div class="border-2 border-yellow-50 bg-red-600 p-2 mx-auto rounded-full"></div></td>
-                        <td class="px-1"><div class="border-2 border-yellow-50 bg-red-600 p-2 mx-auto rounded-full"></div></td>
-                        <td class="px-1"><div class="border-2 border-yellow-50 bg-red-600 p-2 mx-auto rounded-full"></div></td>
-                        <td class="px-1"><div class="border-2 border-yellow-50 bg-blue-600 p-2 mx-auto rounded-full"></div></td>
-                        <td class="px-1"><div class="border-2 border-yellow-50 bg-blue-600 p-2 mx-auto rounded-full"></div></td>
-                        <td class="px-1"><div class="border-2 border-yellow-50 bg-red-600 p-2 mx-auto rounded-full"></div></td>
-                        <td class="px-1"><div class="border-2 border-yellow-50 bg-blue-600 p-2 mx-auto rounded-full"></div></td>
-                        <td class="px-1"><div class="border-2 border-yellow-50 bg-blue-600 p-2 mx-auto rounded-full"></div></td>
-                        <td class="px-1"><div class="border-2 border-yellow-50 bg-blue-600 p-2 mx-auto rounded-full"></div></td>
-                        <td class="px-1"><div class="border-2 border-yellow-50 bg-blue-600 p-2 mx-auto rounded-full"></div></td>
-                        <td class="px-1"><div class="border-2 border-yellow-50 bg-green-600 p-2 mx-auto rounded-full"></div></td>
-                        <td class="px-1"><div class="border-2 border-yellow-50 bg-blue-600 p-2 mx-auto rounded-full"></div></td>
-                        <td class="px-1"><div class="border-2 border-yellow-50 bg-red-600 p-2 mx-auto rounded-full"></div></td>
-                        <td class="px-1"><div class="border-2 border-yellow-50 bg-blue-600 p-2 mx-auto rounded-full"></div></td>
-                        <td class="px-1"><div class="border-2 border-yellow-50 bg-red-600 p-2 mx-auto rounded-full"></div></td>
-                        <td class="px-1"><div class="border-2 border-yellow-50 bg-green-600 p-2 mx-auto rounded-full"></div></td>
-                        <td class="px-1"><div class="border-2 border-yellow-50 bg-blue-600 p-2 mx-auto rounded-full"></div></td>
-                        <td class="px-1"><div class="border-2 border-yellow-50 bg-blue-600 p-2 mx-auto rounded-full"></div></td>
-                        <td class="px-1"><div class="border-2 border-yellow-50 bg-red-600 p-2 mx-auto rounded-full"></div></td>
-                        <td class="px-1"><div class="border-2 border-yellow-50 bg-blue-600 p-2 mx-auto rounded-full"></div></td>
-                        <td class="px-1"><div class="border-2 border-yellow-50 bg-blue-600 p-2 mx-auto rounded-full"></div></td>
-                        <td class="px-1"><div class="border-2 border-yellow-50 bg-blue-600 p-2 mx-auto rounded-full"></div></td>
-                    </tr>
-                </tbody>
-            </table>
 
             <div class="px-2 bg-neutral-800 rounded-lg overflow-auto">
                 <table class="flex items-start flex-start py-8 px-4">
@@ -273,7 +239,7 @@
 
     <!--bside-->
         <div class="justify-center bg-neutral-900 bg-opacity-80 w-64 font-semi-bold fixed right-0 min-h-screen hidden xl:flex">
-                <nav class="mt-5 pt-14 w-64 text-left px-4">
+                <nav class="mt-4 pt-14 w-64 text-left px-4">
 
                     <div class="pb-4">
                         <h2 class="text-center">PLACE YOUR BET</h2>

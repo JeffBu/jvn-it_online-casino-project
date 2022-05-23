@@ -23,15 +23,6 @@
 
         <ul class="hidden md:flex flex-row items-center align-middle gap-3">
 
-            <li class="flex flex-row bg-transparent border-yellow-50 border-2 py-1 px-5 rounded-full">
-                <input class="bg-transparent placeholder:text-yellow-50 text-yellow-50 tracking-widest appearance-none leading-tight focus:outline-none focus:bg-transparent shadow-md" id="search" type="text" placeholder="SEARCH">
-                <a href="#">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-                    </svg>
-                </a>
-            </li>
-
             <li><a href="{{route('login')}}" class="bg-red-800 font py-2 px-4 rounded-full hover:bg-red-500 shadow-md">SIGN IN</a></li>
 
             <li><a href="{{route('register')}}" class="bg-red-800 font py-2 px-4 rounded-full hover:bg-red-500 shadow-md">SIGN UP</a></li>
