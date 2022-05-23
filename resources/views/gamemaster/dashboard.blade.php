@@ -45,15 +45,15 @@
         </div>
     </header>
 
+    <div class="w-full justify-center hidden pl-64 xl:flex">
     <!--sidebar-->
-    <div class="relative min-h-screen flex">
-        <div class="flex justify-center bg-neutral-800 w-64 font-semi-bold">
-            <nav class="pt-16 fixed w-64 text-left">
-                <div class="shadow mt-6">
-                    <div class="list-none flex flex-wrap items-center">
+        <div class="justify-center bg-neutral-900 bg-opacity-80 w-64 font-semi-bold min-h-screen left-0 fixed hidden xl:flex">
+            <nav class="flex flex-col mt-5 pt-14 w-64 text-left px-4 gap-4">
+                <div class="bg-neutral-700 border border-neutral-600 rounded-lg">
+                    <div class="bg-neutral-800 rounded-lg">
                         <a href="#" onclick="toggleModal()" class="flex items-center px-5 py-2 w-full hover:bg-neutral-700 gap-2"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />
-                          </svg> Create Room</a>
+                        </svg> Create Room</a>
                     </div>
                 </div>
             </nav>
@@ -61,10 +61,11 @@
     <!--sidebar ends here-->
 
     <!--content-->
-        <div class="flex-1 m-5 pt-14 text-xl font-semi-bold w-full">
-            <div class="flex items-center gap-5 text-xl font-semibold w-full justify-center px-4 py-2 bg-neutral-800 rounded-lg border border-neutral-600">
-                <a href="#" class="hover:text-orange-400 text-yellow-50 focus:text-orange-400 focus:outline-none" id="tabs-sabong">Sabong</a>
-                <a href="#" class="hover:text-orange-400 text-yellow-50 focus:text-orange-400" id="tabs-baccarat">Baccarat</a>
+        <div class="flex-1 m-5 pt-14 text-xl font-semi-bold w-full px-4 py-2">
+            <div class="flex items-center gap-5 text-xl font-semibold w-full justify-center px-4 py-2 bg-neutral-900 rounded-lg border border-neutral-600">
+                <a href="#" class="hover:text-orange-400 text-yellow-50" id="tabs-sabong">Sabong</a>
+                <a href="#" class="hover:text-orange-400 text-yellow-50" id="tabs-baccarat">Baccarat</a>
+                <div></div>
             </div>
             <!--sabong-->
             <div id="content-sabong">
@@ -108,7 +109,7 @@
                             </a>
                         @endif
                     @empty
-                            asa
+                        Test
                     @endforelse
                 </div>
             </div>
@@ -184,7 +185,17 @@
         });
 
         $(document).ready(function(){
-            $('#tabs-sabong').focus();
+            $('#tabs-sabong').css('color', '#fb923c');
+            
+            jQuery('#tabs-sabong').on('click', function() {
+                $('#tabs-sabong').css('color', '#fb923c');
+                $('#tabs-baccarat').css('color', '#fffbeb');
+            });
+
+            jQuery('#tabs-baccarat').on('click', function() {
+                $('#tabs-baccarat').css('color', '#fb923c');
+                $('#tabs-sabong').css('color', '#fffbeb');
+            });
         });
 
         jQuery('#user').on('click', function() {

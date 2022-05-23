@@ -45,7 +45,7 @@ class HomeController extends Controller
 
     public function adminDashboard()
     {
-        return View::make('admin-dashboard_temp');
+        return View::make('gamemaster.dashboard');
     }
 
     public function coinsWallet()

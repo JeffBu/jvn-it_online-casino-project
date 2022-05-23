@@ -515,10 +515,6 @@
 
         $(document).scroll(function() {})
 
-        jQuery('#user').on('click', function() {
-            $('#logout').toggle();
-        });
-
         $(document).click(function() {})
 
         var choice
