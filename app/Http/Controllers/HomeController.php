@@ -25,7 +25,7 @@ class HomeController extends Controller
     //=============================for tests=============================
     public function baccaratGame()
     {
-        return View::make('baccarat_temp');
+        return View::make('player.baccarat_temp');
     }
 
     public function sabongGame()
