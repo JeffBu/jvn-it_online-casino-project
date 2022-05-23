@@ -33,9 +33,9 @@
     <!--header ends here-->
 
     <!--content-->
-    <div class="px-32 pt-32 min-h-fit">
-        <div class="py-8 px-32 bg-neutral-900 rounded-t-xl bg-opacity-80">
-            <div class="flex justify-center items-center pb-8 gap-4">
+    <div class="xl:px-32 xl:pt-32 min-h-fit w-full">
+        <div class="py-8 px-8 pt-24 xl:pt-8 xl:px-32 bg-neutral-900 sm:rounded-t-xl bg-opacity-60 xl:bg-opacity-80 w-full">
+            <div class="flex justify-center items-center pb-8 gap-4 w-full">
                 <p class="font-bold text-xl">1 PHP</p>
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" />
@@ -68,7 +68,7 @@
                     </div>
                     <p class="px-3 py-1">Select Payment Method</p>
                 </div>
-                <div class="flex flex-row items-center justify-center gap-4 py-4">
+                <div class="flex flex-col md:flex-row items-center justify-center gap-4 py-4">
                     <a href="#" class="border-orange-400 focus:border-orange-400 focus:border-2 hover:border-2 rounded-lg hover:-m-0.5 focus:-m-0.5">
                         <img src="{{asset('media/img/gcash-cashin.png')}}" alt="baccarat"
                         class="rounded-lg p-0.5 h-32">
@@ -83,15 +83,15 @@
                     </a>
                 </div>
             </div>
-            <div class="bg-neutral-800 mb-32 rounded-xl gap-2">
+            <div class="bg-neutral-800 mb-8 md:mb-32 rounded-xl gap-2">
                 <div class="flex items-center bg-neutral-700 px-4 py-2 rounded-t-xl font-semibold">
                     <div class="flex p-3 relative rounded-full text-center text-sm justify-center bg-red-800 border-2 border-yellow-50">
                         <p class="absolute top-0.5">2</p>
                     </div>
                     <p class="px-3 py-1">Cash-in Amount</p>
                 </div>
-                <div class="flex flex-col justify-center items-center gap-3 px-60 pb-4">
-                    <label for="amount" class="px-4 pt-10 font-semibold">Input amount minimum of 100php</label>
+                <div class="flex flex-col justify-center items-center gap-3 px-8 sm:px-16 md:px-64 lg:px-96 xl:px-56 pb-4">
+                    <label for="amount" class="px-4 pt-10 font-semibold text-center">Input amount minimum of 100php</label>
                     <input type="number" placeholder="Minimum of 100php" name="amount" id=""
                     class="focus:text-neutral-900 hover:outline-none font-semibold focus:outline-none text-neutral-900 px-4 py-2 rounded-lg text-center w-full">
                     <a href="#" class="text-center px-4 py-2 mt-10 border-2 border-yellow-50 bg-red-800 rounded-lg font-semibold hover:bg-red-600">
@@ -103,7 +103,7 @@
                 <div class="flex justify-center items-center bg-neutral-700 px-4 py-2 rounded-t-xl font-semibold">
                     <p class="px-3 py-1 text-xl">Transactions</p>
                 </div>
-                <div class="px-4 py-4">
+                <div class="px-4 py-4 overflow-auto">
                     <table class="table-auto w-full items-center text-center divide-y divide-neutral-700">
                         <thead>
                             <tr>
